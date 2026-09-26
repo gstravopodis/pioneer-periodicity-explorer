@@ -1,0 +1,1416 @@
+{
+  "phase": "B4 full-lag morphology and time localization",
+  "purpose": "Characterize B3 survivors without turning a band maximum into a periodicity claim.",
+  "guardrails": [
+    "B3 significance means correlation inside a predeclared band is unusual under the chosen null; it does not prove an oscillatory period.",
+    "A maximum at a band boundary is a warning that the band may be sampling a broad correlation tail rather than a distinct peak.",
+    "Sliding-window results are descriptive localization only and are not separately multiple-testing corrected."
+  ],
+  "lag_scan_calendar_days": [
+    200,
+    700
+  ],
+  "bin_days": 10,
+  "window_years": 5,
+  "step_years": 1,
+  "candidates": [
+    {
+      "channel": "he_20_24_mev_n",
+      "label": "Helium 20\u201324 MeV/n",
+      "band": "annual_330_400",
+      "p11_quality_limited_after_1980_239": false,
+      "common_calendar": {
+        "start": "1973-04-06",
+        "stop": "1992-08-31"
+      },
+      "variants": {
+        "raw_log10": {
+          "band_peak_morphology": {
+            "lag_calendar_days": 334.5,
+            "dcf": 0.5592970550221548,
+            "pairs": 49774,
+            "at_band_edge": true,
+            "is_local_peak": false,
+            "prominence": 0.0
+          },
+          "top_prominent_peaks_scan": [
+            {
+              "lag_calendar_days": 564.5,
+              "dcf": 0.3985532180516759,
+              "pairs": 49168,
+              "prominence": 0.0014470059833533444
+            }
+          ],
+          "profile_csv": "profiles\\he_20_24_mev_n__annual_330_400__raw_log10.csv",
+          "windows": [
+            {
+              "window_start": "1973-04-06",
+              "window_stop": "1978-04-05",
+              "lag_calendar_days": 384.5,
+              "dcf": 0.2648976195917877,
+              "pairs": 13537,
+              "at_band_edge": false,
+              "is_local_peak": true,
+              "prominence": 0.006610317983768599
+            },
+            {
+              "window_start": "1974-04-06",
+              "window_stop": "1979-04-05",
+              "lag_calendar_days": 354.5,
+              "dcf": 0.09103185929114292,
+              "pairs": 13463,
+              "at_band_edge": false,
+              "is_local_peak": true,
+              "prominence": 0.07200287700482254
+            },
+            {
+              "window_start": "1975-04-06",
+              "window_stop": "1980-04-05",
+              "lag_calendar_days": 334.5,
+              "dcf": 0.23618134872938176,
+              "pairs": 13038,
+              "at_band_edge": true,
+              "is_local_peak": false,
+              "prominence": 0.0
+            },
+            {
+              "window_start": "1976-04-06",
+              "window_stop": "1981-04-05",
+              "lag_calendar_days": 334.5,
+              "dcf": 0.43786695975546297,
+              "pairs": 13317,
+              "at_band_edge": true,
+              "is_local_peak": false,
+              "prominence": 0.0
+            },
+            {
+              "window_start": "1977-04-06",
+              "window_stop": "1982-04-05",
+              "lag_calendar_days": 334.5,
+              "dcf": 0.5662189997717011,
+              "pairs": 13205,
+              "at_band_edge": true,
+              "is_local_peak": false,
+              "prominence": 0.0
+            },
+            {
+              "window_start": "1978-04-06",
+              "window_stop": "1983-04-05",
+              "lag_calendar_days": 334.5,
+              "dcf": 0.39005201408009815,
+              "pairs": 13113,
+              "at_band_edge": true,
+              "is_local_peak": false,
+              "prominence": 0.0
+            },
+            {
+              "window_start": "1979-04-06",
+              "window_stop": "1984-04-05",
+              "lag_calendar_days": 334.5,
+              "dcf": 0.19025520328097767,
+              "pairs": 13165,
+              "at_band_edge": true,
+              "is_local_peak": false,
+              "prominence": 0.0
+            },
+            {
+              "window_start": "1980-04-06",
+              "window_stop": "1985-04-05",
+              "lag_calendar_days": 354.5,
+              "dcf": 0.042692393563761796,
+              "pairs": 12454,
+              "at_band_edge": false,
+              "is_local_peak": true,
+              "prominence": 0.011632691387135491
+            },
+            {
+              "window_start": "1981-04-06",
+              "window_stop": "1986-04-05",
+              "lag_calendar_days": 334.5,
+              "dcf": 0.08876506513247072,
+              "pairs": 12311,
+              "at_band_edge": true,
+              "is_local_peak": false,
+              "prominence": 0.0
+            },
+            {
+              "window_start": "1982-04-06",
+              "window_stop": "1987-04-05",
+              "lag_calendar_days": 334.5,
+              "dcf": 0.4062659496711736,
+              "pairs": 11957,
+              "at_band_edge": true,
+              "is_local_peak": false,
+              "prominence": 0.0
+            },
+            {
+              "window_start": "1983-04-06",
+              "window_stop": "1988-04-05",
+              "lag_calendar_days": 334.5,
+              "dcf": 0.5132444585815464,
+              "pairs": 10856,
+              "at_band_edge": true,
+              "is_local_peak": false,
+              "prominence": 0.0
+            },
+            {
+              "window_start": "1984-04-06",
+              "window_stop": "1989-04-05",
+              "lag_calendar_days": 334.5,
+              "dcf": 0.4349694458086825,
+              "pairs": 9864,
+              "at_band_edge": true,
+              "is_local_peak": false,
+              "prominence": 0.0
+            },
+            {
+              "window_start": "1985-04-06",
+              "window_stop": "1990-04-05",
+              "lag_calendar_days": 334.5,
+              "dcf": 0.0904994935077655,
+              "pairs": 8779,
+              "at_band_edge": true,
+              "is_local_peak": false,
+              "prominence": 0.0
+            },
+            {
+              "window_start": "1986-04-06",
+              "window_stop": "1991-04-05",
+              "lag_calendar_days": 334.5,
+              "dcf": 0.35989358863638143,
+              "pairs": 7055,
+              "at_band_edge": true,
+              "is_local_peak": false,
+              "prominence": 0.0
+            },
+            {
+              "window_start": "1987-04-06",
+              "window_stop": "1992-04-05",
+              "lag_calendar_days": 334.5,
+              "dcf": 0.41779522464760854,
+              "pairs": 5869,
+              "at_band_edge": true,
+              "is_local_peak": false,
+              "prominence": 0.0
+            }
+          ]
+        },
+        "linear_detrended_log10": {
+          "band_peak_morphology": {
+            "lag_calendar_days": 334.5,
+            "dcf": 0.563028776113194,
+            "pairs": 49774,
+            "at_band_edge": true,
+            "is_local_peak": false,
+            "prominence": 0.0
+          },
+          "top_prominent_peaks_scan": [
+            {
+              "lag_calendar_days": 564.5,
+              "dcf": 0.400305707958469,
+              "pairs": 49168,
+              "prominence": 0.0010474984804482723
+            }
+          ],
+          "profile_csv": "profiles\\he_20_24_mev_n__annual_330_400__linear_detrended_log10.csv",
+          "windows": [
+            {
+              "window_start": "1973-04-06",
+              "window_stop": "1978-04-05",
+              "lag_calendar_days": 384.5,
+              "dcf": 0.3123353467860459,
+              "pairs": 13537,
+              "at_band_edge": false,
+              "is_local_peak": true,
+              "prominence": 0.007211312823699079
+            },
+            {
+              "window_start": "1974-04-06",
+              "window_stop": "1979-04-05",
+              "lag_calendar_days": 354.5,
+              "dcf": 0.09781950416661771,
+              "pairs": 13463,
+              "at_band_edge": false,
+              "is_local_peak": true,
+              "prominence": 0.06116781858990414
+            },
+            {
+              "window_start": "1975-04-06",
+              "window_stop": "1980-04-05",
+              "lag_calendar_days": 334.5,
+              "dcf": 0.19871187581600058,
+              "pairs": 13038,
+              "at_band_edge": true,
+              "is_local_peak": false,
+              "prominence": 0.0
+            },
+            {
+              "window_start": "1976-04-06",
+              "window_stop": "1981-04-05",
+              "lag_calendar_days": 334.5,
+              "dcf": 0.41392374704725643,
+              "pairs": 13317,
+              "at_band_edge": true,
+              "is_local_peak": false,
+              "prominence": 0.0
+            },
+            {
+              "window_start": "1977-04-06",
+              "window_stop": "1982-04-05",
+              "lag_calendar_days": 334.5,
+              "dcf": 0.5549162554313146,
+              "pairs": 13205,
+              "at_band_edge": true,
+              "is_local_peak": false,
+              "prominence": 0.0
+            },
+            {
+              "window_start": "1978-04-06",
+              "window_stop": "1983-04-05",
+              "lag_calendar_days": 334.5,
+              "dcf": 0.3784025506553293,
+              "pairs": 13113,
+              "at_band_edge": true,
+              "is_local_peak": false,
+              "prominence": 0.0
+            },
+            {
+              "window_start": "1979-04-06",
+              "window_stop": "1984-04-05",
+              "lag_calendar_days": 334.5,
+              "dcf": 0.1846268348204472,
+              "pairs": 13165,
+              "at_band_edge": true,
+              "is_local_peak": false,
+              "prominence": 0.0
+            },
+            {
+              "window_start": "1980-04-06",
+              "window_stop": "1985-04-05",
+              "lag_calendar_days": 354.5,
+              "dcf": 0.08159194498072918,
+              "pairs": 12454,
+              "at_band_edge": false,
+              "is_local_peak": true,
+              "prominence": 0.010818193112640817
+            },
+            {
+              "window_start": "1981-04-06",
+              "window_stop": "1986-04-05",
+              "lag_calendar_days": 334.5,
+              "dcf": 0.12234004903854952,
+              "pairs": 12311,
+              "at_band_edge": true,
+              "is_local_peak": false,
+              "prominence": 0.0
+            },
+            {
+              "window_start": "1982-04-06",
+              "window_stop": "1987-04-05",
+              "lag_calendar_days": 334.5,
+              "dcf": 0.4322426886835257,
+              "pairs": 11957,
+              "at_band_edge": true,
+              "is_local_peak": false,
+              "prominence": 0.0
+            },
+            {
+              "window_start": "1983-04-06",
+              "window_stop": "1988-04-05",
+              "lag_calendar_days": 334.5,
+              "dcf": 0.522723857631066,
+              "pairs": 10856,
+              "at_band_edge": true,
+              "is_local_peak": false,
+              "prominence": 0.0
+            },
+            {
+              "window_start": "1984-04-06",
+              "window_stop": "1989-04-05",
+              "lag_calendar_days": 334.5,
+              "dcf": 0.442911670258796,
+              "pairs": 9864,
+              "at_band_edge": true,
+              "is_local_peak": false,
+              "prominence": 0.0
+            },
+            {
+              "window_start": "1985-04-06",
+              "window_stop": "1990-04-05",
+              "lag_calendar_days": 334.5,
+              "dcf": 0.05806338393864635,
+              "pairs": 8779,
+              "at_band_edge": true,
+              "is_local_peak": false,
+              "prominence": 0.0
+            },
+            {
+              "window_start": "1986-04-06",
+              "window_stop": "1991-04-05",
+              "lag_calendar_days": 334.5,
+              "dcf": 0.33286076402430315,
+              "pairs": 7055,
+              "at_band_edge": true,
+              "is_local_peak": false,
+              "prominence": 0.0
+            },
+            {
+              "window_start": "1987-04-06",
+              "window_stop": "1992-04-05",
+              "lag_calendar_days": 334.5,
+              "dcf": 0.40944650198754423,
+              "pairs": 5869,
+              "at_band_edge": true,
+              "is_local_peak": false,
+              "prominence": 0.0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "channel": "he_24_29_mev_n",
+      "label": "Helium 24\u201329 MeV/n",
+      "band": "annual_330_400",
+      "p11_quality_limited_after_1980_239": true,
+      "common_calendar": {
+        "start": "1973-04-06",
+        "stop": "1980-08-21"
+      },
+      "variants": {
+        "raw_log10": {
+          "band_peak_morphology": {
+            "lag_calendar_days": 374.5,
+            "dcf": 0.22395224945729375,
+            "pairs": 17293,
+            "at_band_edge": false,
+            "is_local_peak": true,
+            "prominence": 0.05678241670432685
+          },
+          "top_prominent_peaks_scan": [
+            {
+              "lag_calendar_days": 374.5,
+              "dcf": 0.22395224945729375,
+              "pairs": 17293,
+              "prominence": 0.05678241670432685
+            },
+            {
+              "lag_calendar_days": 214.5,
+              "dcf": 0.2159124824448995,
+              "pairs": 18146,
+              "prominence": 0.029045456487282545
+            },
+            {
+              "lag_calendar_days": 424.5,
+              "dcf": 0.2238669084168481,
+              "pairs": 16890,
+              "prominence": 0.026776059071257935
+            },
+            {
+              "lag_calendar_days": 514.5,
+              "dcf": 0.17189583348311663,
+              "pairs": 16036,
+              "prominence": 0.02523056750563435
+            },
+            {
+              "lag_calendar_days": 244.5,
+              "dcf": 0.2011037444859916,
+              "pairs": 17993,
+              "prominence": 0.024068471688199894
+            },
+            {
+              "lag_calendar_days": 334.5,
+              "dcf": 0.18971458356983723,
+              "pairs": 17625,
+              "prominence": 0.015674935318413186
+            }
+          ],
+          "profile_csv": "profiles\\he_24_29_mev_n__annual_330_400__raw_log10.csv",
+          "windows": [
+            {
+              "window_start": "1973-04-06",
+              "window_stop": "1978-04-05",
+              "lag_calendar_days": 374.5,
+              "dcf": 0.21310870781388908,
+              "pairs": 12425,
+              "at_band_edge": false,
+              "is_local_peak": true,
+              "prominence": 0.020804222069493172
+            },
+            {
+              "window_start": "1974-04-06",
+              "window_stop": "1979-04-05",
+              "lag_calendar_days": 374.5,
+              "dcf": 0.11155149421061542,
+              "pairs": 11827,
+              "at_band_edge": false,
+              "is_local_peak": true,
+              "prominence": 0.029458702790018373
+            },
+            {
+              "window_start": "1975-04-06",
+              "window_stop": "1980-04-05",
+              "lag_calendar_days": 334.5,
+              "dcf": 0.15021923065807974,
+              "pairs": 10340,
+              "at_band_edge": true,
+              "is_local_peak": false,
+              "prominence": 0.0
+            }
+          ]
+        },
+        "linear_detrended_log10": {
+          "band_peak_morphology": {
+            "lag_calendar_days": 374.5,
+            "dcf": 0.21058109504730807,
+            "pairs": 17293,
+            "at_band_edge": false,
+            "is_local_peak": true,
+            "prominence": 0.02626608563700103
+          },
+          "top_prominent_peaks_scan": [
+            {
+              "lag_calendar_days": 424.5,
+              "dcf": 0.2110881789488994,
+              "pairs": 16890,
+              "prominence": 0.06576620317156565
+            },
+            {
+              "lag_calendar_days": 214.5,
+              "dcf": 0.19593416279378054,
+              "pairs": 18146,
+              "prominence": 0.02669079490466686
+            },
+            {
+              "lag_calendar_days": 374.5,
+              "dcf": 0.21058109504730807,
+              "pairs": 17293,
+              "prominence": 0.02626608563700103
+            },
+            {
+              "lag_calendar_days": 514.5,
+              "dcf": 0.15520804699130555,
+              "pairs": 16036,
+              "prominence": 0.025863005332821903
+            },
+            {
+              "lag_calendar_days": 244.5,
+              "dcf": 0.18050110566287333,
+              "pairs": 17993,
+              "prominence": 0.02309755115579537
+            },
+            {
+              "lag_calendar_days": 334.5,
+              "dcf": 0.17145158011076783,
+              "pairs": 17625,
+              "prominence": 0.016125447060296894
+            }
+          ],
+          "profile_csv": "profiles\\he_24_29_mev_n__annual_330_400__linear_detrended_log10.csv",
+          "windows": [
+            {
+              "window_start": "1973-04-06",
+              "window_stop": "1978-04-05",
+              "lag_calendar_days": 374.5,
+              "dcf": 0.18237639735522915,
+              "pairs": 12425,
+              "at_band_edge": false,
+              "is_local_peak": true,
+              "prominence": 0.020198216631280463
+            },
+            {
+              "window_start": "1974-04-06",
+              "window_stop": "1979-04-05",
+              "lag_calendar_days": 374.5,
+              "dcf": 0.0890695343557516,
+              "pairs": 11827,
+              "at_band_edge": false,
+              "is_local_peak": true,
+              "prominence": 0.034521061614082825
+            },
+            {
+              "window_start": "1975-04-06",
+              "window_stop": "1980-04-05",
+              "lag_calendar_days": 334.5,
+              "dcf": 0.16596161399390033,
+              "pairs": 10340,
+              "at_band_edge": true,
+              "is_local_peak": false,
+              "prominence": 0.0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "channel": "he_24_29_mev_n",
+      "label": "Helium 24\u201329 MeV/n",
+      "band": "one_point_three_year_430_520",
+      "p11_quality_limited_after_1980_239": true,
+      "common_calendar": {
+        "start": "1973-04-06",
+        "stop": "1980-08-21"
+      },
+      "variants": {
+        "raw_log10": {
+          "band_peak_morphology": {
+            "lag_calendar_days": 434.5,
+            "dcf": 0.21695664617725297,
+            "pairs": 16766,
+            "at_band_edge": true,
+            "is_local_peak": false,
+            "prominence": 0.0
+          },
+          "top_prominent_peaks_scan": [
+            {
+              "lag_calendar_days": 374.5,
+              "dcf": 0.22395224945729375,
+              "pairs": 17293,
+              "prominence": 0.05678241670432685
+            },
+            {
+              "lag_calendar_days": 214.5,
+              "dcf": 0.2159124824448995,
+              "pairs": 18146,
+              "prominence": 0.029045456487282545
+            },
+            {
+              "lag_calendar_days": 424.5,
+              "dcf": 0.2238669084168481,
+              "pairs": 16890,
+              "prominence": 0.026776059071257935
+            },
+            {
+              "lag_calendar_days": 514.5,
+              "dcf": 0.17189583348311663,
+              "pairs": 16036,
+              "prominence": 0.02523056750563435
+            },
+            {
+              "lag_calendar_days": 244.5,
+              "dcf": 0.2011037444859916,
+              "pairs": 17993,
+              "prominence": 0.024068471688199894
+            },
+            {
+              "lag_calendar_days": 334.5,
+              "dcf": 0.18971458356983723,
+              "pairs": 17625,
+              "prominence": 0.015674935318413186
+            }
+          ],
+          "profile_csv": "profiles\\he_24_29_mev_n__one_point_three_year_430_520__raw_log10.csv",
+          "windows": [
+            {
+              "window_start": "1973-04-06",
+              "window_stop": "1978-04-05",
+              "lag_calendar_days": 434.5,
+              "dcf": 0.220170466379523,
+              "pairs": 11861,
+              "at_band_edge": true,
+              "is_local_peak": false,
+              "prominence": 0.0
+            },
+            {
+              "window_start": "1974-04-06",
+              "window_stop": "1979-04-05",
+              "lag_calendar_days": 434.5,
+              "dcf": 0.1053624289473359,
+              "pairs": 11281,
+              "at_band_edge": true,
+              "is_local_peak": true,
+              "prominence": 0.03438536016524191
+            },
+            {
+              "window_start": "1975-04-06",
+              "window_stop": "1980-04-05",
+              "lag_calendar_days": 434.5,
+              "dcf": 0.0840711854991908,
+              "pairs": 9665,
+              "at_band_edge": true,
+              "is_local_peak": false,
+              "prominence": 0.0
+            }
+          ]
+        },
+        "linear_detrended_log10": {
+          "band_peak_morphology": {
+            "lag_calendar_days": 434.5,
+            "dcf": 0.20348555312844677,
+            "pairs": 16766,
+            "at_band_edge": true,
+            "is_local_peak": false,
+            "prominence": 0.0
+          },
+          "top_prominent_peaks_scan": [
+            {
+              "lag_calendar_days": 424.5,
+              "dcf": 0.2110881789488994,
+              "pairs": 16890,
+              "prominence": 0.06576620317156565
+            },
+            {
+              "lag_calendar_days": 214.5,
+              "dcf": 0.19593416279378054,
+              "pairs": 18146,
+              "prominence": 0.02669079490466686
+            },
+            {
+              "lag_calendar_days": 374.5,
+              "dcf": 0.21058109504730807,
+              "pairs": 17293,
+              "prominence": 0.02626608563700103
+            },
+            {
+              "lag_calendar_days": 514.5,
+              "dcf": 0.15520804699130555,
+              "pairs": 16036,
+              "prominence": 0.025863005332821903
+            },
+            {
+              "lag_calendar_days": 244.5,
+              "dcf": 0.18050110566287333,
+              "pairs": 17993,
+              "prominence": 0.02309755115579537
+            },
+            {
+              "lag_calendar_days": 334.5,
+              "dcf": 0.17145158011076783,
+              "pairs": 17625,
+              "prominence": 0.016125447060296894
+            }
+          ],
+          "profile_csv": "profiles\\he_24_29_mev_n__one_point_three_year_430_520__linear_detrended_log10.csv",
+          "windows": [
+            {
+              "window_start": "1973-04-06",
+              "window_stop": "1978-04-05",
+              "lag_calendar_days": 434.5,
+              "dcf": 0.19592262490737322,
+              "pairs": 11861,
+              "at_band_edge": true,
+              "is_local_peak": false,
+              "prominence": 0.0
+            },
+            {
+              "window_start": "1974-04-06",
+              "window_stop": "1979-04-05",
+              "lag_calendar_days": 434.5,
+              "dcf": 0.0871536176856743,
+              "pairs": 11281,
+              "at_band_edge": true,
+              "is_local_peak": true,
+              "prominence": 0.03732504904430597
+            },
+            {
+              "window_start": "1975-04-06",
+              "window_stop": "1980-04-05",
+              "lag_calendar_days": 434.5,
+              "dcf": 0.09740616406970223,
+              "pairs": 9665,
+              "at_band_edge": true,
+              "is_local_peak": false,
+              "prominence": 0.0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "channel": "p_29_67_mev",
+      "label": "Protons 29\u201367 MeV",
+      "band": "one_point_three_year_430_520",
+      "p11_quality_limited_after_1980_239": true,
+      "common_calendar": {
+        "start": "1973-04-06",
+        "stop": "1980-08-25"
+      },
+      "variants": {
+        "raw_log10": {
+          "band_peak_morphology": {
+            "lag_calendar_days": 514.5,
+            "dcf": 0.17475600966554386,
+            "pairs": 19590,
+            "at_band_edge": false,
+            "is_local_peak": true,
+            "prominence": 0.2111106467337485
+          },
+          "top_prominent_peaks_scan": [
+            {
+              "lag_calendar_days": 514.5,
+              "dcf": 0.17475600966554386,
+              "pairs": 19590,
+              "prominence": 0.2111106467337485
+            },
+            {
+              "lag_calendar_days": 384.5,
+              "dcf": 0.12574256963061262,
+              "pairs": 20882,
+              "prominence": 0.1273833799106457
+            },
+            {
+              "lag_calendar_days": 214.5,
+              "dcf": 0.10027958016199649,
+              "pairs": 22350,
+              "prominence": 0.06147380313580237
+            },
+            {
+              "lag_calendar_days": 424.5,
+              "dcf": 0.106549327525628,
+              "pairs": 20516,
+              "prominence": 0.03805592100016411
+            },
+            {
+              "lag_calendar_days": 234.5,
+              "dcf": 0.05897990920326926,
+              "pairs": 22165,
+              "prominence": 0.01747605514346519
+            },
+            {
+              "lag_calendar_days": 634.5,
+              "dcf": -0.05202424645178004,
+              "pairs": 18549,
+              "prominence": 0.0005910737117895137
+            }
+          ],
+          "profile_csv": "profiles\\p_29_67_mev__one_point_three_year_430_520__raw_log10.csv",
+          "windows": [
+            {
+              "window_start": "1973-04-06",
+              "window_stop": "1978-04-05",
+              "lag_calendar_days": 514.5,
+              "dcf": 0.186267111500536,
+              "pairs": 12281,
+              "at_band_edge": false,
+              "is_local_peak": true,
+              "prominence": 0.22128613340215073
+            },
+            {
+              "window_start": "1974-04-06",
+              "window_stop": "1979-04-05",
+              "lag_calendar_days": 444.5,
+              "dcf": -0.014727419811867563,
+              "pairs": 12605,
+              "at_band_edge": false,
+              "is_local_peak": true,
+              "prominence": 0.0023866704214497627
+            },
+            {
+              "window_start": "1975-04-06",
+              "window_stop": "1980-04-05",
+              "lag_calendar_days": 514.5,
+              "dcf": 0.059101631248775426,
+              "pairs": 11518,
+              "at_band_edge": false,
+              "is_local_peak": false,
+              "prominence": 0.0
+            }
+          ]
+        },
+        "linear_detrended_log10": {
+          "band_peak_morphology": {
+            "lag_calendar_days": 514.5,
+            "dcf": 0.17698755955126919,
+            "pairs": 19590,
+            "at_band_edge": false,
+            "is_local_peak": true,
+            "prominence": 0.19358490554311422
+          },
+          "top_prominent_peaks_scan": [
+            {
+              "lag_calendar_days": 514.5,
+              "dcf": 0.17698755955126919,
+              "pairs": 19590,
+              "prominence": 0.19358490554311422
+            },
+            {
+              "lag_calendar_days": 384.5,
+              "dcf": 0.12458711043203324,
+              "pairs": 20882,
+              "prominence": 0.12286049719780631
+            },
+            {
+              "lag_calendar_days": 214.5,
+              "dcf": 0.10943967172598666,
+              "pairs": 22350,
+              "prominence": 0.058442369780943394
+            },
+            {
+              "lag_calendar_days": 424.5,
+              "dcf": 0.10550558218819774,
+              "pairs": 20516,
+              "prominence": 0.037456230892239054
+            },
+            {
+              "lag_calendar_days": 234.5,
+              "dcf": 0.06708618451225948,
+              "pairs": 22165,
+              "prominence": 0.015854483843958524
+            },
+            {
+              "lag_calendar_days": 604.5,
+              "dcf": -0.019700042524440256,
+              "pairs": 18838,
+              "prominence": 0.0013459456900256801
+            }
+          ],
+          "profile_csv": "profiles\\p_29_67_mev__one_point_three_year_430_520__linear_detrended_log10.csv",
+          "windows": [
+            {
+              "window_start": "1973-04-06",
+              "window_stop": "1978-04-05",
+              "lag_calendar_days": 514.5,
+              "dcf": 0.18387291970227132,
+              "pairs": 12281,
+              "at_band_edge": false,
+              "is_local_peak": true,
+              "prominence": 0.20954579466409584
+            },
+            {
+              "window_start": "1974-04-06",
+              "window_stop": "1979-04-05",
+              "lag_calendar_days": 444.5,
+              "dcf": 0.00020511710165555395,
+              "pairs": 12605,
+              "at_band_edge": false,
+              "is_local_peak": true,
+              "prominence": 0.0016354497163923005
+            },
+            {
+              "window_start": "1975-04-06",
+              "window_stop": "1980-04-05",
+              "lag_calendar_days": 514.5,
+              "dcf": 0.056777893474416204,
+              "pairs": 11518,
+              "at_band_edge": false,
+              "is_local_peak": false,
+              "prominence": 0.0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "channel": "ions_gt67_mev_n",
+      "label": "Ions >67 MeV/n",
+      "band": "annual_330_400",
+      "p11_quality_limited_after_1980_239": true,
+      "common_calendar": {
+        "start": "1973-04-06",
+        "stop": "1980-08-25"
+      },
+      "variants": {
+        "raw_log10": {
+          "band_peak_morphology": {
+            "lag_calendar_days": 384.5,
+            "dcf": 0.07313675225769463,
+            "pairs": 20697,
+            "at_band_edge": false,
+            "is_local_peak": true,
+            "prominence": 0.0024660694380146397
+          },
+          "top_prominent_peaks_scan": [
+            {
+              "lag_calendar_days": 214.5,
+              "dcf": 0.1224464980366048,
+              "pairs": 21949,
+              "prominence": 0.05868252556317255
+            },
+            {
+              "lag_calendar_days": 504.5,
+              "dcf": 0.08280468040506762,
+              "pairs": 19394,
+              "prominence": 0.025607543903991656
+            },
+            {
+              "lag_calendar_days": 624.5,
+              "dcf": 0.03937630387818019,
+              "pairs": 18364,
+              "prominence": 0.022806890152831757
+            },
+            {
+              "lag_calendar_days": 414.5,
+              "dcf": 0.08490512514777653,
+              "pairs": 20480,
+              "prominence": 0.02094263102771869
+            },
+            {
+              "lag_calendar_days": 684.5,
+              "dcf": 0.024096768191609476,
+              "pairs": 17778,
+              "prominence": 0.016996764856564067
+            },
+            {
+              "lag_calendar_days": 534.5,
+              "dcf": 0.07779022417935129,
+              "pairs": 19113,
+              "prominence": 0.014333788411921483
+            }
+          ],
+          "profile_csv": "profiles\\ions_gt67_mev_n__annual_330_400__raw_log10.csv",
+          "windows": [
+            {
+              "window_start": "1973-04-06",
+              "window_stop": "1978-04-05",
+              "lag_calendar_days": 384.5,
+              "dcf": 0.03266000498616661,
+              "pairs": 13527,
+              "at_band_edge": false,
+              "is_local_peak": true,
+              "prominence": 0.004012032066030728
+            },
+            {
+              "window_start": "1974-04-06",
+              "window_stop": "1979-04-05",
+              "lag_calendar_days": 384.5,
+              "dcf": 0.027963689077341602,
+              "pairs": 13168,
+              "at_band_edge": false,
+              "is_local_peak": true,
+              "prominence": 0.011451589808055631
+            },
+            {
+              "window_start": "1975-04-06",
+              "window_stop": "1980-04-05",
+              "lag_calendar_days": 334.5,
+              "dcf": 0.1694709141247797,
+              "pairs": 12743,
+              "at_band_edge": true,
+              "is_local_peak": false,
+              "prominence": 0.0
+            }
+          ]
+        },
+        "linear_detrended_log10": {
+          "band_peak_morphology": {
+            "lag_calendar_days": 334.5,
+            "dcf": 0.05985777830151808,
+            "pairs": 21096,
+            "at_band_edge": true,
+            "is_local_peak": true,
+            "prominence": 0.004818916297906983
+          },
+          "top_prominent_peaks_scan": [
+            {
+              "lag_calendar_days": 214.5,
+              "dcf": 0.09726579623731002,
+              "pairs": 21949,
+              "prominence": 0.06000307705975328
+            },
+            {
+              "lag_calendar_days": 504.5,
+              "dcf": 0.06222443005183663,
+              "pairs": 19394,
+              "prominence": 0.020785036821459997
+            },
+            {
+              "lag_calendar_days": 624.5,
+              "dcf": 0.0034871505385461127,
+              "pairs": 18364,
+              "prominence": 0.02078247944163011
+            },
+            {
+              "lag_calendar_days": 414.5,
+              "dcf": 0.07209347268933998,
+              "pairs": 20480,
+              "prominence": 0.019621407912636016
+            },
+            {
+              "lag_calendar_days": 684.5,
+              "dcf": -0.019873987599928165,
+              "pairs": 17778,
+              "prominence": 0.015887754204868862
+            },
+            {
+              "lag_calendar_days": 534.5,
+              "dcf": 0.05425221498705559,
+              "pairs": 19113,
+              "prominence": 0.01410343046189854
+            }
+          ],
+          "profile_csv": "profiles\\ions_gt67_mev_n__annual_330_400__linear_detrended_log10.csv",
+          "windows": [
+            {
+              "window_start": "1973-04-06",
+              "window_stop": "1978-04-05",
+              "lag_calendar_days": 384.5,
+              "dcf": 0.06866857699625045,
+              "pairs": 13527,
+              "at_band_edge": false,
+              "is_local_peak": true,
+              "prominence": 0.0041499024709463345
+            },
+            {
+              "window_start": "1974-04-06",
+              "window_stop": "1979-04-05",
+              "lag_calendar_days": 384.5,
+              "dcf": 0.024657547602221296,
+              "pairs": 13168,
+              "at_band_edge": false,
+              "is_local_peak": true,
+              "prominence": 0.008338049624803202
+            },
+            {
+              "window_start": "1975-04-06",
+              "window_stop": "1980-04-05",
+              "lag_calendar_days": 334.5,
+              "dcf": 0.10760840340913115,
+              "pairs": 12743,
+              "at_band_edge": true,
+              "is_local_peak": false,
+              "prominence": 0.0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "channel": "ions_zgt5_gt67_mev_n",
+      "label": "Z>5 ions >67 MeV/n",
+      "band": "annual_330_400",
+      "p11_quality_limited_after_1980_239": true,
+      "common_calendar": {
+        "start": "1973-04-06",
+        "stop": "1980-08-25"
+      },
+      "variants": {
+        "raw_log10": {
+          "band_peak_morphology": {
+            "lag_calendar_days": 384.5,
+            "dcf": 0.05417465507977207,
+            "pairs": 19094,
+            "at_band_edge": false,
+            "is_local_peak": true,
+            "prominence": 0.009120466766116102
+          },
+          "top_prominent_peaks_scan": [
+            {
+              "lag_calendar_days": 224.5,
+              "dcf": 0.07363487327246346,
+              "pairs": 20230,
+              "prominence": 0.04288028800685048
+            },
+            {
+              "lag_calendar_days": 424.5,
+              "dcf": 0.06210248793127577,
+              "pairs": 18789,
+              "prominence": 0.025129886685280912
+            },
+            {
+              "lag_calendar_days": 534.5,
+              "dcf": 0.04951087202740458,
+              "pairs": 17546,
+              "prominence": 0.023265601471313558
+            },
+            {
+              "lag_calendar_days": 684.5,
+              "dcf": 0.009219600819255793,
+              "pairs": 16316,
+              "prominence": 0.01748301467797385
+            },
+            {
+              "lag_calendar_days": 514.5,
+              "dcf": 0.0532331046349196,
+              "pairs": 17743,
+              "prominence": 0.013870122959650281
+            },
+            {
+              "lag_calendar_days": 624.5,
+              "dcf": 0.01757376041393271,
+              "pairs": 16897,
+              "prominence": 0.013692464067316258
+            }
+          ],
+          "profile_csv": "profiles\\ions_zgt5_gt67_mev_n__annual_330_400__raw_log10.csv",
+          "windows": [
+            {
+              "window_start": "1973-04-06",
+              "window_stop": "1978-04-05",
+              "lag_calendar_days": 384.5,
+              "dcf": 0.02467199619162019,
+              "pairs": 12891,
+              "at_band_edge": false,
+              "is_local_peak": true,
+              "prominence": 0.003635523433824197
+            },
+            {
+              "window_start": "1974-04-06",
+              "window_stop": "1979-04-05",
+              "lag_calendar_days": 354.5,
+              "dcf": 0.028516574945348965,
+              "pairs": 12366,
+              "at_band_edge": false,
+              "is_local_peak": true,
+              "prominence": 0.0200189116376683
+            },
+            {
+              "window_start": "1975-04-06",
+              "window_stop": "1980-04-05",
+              "lag_calendar_days": 334.5,
+              "dcf": 0.07826535298505276,
+              "pairs": 11519,
+              "at_band_edge": true,
+              "is_local_peak": true,
+              "prominence": 0.020649582827821637
+            }
+          ]
+        },
+        "linear_detrended_log10": {
+          "band_peak_morphology": {
+            "lag_calendar_days": 384.5,
+            "dcf": 0.050128895306706216,
+            "pairs": 19094,
+            "at_band_edge": false,
+            "is_local_peak": true,
+            "prominence": 0.008648775148027872
+          },
+          "top_prominent_peaks_scan": [
+            {
+              "lag_calendar_days": 424.5,
+              "dcf": 0.05935780458420207,
+              "pairs": 18789,
+              "prominence": 0.04426493542657209
+            },
+            {
+              "lag_calendar_days": 224.5,
+              "dcf": 0.059252799124597404,
+              "pairs": 20230,
+              "prominence": 0.027408080450165163
+            },
+            {
+              "lag_calendar_days": 534.5,
+              "dcf": 0.04059270425727985,
+              "pairs": 17546,
+              "prominence": 0.023463897008539868
+            },
+            {
+              "lag_calendar_days": 684.5,
+              "dcf": -0.005847667748336506,
+              "pairs": 16316,
+              "prominence": 0.020129197393589034
+            },
+            {
+              "lag_calendar_days": 624.5,
+              "dcf": 0.005008217361193992,
+              "pairs": 16897,
+              "prominence": 0.013792989284256344
+            },
+            {
+              "lag_calendar_days": 484.5,
+              "dcf": 0.0456756749782144,
+              "pairs": 18079,
+              "prominence": 0.011450830909354226
+            }
+          ],
+          "profile_csv": "profiles\\ions_zgt5_gt67_mev_n__annual_330_400__linear_detrended_log10.csv",
+          "windows": [
+            {
+              "window_start": "1973-04-06",
+              "window_stop": "1978-04-05",
+              "lag_calendar_days": 384.5,
+              "dcf": 0.03865501258387014,
+              "pairs": 12891,
+              "at_band_edge": false,
+              "is_local_peak": true,
+              "prominence": 0.00343268225757757
+            },
+            {
+              "window_start": "1974-04-06",
+              "window_stop": "1979-04-05",
+              "lag_calendar_days": 354.5,
+              "dcf": 0.03587844794963875,
+              "pairs": 12366,
+              "at_band_edge": false,
+              "is_local_peak": true,
+              "prominence": 0.020279154366787042
+            },
+            {
+              "window_start": "1975-04-06",
+              "window_stop": "1980-04-05",
+              "lag_calendar_days": 334.5,
+              "dcf": 0.06447828620306961,
+              "pairs": 11519,
+              "at_band_edge": true,
+              "is_local_peak": true,
+              "prominence": 0.02487241548549885
+            }
+          ]
+        }
+      }
+    },
+    {
+      "channel": "ions_zgt5_gt67_mev_n",
+      "label": "Z>5 ions >67 MeV/n",
+      "band": "one_point_three_year_430_520",
+      "p11_quality_limited_after_1980_239": true,
+      "common_calendar": {
+        "start": "1973-04-06",
+        "stop": "1980-08-25"
+      },
+      "variants": {
+        "raw_log10": {
+          "band_peak_morphology": {
+            "lag_calendar_days": 514.5,
+            "dcf": 0.0532331046349196,
+            "pairs": 17743,
+            "at_band_edge": false,
+            "is_local_peak": true,
+            "prominence": 0.013870122959650281
+          },
+          "top_prominent_peaks_scan": [
+            {
+              "lag_calendar_days": 224.5,
+              "dcf": 0.07363487327246346,
+              "pairs": 20230,
+              "prominence": 0.04288028800685048
+            },
+            {
+              "lag_calendar_days": 424.5,
+              "dcf": 0.06210248793127577,
+              "pairs": 18789,
+              "prominence": 0.025129886685280912
+            },
+            {
+              "lag_calendar_days": 534.5,
+              "dcf": 0.04951087202740458,
+              "pairs": 17546,
+              "prominence": 0.023265601471313558
+            },
+            {
+              "lag_calendar_days": 684.5,
+              "dcf": 0.009219600819255793,
+              "pairs": 16316,
+              "prominence": 0.01748301467797385
+            },
+            {
+              "lag_calendar_days": 514.5,
+              "dcf": 0.0532331046349196,
+              "pairs": 17743,
+              "prominence": 0.013870122959650281
+            },
+            {
+              "lag_calendar_days": 624.5,
+              "dcf": 0.01757376041393271,
+              "pairs": 16897,
+              "prominence": 0.013692464067316258
+            }
+          ],
+          "profile_csv": "profiles\\ions_zgt5_gt67_mev_n__one_point_three_year_430_520__raw_log10.csv",
+          "windows": [
+            {
+              "window_start": "1973-04-06",
+              "window_stop": "1978-04-05",
+              "lag_calendar_days": 514.5,
+              "dcf": 0.03960096154530024,
+              "pairs": 11659,
+              "at_band_edge": false,
+              "is_local_peak": true,
+              "prominence": 0.018640074261953382
+            },
+            {
+              "window_start": "1974-04-06",
+              "window_stop": "1979-04-05",
+              "lag_calendar_days": 434.5,
+              "dcf": 0.03488180504616087,
+              "pairs": 11661,
+              "at_band_edge": true,
+              "is_local_peak": false,
+              "prominence": 0.0
+            },
+            {
+              "window_start": "1975-04-06",
+              "window_stop": "1980-04-05",
+              "lag_calendar_days": 434.5,
+              "dcf": 0.06307761257115019,
+              "pairs": 10707,
+              "at_band_edge": true,
+              "is_local_peak": false,
+              "prominence": 0.0
+            }
+          ]
+        },
+        "linear_detrended_log10": {
+          "band_peak_morphology": {
+            "lag_calendar_days": 454.5,
+            "dcf": 0.0488770115946315,
+            "pairs": 18406,
+            "at_band_edge": false,
+            "is_local_peak": true,
+            "prominence": 0.006480648466034161
+          },
+          "top_prominent_peaks_scan": [
+            {
+              "lag_calendar_days": 424.5,
+              "dcf": 0.05935780458420207,
+              "pairs": 18789,
+              "prominence": 0.04426493542657209
+            },
+            {
+              "lag_calendar_days": 224.5,
+              "dcf": 0.059252799124597404,
+              "pairs": 20230,
+              "prominence": 0.027408080450165163
+            },
+            {
+              "lag_calendar_days": 534.5,
+              "dcf": 0.04059270425727985,
+              "pairs": 17546,
+              "prominence": 0.023463897008539868
+            },
+            {
+              "lag_calendar_days": 684.5,
+              "dcf": -0.005847667748336506,
+              "pairs": 16316,
+              "prominence": 0.020129197393589034
+            },
+            {
+              "lag_calendar_days": 624.5,
+              "dcf": 0.005008217361193992,
+              "pairs": 16897,
+              "prominence": 0.013792989284256344
+            },
+            {
+              "lag_calendar_days": 484.5,
+              "dcf": 0.0456756749782144,
+              "pairs": 18079,
+              "prominence": 0.011450830909354226
+            }
+          ],
+          "profile_csv": "profiles\\ions_zgt5_gt67_mev_n__one_point_three_year_430_520__linear_detrended_log10.csv",
+          "windows": [
+            {
+              "window_start": "1973-04-06",
+              "window_stop": "1978-04-05",
+              "lag_calendar_days": 514.5,
+              "dcf": 0.048316792868297403,
+              "pairs": 11659,
+              "at_band_edge": false,
+              "is_local_peak": true,
+              "prominence": 0.015812677580810945
+            },
+            {
+              "window_start": "1974-04-06",
+              "window_stop": "1979-04-05",
+              "lag_calendar_days": 434.5,
+              "dcf": 0.04154819474263755,
+              "pairs": 11661,
+              "at_band_edge": true,
+              "is_local_peak": false,
+              "prominence": 0.0
+            },
+            {
+              "window_start": "1975-04-06",
+              "window_stop": "1980-04-05",
+              "lag_calendar_days": 434.5,
+              "dcf": 0.04678263710148853,
+              "pairs": 10707,
+              "at_band_edge": true,
+              "is_local_peak": false,
+              "prominence": 0.0
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

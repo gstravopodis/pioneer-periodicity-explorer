@@ -1,0 +1,112 @@
+{
+  "phase": "B3 review (descriptive post-processing only)",
+  "simulations_per_test": 1999,
+  "monte_carlo_p_floor": 0.0005,
+  "holm_floor_if_12_equal_min_p": 0.006,
+  "interpretation": [
+    "This review does not add new tests or new p-values.",
+    "With 199 simulations the p-value floor is 0.005, so a 12-channel Holm adjustment cannot fall below 0.06 even for a zero-exceedance test.",
+    "FDR-significant first-pass findings are screening candidates until rerun at publication-resolution simulation counts.",
+    "P11 columns 6-13 are quality-masked after day 239 of 1980; affected channels have a shorter P10/P11 overlap and should not be described as 20-year cross-spacecraft confirmations."
+  ],
+  "robust_cross_spacecraft_fdr05_both_variants": [
+    {
+      "channel": "he_20_24_mev_n",
+      "label": "Helium 20\u201324 MeV/n",
+      "band": "annual_330_400",
+      "p11_quality_limited_after_1980_239": false,
+      "raw_log10__p10_p11_ccf__lag_days": 334.5,
+      "raw_log10__p10_p11_ccf__dcf": 0.5592970550221548,
+      "raw_log10__p10_p11_ccf__p": 0.004,
+      "raw_log10__p10_p11_ccf__fdr": 0.008,
+      "linear_detrended_log10__p10_p11_ccf__lag_days": 334.5,
+      "linear_detrended_log10__p10_p11_ccf__dcf": 0.563028776113194,
+      "linear_detrended_log10__p10_p11_ccf__p": 0.0025,
+      "linear_detrended_log10__p10_p11_ccf__fdr": 0.01
+    },
+    {
+      "channel": "he_24_29_mev_n",
+      "label": "Helium 24\u201329 MeV/n",
+      "band": "annual_330_400",
+      "p11_quality_limited_after_1980_239": true,
+      "raw_log10__p10_p11_ccf__lag_days": 374.5,
+      "raw_log10__p10_p11_ccf__dcf": 0.22520016614374982,
+      "raw_log10__p10_p11_ccf__p": 0.0005,
+      "raw_log10__p10_p11_ccf__fdr": 0.0012000000000000001,
+      "linear_detrended_log10__p10_p11_ccf__lag_days": 374.5,
+      "linear_detrended_log10__p10_p11_ccf__dcf": 0.21238666658848154,
+      "linear_detrended_log10__p10_p11_ccf__p": 0.0005,
+      "linear_detrended_log10__p10_p11_ccf__fdr": 0.003
+    },
+    {
+      "channel": "he_24_29_mev_n",
+      "label": "Helium 24\u201329 MeV/n",
+      "band": "one_point_three_year_430_520",
+      "p11_quality_limited_after_1980_239": true,
+      "raw_log10__p10_p11_ccf__lag_days": 434.5,
+      "raw_log10__p10_p11_ccf__dcf": 0.21829240492418628,
+      "raw_log10__p10_p11_ccf__p": 0.0005,
+      "raw_log10__p10_p11_ccf__fdr": 0.0015,
+      "linear_detrended_log10__p10_p11_ccf__lag_days": 434.5,
+      "linear_detrended_log10__p10_p11_ccf__dcf": 0.2053950598818684,
+      "linear_detrended_log10__p10_p11_ccf__p": 0.0005,
+      "linear_detrended_log10__p10_p11_ccf__fdr": 0.0015
+    },
+    {
+      "channel": "p_29_67_mev",
+      "label": "Protons 29\u201367 MeV",
+      "band": "one_point_three_year_430_520",
+      "p11_quality_limited_after_1980_239": true,
+      "raw_log10__p10_p11_ccf__lag_days": 514.5,
+      "raw_log10__p10_p11_ccf__dcf": 0.17475600966554386,
+      "raw_log10__p10_p11_ccf__p": 0.0005,
+      "raw_log10__p10_p11_ccf__fdr": 0.0015,
+      "linear_detrended_log10__p10_p11_ccf__lag_days": 514.5,
+      "linear_detrended_log10__p10_p11_ccf__dcf": 0.17698755955126919,
+      "linear_detrended_log10__p10_p11_ccf__p": 0.0005,
+      "linear_detrended_log10__p10_p11_ccf__fdr": 0.0015
+    },
+    {
+      "channel": "ions_gt67_mev_n",
+      "label": "Ions >67 MeV/n",
+      "band": "annual_330_400",
+      "p11_quality_limited_after_1980_239": true,
+      "raw_log10__p10_p11_ccf__lag_days": 384.5,
+      "raw_log10__p10_p11_ccf__dcf": 0.07313675225769463,
+      "raw_log10__p10_p11_ccf__p": 0.0005,
+      "raw_log10__p10_p11_ccf__fdr": 0.0012000000000000001,
+      "linear_detrended_log10__p10_p11_ccf__lag_days": 334.5,
+      "linear_detrended_log10__p10_p11_ccf__dcf": 0.05985777830151808,
+      "linear_detrended_log10__p10_p11_ccf__p": 0.0125,
+      "linear_detrended_log10__p10_p11_ccf__fdr": 0.037500000000000006
+    },
+    {
+      "channel": "ions_zgt5_gt67_mev_n",
+      "label": "Z>5 ions >67 MeV/n",
+      "band": "annual_330_400",
+      "p11_quality_limited_after_1980_239": true,
+      "raw_log10__p10_p11_ccf__lag_days": 384.5,
+      "raw_log10__p10_p11_ccf__dcf": 0.05417465507977207,
+      "raw_log10__p10_p11_ccf__p": 0.0005,
+      "raw_log10__p10_p11_ccf__fdr": 0.0012000000000000001,
+      "linear_detrended_log10__p10_p11_ccf__lag_days": 384.5,
+      "linear_detrended_log10__p10_p11_ccf__dcf": 0.050128895306706216,
+      "linear_detrended_log10__p10_p11_ccf__p": 0.0005,
+      "linear_detrended_log10__p10_p11_ccf__fdr": 0.003
+    },
+    {
+      "channel": "ions_zgt5_gt67_mev_n",
+      "label": "Z>5 ions >67 MeV/n",
+      "band": "one_point_three_year_430_520",
+      "p11_quality_limited_after_1980_239": true,
+      "raw_log10__p10_p11_ccf__lag_days": 514.5,
+      "raw_log10__p10_p11_ccf__dcf": 0.0532331046349196,
+      "raw_log10__p10_p11_ccf__p": 0.0005,
+      "raw_log10__p10_p11_ccf__fdr": 0.0015,
+      "linear_detrended_log10__p10_p11_ccf__lag_days": 454.5,
+      "linear_detrended_log10__p10_p11_ccf__dcf": 0.0488770115946315,
+      "linear_detrended_log10__p10_p11_ccf__p": 0.0005,
+      "linear_detrended_log10__p10_p11_ccf__fdr": 0.0015
+    }
+  ]
+}

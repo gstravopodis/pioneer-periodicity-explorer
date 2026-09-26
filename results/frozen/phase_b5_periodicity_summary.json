@@ -1,0 +1,4955 @@
+{
+  "phase": "B5 individual-spacecraft periodicity morphology and time localization",
+  "purpose": "Distinguish a cross-spacecraft lag correlation from periodic structure in the individual P10 and P11 records.",
+  "guardrails": [
+    "A CCF lag is not a period. Periodicity requires structure within each spacecraft time series.",
+    "B5 adds morphology and localization, not new multiple-testing-corrected p-values.",
+    "Sliding 5-year windows overlap and are descriptive; repeated adjacent windows are not independent replications.",
+    "Lomb-Scargle uses actual irregular observation times; no missing value is interpolated."
+  ],
+  "period_scan_calendar_days": [
+    200,
+    700
+  ],
+  "acf_bin_days": 10,
+  "window_years": 5,
+  "step_years": 1,
+  "candidates": [
+    {
+      "channel": "he_20_24_mev_n",
+      "label": "Helium 20\u201324 MeV/n",
+      "band": "annual_330_400",
+      "p11_quality_limited_after_1980_239": false,
+      "spacecraft": {
+        "p10": {
+          "calendar": {
+            "start": "1972-03-03",
+            "stop": "1992-08-31"
+          },
+          "variants": {
+            "raw_log10": {
+              "acf_band_morphology": {
+                "lag_calendar_days": 334.5,
+                "dcf": 0.6415708876294586,
+                "pairs": 62236,
+                "at_band_edge": true,
+                "is_local_peak": false,
+                "prominence": 0.0
+              },
+              "lomb_scargle_band_morphology": {
+                "period_days": 380.23321634778665,
+                "power": 0.001167383087197458,
+                "at_band_edge": false,
+                "is_local_peak": true,
+                "prominence": 0.001166885945346127
+              },
+              "top_spectral_peaks_scan": [
+                {
+                  "period_days": 622.7702577415167,
+                  "power": 0.00623212618791166,
+                  "prominence": 0.005356166255806126
+                },
+                {
+                  "period_days": 497.34932622538133,
+                  "power": 0.004557884207509066,
+                  "prominence": 0.004557618632452978
+                },
+                {
+                  "period_days": 458.32423580786025,
+                  "power": 0.003497048899386936,
+                  "prominence": 0.0034948527294389182
+                },
+                {
+                  "period_days": 541.8844788641497,
+                  "power": 0.002010661488544311,
+                  "prominence": 0.0015273558640018557
+                },
+                {
+                  "period_days": 270.24460894753776,
+                  "power": 0.0014229958884565672,
+                  "prominence": 0.0014226581931011829
+                },
+                {
+                  "period_days": 406.2167392356072,
+                  "power": 0.001792722387492414,
+                  "prominence": 0.0013618535692416353
+                }
+              ],
+              "acf_profile_csv": "profiles\\he_20_24_mev_n__annual_330_400__p10__raw_log10__acf.csv",
+              "lomb_scargle_profile_csv": "profiles\\he_20_24_mev_n__annual_330_400__p10__raw_log10__lomb_scargle.csv",
+              "windows": [
+                {
+                  "window_start": "1972-03-03",
+                  "window_stop": "1977-03-02",
+                  "period_days": 373.6033830402848,
+                  "power": 0.017923066768225315,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.015882635346145015
+                },
+                {
+                  "window_start": "1973-03-03",
+                  "window_stop": "1978-03-02",
+                  "period_days": 366.26663757364173,
+                  "power": 0.021851657557036906,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.009816210469136489
+                },
+                {
+                  "window_start": "1974-03-03",
+                  "window_stop": "1979-03-02",
+                  "period_days": 330.23804839661614,
+                  "power": 0.004657752797106212,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1975-03-03",
+                  "window_stop": "1980-03-02",
+                  "period_days": 399.8570747975226,
+                  "power": 0.04431467963523265,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1976-03-03",
+                  "window_stop": "1981-03-02",
+                  "period_days": 399.8570747975226,
+                  "power": 0.03756186516240982,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1977-03-03",
+                  "window_stop": "1982-03-02",
+                  "period_days": 367.06757052263276,
+                  "power": 0.007002824510252433,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.0061122127039711215
+                },
+                {
+                  "window_start": "1978-03-03",
+                  "window_stop": "1983-03-02",
+                  "period_days": 367.4693520140105,
+                  "power": 0.007524101573557351,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.007109019682235107
+                },
+                {
+                  "window_start": "1979-03-03",
+                  "window_stop": "1984-03-02",
+                  "period_days": 343.0615164520744,
+                  "power": 0.012323199328405868,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.01198842380918791
+                },
+                {
+                  "window_start": "1980-03-03",
+                  "window_stop": "1985-03-02",
+                  "period_days": 339.248181083266,
+                  "power": 0.0231323739517889,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.02189695554144106
+                },
+                {
+                  "window_start": "1981-03-03",
+                  "window_stop": "1986-03-02",
+                  "period_days": 362.31383552773576,
+                  "power": 0.04284539543716784,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.04084854775150773
+                },
+                {
+                  "window_start": "1982-03-03",
+                  "window_stop": "1987-03-02",
+                  "period_days": 362.705272255834,
+                  "power": 0.02347684141725191,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.020444562209422885
+                },
+                {
+                  "window_start": "1983-03-03",
+                  "window_stop": "1988-03-02",
+                  "period_days": 361.14457831325296,
+                  "power": 0.02050777168293363,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.020324025224373418
+                },
+                {
+                  "window_start": "1984-03-03",
+                  "window_stop": "1989-03-02",
+                  "period_days": 359.5972579263067,
+                  "power": 0.01434454850529521,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.011983587094208223
+                },
+                {
+                  "window_start": "1985-03-03",
+                  "window_stop": "1990-03-02",
+                  "period_days": 399.8570747975226,
+                  "power": 0.036609342190175885,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1986-03-03",
+                  "window_stop": "1991-03-02",
+                  "period_days": 399.8570747975226,
+                  "power": 0.020461013669717754,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1987-03-03",
+                  "window_stop": "1992-03-02",
+                  "period_days": 368.27555945590166,
+                  "power": 0.009985171160462195,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.008149052202780047
+                }
+              ]
+            },
+            "linear_detrended_log10": {
+              "acf_band_morphology": {
+                "lag_calendar_days": 334.5,
+                "dcf": 0.6450126718042891,
+                "pairs": 62236,
+                "at_band_edge": true,
+                "is_local_peak": false,
+                "prominence": 0.0
+              },
+              "lomb_scargle_band_morphology": {
+                "period_days": 378.73252142534955,
+                "power": 0.0012588294361590324,
+                "at_band_edge": false,
+                "is_local_peak": true,
+                "prominence": 0.0012571958105543376
+              },
+              "top_spectral_peaks_scan": [
+                {
+                  "period_days": 622.1934049648017,
+                  "power": 0.006386425976246846,
+                  "prominence": 0.00573012541060811
+                },
+                {
+                  "period_days": 496.9813554306008,
+                  "power": 0.003936148967096492,
+                  "prominence": 0.003936004596459366
+                },
+                {
+                  "period_days": 457.3879885605338,
+                  "power": 0.0032820884980446384,
+                  "prominence": 0.0032510598977803506
+                },
+                {
+                  "period_days": 270.1359285771736,
+                  "power": 0.0013921677168393278,
+                  "prominence": 0.0013916694249208603
+                },
+                {
+                  "period_days": 544.0790539445975,
+                  "power": 0.0016503843904210986,
+                  "prominence": 0.0012634310982470732
+                },
+                {
+                  "period_days": 378.73252142534955,
+                  "power": 0.0012588294361590324,
+                  "prominence": 0.0012571958105543376
+                }
+              ],
+              "acf_profile_csv": "profiles\\he_20_24_mev_n__annual_330_400__p10__linear_detrended_log10__acf.csv",
+              "lomb_scargle_profile_csv": "profiles\\he_20_24_mev_n__annual_330_400__p10__linear_detrended_log10__lomb_scargle.csv",
+              "windows": [
+                {
+                  "window_start": "1972-03-03",
+                  "window_stop": "1977-03-02",
+                  "period_days": 375.6938227394807,
+                  "power": 0.011047414623694457,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.008078327462592457
+                },
+                {
+                  "window_start": "1973-03-03",
+                  "window_stop": "1978-03-02",
+                  "period_days": 330.23804839661614,
+                  "power": 0.019231922540282935,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1974-03-03",
+                  "window_stop": "1979-03-02",
+                  "period_days": 354.2845082313212,
+                  "power": 0.01078184252724382,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.008752678409607792
+                },
+                {
+                  "window_start": "1975-03-03",
+                  "window_stop": "1980-03-02",
+                  "period_days": 399.8570747975226,
+                  "power": 0.048818277348610314,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1976-03-03",
+                  "window_stop": "1981-03-02",
+                  "period_days": 399.8570747975226,
+                  "power": 0.06752721064620072,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1977-03-03",
+                  "window_stop": "1982-03-02",
+                  "period_days": 364.27951388888886,
+                  "power": 0.03414518067204467,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.031430584719451336
+                },
+                {
+                  "window_start": "1978-03-03",
+                  "window_stop": "1983-03-02",
+                  "period_days": 346.9615543613063,
+                  "power": 0.014844242908889317,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.014210945001602415
+                },
+                {
+                  "window_start": "1979-03-03",
+                  "window_stop": "1984-03-02",
+                  "period_days": 339.9351964358039,
+                  "power": 0.02580588673197655,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.025320351981004765
+                },
+                {
+                  "window_start": "1980-03-03",
+                  "window_stop": "1985-03-02",
+                  "period_days": 339.5913412907141,
+                  "power": 0.023829380679766334,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.02351758845322899
+                },
+                {
+                  "window_start": "1981-03-03",
+                  "window_stop": "1986-03-02",
+                  "period_days": 346.24587458745873,
+                  "power": 0.031222246352684786,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.02995571469611329
+                },
+                {
+                  "window_start": "1982-03-03",
+                  "window_stop": "1987-03-02",
+                  "period_days": 336.52766639935845,
+                  "power": 0.03388192984895117,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.03313917142898774
+                },
+                {
+                  "window_start": "1983-03-03",
+                  "window_stop": "1988-03-02",
+                  "period_days": 330.23804839661614,
+                  "power": 0.027778579663224254,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1984-03-03",
+                  "window_stop": "1989-03-02",
+                  "period_days": 330.23804839661614,
+                  "power": 0.01288587374449452,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1985-03-03",
+                  "window_stop": "1990-03-02",
+                  "period_days": 399.8570747975226,
+                  "power": 0.03695867715806601,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1986-03-03",
+                  "window_stop": "1991-03-02",
+                  "period_days": 399.8570747975226,
+                  "power": 0.04826712703772597,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1987-03-03",
+                  "window_stop": "1992-03-02",
+                  "period_days": 330.23804839661614,
+                  "power": 0.01099122972950857,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                }
+              ]
+            }
+          }
+        },
+        "p11": {
+          "calendar": {
+            "start": "1973-04-06",
+            "stop": "1992-11-27"
+          },
+          "variants": {
+            "raw_log10": {
+              "acf_band_morphology": {
+                "lag_calendar_days": 334.5,
+                "dcf": 0.5187642701054389,
+                "pairs": 43599,
+                "at_band_edge": true,
+                "is_local_peak": false,
+                "prominence": 0.0
+              },
+              "lomb_scargle_band_morphology": {
+                "period_days": 389.4932158181607,
+                "power": 0.0029338844242532513,
+                "at_band_edge": false,
+                "is_local_peak": true,
+                "prominence": 0.0029138039627476437
+              },
+              "top_spectral_peaks_scan": [
+                {
+                  "period_days": 529.4970833990225,
+                  "power": 0.00725786908830583,
+                  "prominence": 0.007245641529723013
+                },
+                {
+                  "period_days": 261.9199875224206,
+                  "power": 0.007021928867595648,
+                  "prominence": 0.007014434802320435
+                },
+                {
+                  "period_days": 314.09333208641164,
+                  "power": 0.006233764956905523,
+                  "prominence": 0.006230967189388033
+                },
+                {
+                  "period_days": 447.6342796214847,
+                  "power": 0.00574837151940916,
+                  "prominence": 0.005600426713274869
+                },
+                {
+                  "period_days": 218.9724866345025,
+                  "power": 0.005675946220578846,
+                  "prominence": 0.004816355166411276
+                },
+                {
+                  "period_days": 389.4932158181607,
+                  "power": 0.0029338844242532513,
+                  "prominence": 0.0029138039627476437
+                }
+              ],
+              "acf_profile_csv": "profiles\\he_20_24_mev_n__annual_330_400__p11__raw_log10__acf.csv",
+              "lomb_scargle_profile_csv": "profiles\\he_20_24_mev_n__annual_330_400__p11__raw_log10__lomb_scargle.csv",
+              "windows": [
+                {
+                  "window_start": "1973-04-06",
+                  "window_stop": "1978-04-05",
+                  "period_days": 354.2845082313212,
+                  "power": 0.01839605276763553,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.0024228860724325486
+                },
+                {
+                  "window_start": "1974-04-06",
+                  "window_stop": "1979-04-05",
+                  "period_days": 330.23804839661614,
+                  "power": 0.006475425168909223,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1975-04-06",
+                  "window_stop": "1980-04-05",
+                  "period_days": 369.49152542372883,
+                  "power": 0.019432278077375773,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.008125895818104606
+                },
+                {
+                  "window_start": "1976-04-06",
+                  "window_stop": "1981-04-05",
+                  "period_days": 366.66666666666663,
+                  "power": 0.012445294356899575,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.005604654035026649
+                },
+                {
+                  "window_start": "1977-04-06",
+                  "window_stop": "1982-04-05",
+                  "period_days": 372.3602484472049,
+                  "power": 0.015700225144671003,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.014119091698649975
+                },
+                {
+                  "window_start": "1978-04-06",
+                  "window_stop": "1983-04-05",
+                  "period_days": 371.1253592748176,
+                  "power": 0.035789251683460616,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.035386179343796384
+                },
+                {
+                  "window_start": "1979-04-06",
+                  "window_stop": "1984-04-05",
+                  "period_days": 347.3205048624043,
+                  "power": 0.03450470920350476,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.03443182471243263
+                },
+                {
+                  "window_start": "1980-04-06",
+                  "window_stop": "1985-04-05",
+                  "period_days": 399.8570747975226,
+                  "power": 0.02254876677774356,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1981-04-06",
+                  "window_stop": "1986-04-05",
+                  "period_days": 399.8570747975226,
+                  "power": 0.010677260528451698,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1982-04-06",
+                  "window_stop": "1987-04-05",
+                  "period_days": 399.8570747975226,
+                  "power": 0.005503401117258954,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1983-04-06",
+                  "window_stop": "1988-04-05",
+                  "period_days": 352.42494226327943,
+                  "power": 0.015530713039945873,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.012970660240535305
+                },
+                {
+                  "window_start": "1984-04-06",
+                  "window_stop": "1989-04-05",
+                  "period_days": 338.5639370713997,
+                  "power": 0.017824130662061746,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.015664157117496243
+                },
+                {
+                  "window_start": "1985-04-06",
+                  "window_stop": "1990-04-05",
+                  "period_days": 350.95128580388877,
+                  "power": 0.023621945595692917,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.022395993732709146
+                },
+                {
+                  "window_start": "1986-04-06",
+                  "window_stop": "1991-04-05",
+                  "period_days": 399.8570747975226,
+                  "power": 0.04864324062063294,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1987-04-06",
+                  "window_stop": "1992-04-05",
+                  "period_days": 399.8570747975226,
+                  "power": 0.04900062773563632,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                }
+              ]
+            },
+            "linear_detrended_log10": {
+              "acf_band_morphology": {
+                "lag_calendar_days": 334.5,
+                "dcf": 0.46349679709569463,
+                "pairs": 43599,
+                "at_band_edge": true,
+                "is_local_peak": false,
+                "prominence": 0.0
+              },
+              "lomb_scargle_band_morphology": {
+                "period_days": 345.0734614199116,
+                "power": 0.0023010187598231403,
+                "at_band_edge": false,
+                "is_local_peak": true,
+                "prominence": 0.0022456565509253383
+              },
+              "top_spectral_peaks_scan": [
+                {
+                  "period_days": 527.0045504471991,
+                  "power": 0.00902939659642844,
+                  "prominence": 0.008816970071821537
+                },
+                {
+                  "period_days": 449.4312859627994,
+                  "power": 0.008203962333223585,
+                  "prominence": 0.008088696073230659
+                },
+                {
+                  "period_days": 263.25442859382343,
+                  "power": 0.007810123796521646,
+                  "prominence": 0.0077181447429222425
+                },
+                {
+                  "period_days": 313.3607016234372,
+                  "power": 0.007591113962989467,
+                  "prominence": 0.007544401530237564
+                },
+                {
+                  "period_days": 218.61615569875673,
+                  "power": 0.006233180577898874,
+                  "prominence": 0.005386462301448902
+                },
+                {
+                  "period_days": 484.4367517669118,
+                  "power": 0.005321822527345477,
+                  "prominence": 0.004522494747528008
+                }
+              ],
+              "acf_profile_csv": "profiles\\he_20_24_mev_n__annual_330_400__p11__linear_detrended_log10__acf.csv",
+              "lomb_scargle_profile_csv": "profiles\\he_20_24_mev_n__annual_330_400__p11__linear_detrended_log10__lomb_scargle.csv",
+              "windows": [
+                {
+                  "window_start": "1973-04-06",
+                  "window_stop": "1978-04-05",
+                  "period_days": 330.23804839661614,
+                  "power": 0.022355143379059125,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1974-04-06",
+                  "window_stop": "1979-04-05",
+                  "period_days": 330.23804839661614,
+                  "power": 0.006357088208969613,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1975-04-06",
+                  "window_stop": "1980-04-05",
+                  "period_days": 399.8570747975226,
+                  "power": 0.012704146042690448,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1976-04-06",
+                  "window_stop": "1981-04-05",
+                  "period_days": 399.8570747975226,
+                  "power": 0.01436008074950404,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1977-04-06",
+                  "window_stop": "1982-04-05",
+                  "period_days": 399.8570747975226,
+                  "power": 0.0050991611611750165,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1978-04-06",
+                  "window_stop": "1983-04-05",
+                  "period_days": 376.11472103965946,
+                  "power": 0.018613864076743966,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.01616724520119333
+                },
+                {
+                  "window_start": "1979-04-06",
+                  "window_stop": "1984-04-05",
+                  "period_days": 332.85742613523695,
+                  "power": 0.03389027159540637,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.030742288414116276
+                },
+                {
+                  "window_start": "1980-04-06",
+                  "window_stop": "1985-04-05",
+                  "period_days": 399.8570747975226,
+                  "power": 0.025853092569131843,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1981-04-06",
+                  "window_stop": "1986-04-05",
+                  "period_days": 399.8570747975226,
+                  "power": 0.015539908030549762,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1982-04-06",
+                  "window_stop": "1987-04-05",
+                  "period_days": 330.23804839661614,
+                  "power": 0.02151824489364792,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1983-04-06",
+                  "window_stop": "1988-04-05",
+                  "period_days": 330.23804839661614,
+                  "power": 0.020068885555178027,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1984-04-06",
+                  "window_stop": "1989-04-05",
+                  "period_days": 334.1827593071869,
+                  "power": 0.01676163039856002,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.016406801295712127
+                },
+                {
+                  "window_start": "1985-04-06",
+                  "window_stop": "1990-04-05",
+                  "period_days": 350.95128580388877,
+                  "power": 0.023525523774596404,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.022335657146830116
+                },
+                {
+                  "window_start": "1986-04-06",
+                  "window_stop": "1991-04-05",
+                  "period_days": 388.7447892542844,
+                  "power": 0.0585528238925287,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.04995631122847686
+                },
+                {
+                  "window_start": "1987-04-06",
+                  "window_stop": "1992-04-05",
+                  "period_days": 399.8570747975226,
+                  "power": 0.05892302721229112,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                }
+              ]
+            }
+          }
+        }
+      },
+      "common_window_period_concordance": [
+        {
+          "window_start": "1973-04-06",
+          "window_stop": "1978-04-05",
+          "variants": {
+            "raw_log10": {
+              "p10_period_days": 374.01960784313724,
+              "p11_period_days": 354.2845082313212,
+              "absolute_difference_days": 19.735099611816054,
+              "relative_difference": 0.05419466724474321,
+              "within_10_percent": true
+            },
+            "linear_detrended_log10": {
+              "p10_period_days": 330.23804839661614,
+              "p11_period_days": 330.23804839661614,
+              "absolute_difference_days": 0.0,
+              "relative_difference": 0.0,
+              "within_10_percent": true
+            }
+          }
+        },
+        {
+          "window_start": "1974-04-06",
+          "window_stop": "1979-04-05",
+          "variants": {
+            "raw_log10": {
+              "p10_period_days": 330.23804839661614,
+              "p11_period_days": 330.23804839661614,
+              "absolute_difference_days": 0.0,
+              "relative_difference": 0.0,
+              "within_10_percent": true
+            },
+            "linear_detrended_log10": {
+              "p10_period_days": 363.8846737481031,
+              "p11_period_days": 330.23804839661614,
+              "absolute_difference_days": 33.64662535148699,
+              "relative_difference": 0.09694719471947187,
+              "within_10_percent": true
+            }
+          }
+        },
+        {
+          "window_start": "1975-04-06",
+          "window_stop": "1980-04-05",
+          "variants": {
+            "raw_log10": {
+              "p10_period_days": 399.8570747975226,
+              "p11_period_days": 369.49152542372883,
+              "absolute_difference_days": 30.365549373793783,
+              "relative_difference": 0.07893833657476253,
+              "within_10_percent": true
+            },
+            "linear_detrended_log10": {
+              "p10_period_days": 399.8570747975226,
+              "p11_period_days": 399.8570747975226,
+              "absolute_difference_days": 0.0,
+              "relative_difference": 0.0,
+              "within_10_percent": true
+            }
+          }
+        },
+        {
+          "window_start": "1976-04-06",
+          "window_stop": "1981-04-05",
+          "variants": {
+            "raw_log10": {
+              "p10_period_days": 399.8570747975226,
+              "p11_period_days": 366.66666666666663,
+              "absolute_difference_days": 33.190408130855985,
+              "relative_difference": 0.08659981768459442,
+              "within_10_percent": true
+            },
+            "linear_detrended_log10": {
+              "p10_period_days": 399.8570747975226,
+              "p11_period_days": 399.8570747975226,
+              "absolute_difference_days": 0.0,
+              "relative_difference": 0.0,
+              "within_10_percent": true
+            }
+          }
+        },
+        {
+          "window_start": "1977-04-06",
+          "window_stop": "1982-04-05",
+          "variants": {
+            "raw_log10": {
+              "p10_period_days": 366.26663757364173,
+              "p11_period_days": 372.3602484472049,
+              "absolute_difference_days": 6.093610873563193,
+              "relative_difference": 0.01649983500164983,
+              "within_10_percent": true
+            },
+            "linear_detrended_log10": {
+              "p10_period_days": 365.0717703349282,
+              "p11_period_days": 399.8570747975226,
+              "absolute_difference_days": 34.78530446259441,
+              "relative_difference": 0.09095043201455211,
+              "within_10_percent": true
+            }
+          }
+        },
+        {
+          "window_start": "1978-04-06",
+          "window_stop": "1983-04-05",
+          "variants": {
+            "raw_log10": {
+              "p10_period_days": 364.6752118183793,
+              "p11_period_days": 371.1253592748176,
+              "absolute_difference_days": 6.4501474564382875,
+              "relative_difference": 0.017532325224632935,
+              "within_10_percent": true
+            },
+            "linear_detrended_log10": {
+              "p10_period_days": 351.3185433235663,
+              "p11_period_days": 376.11472103965946,
+              "absolute_difference_days": 24.796177716093155,
+              "relative_difference": 0.06817443999567167,
+              "within_10_percent": true
+            }
+          }
+        },
+        {
+          "window_start": "1979-04-06",
+          "window_stop": "1984-04-05",
+          "variants": {
+            "raw_log10": {
+              "p10_period_days": 337.54273074602855,
+              "p11_period_days": 347.3205048624043,
+              "absolute_difference_days": 9.777774116375724,
+              "relative_difference": 0.0285539465633285,
+              "within_10_percent": true
+            },
+            "linear_detrended_log10": {
+              "p10_period_days": 340.625,
+              "p11_period_days": 332.85742613523695,
+              "absolute_difference_days": 7.767573864763051,
+              "relative_difference": 0.023066893992578517,
+              "within_10_percent": true
+            }
+          }
+        },
+        {
+          "window_start": "1980-04-06",
+          "window_stop": "1985-04-05",
+          "variants": {
+            "raw_log10": {
+              "p10_period_days": 336.86534216335536,
+              "p11_period_days": 399.8570747975226,
+              "absolute_difference_days": 62.99173263416725,
+              "relative_difference": 0.17100533710924742,
+              "within_10_percent": false
+            },
+            "linear_detrended_log10": {
+              "p10_period_days": 336.1906669337072,
+              "p11_period_days": 399.8570747975226,
+              "absolute_difference_days": 63.66640786381544,
+              "relative_difference": 0.172995321510173,
+              "within_10_percent": false
+            }
+          }
+        },
+        {
+          "window_start": "1981-04-06",
+          "window_stop": "1986-04-05",
+          "variants": {
+            "raw_log10": {
+              "p10_period_days": 363.8846737481031,
+              "p11_period_days": 399.8570747975226,
+              "absolute_difference_days": 35.97240104941949,
+              "relative_difference": 0.09420043127908309,
+              "within_10_percent": true
+            },
+            "linear_detrended_log10": {
+              "p10_period_days": 351.3185433235663,
+              "p11_period_days": 399.8570747975226,
+              "absolute_difference_days": 48.53853147395631,
+              "relative_difference": 0.12923351158645283,
+              "within_10_percent": false
+            }
+          }
+        },
+        {
+          "window_start": "1982-04-06",
+          "window_stop": "1987-04-05",
+          "variants": {
+            "raw_log10": {
+              "p10_period_days": 364.27951388888886,
+              "p11_period_days": 399.8570747975226,
+              "absolute_difference_days": 35.57756090863376,
+              "relative_difference": 0.09311832841244612,
+              "within_10_percent": true
+            },
+            "linear_detrended_log10": {
+              "p10_period_days": 336.1906669337072,
+              "p11_period_days": 330.23804839661614,
+              "absolute_difference_days": 5.952618537091041,
+              "relative_difference": 0.017864231838031035,
+              "within_10_percent": true
+            }
+          }
+        },
+        {
+          "window_start": "1983-04-06",
+          "window_stop": "1988-04-05",
+          "variants": {
+            "raw_log10": {
+              "p10_period_days": 358.44544095665174,
+              "p11_period_days": 352.42494226327943,
+              "absolute_difference_days": 6.0204986933723035,
+              "relative_difference": 0.016938386618674656,
+              "within_10_percent": true
+            },
+            "linear_detrended_log10": {
+              "p10_period_days": 330.23804839661614,
+              "p11_period_days": 330.23804839661614,
+              "absolute_difference_days": 0.0,
+              "relative_difference": 0.0,
+              "within_10_percent": true
+            }
+          }
+        },
+        {
+          "window_start": "1984-04-06",
+          "window_stop": "1989-04-05",
+          "variants": {
+            "raw_log10": {
+              "p10_period_days": 351.6865702912214,
+              "p11_period_days": 338.5639370713997,
+              "absolute_difference_days": 13.122633219821694,
+              "relative_difference": 0.03802281368821292,
+              "within_10_percent": true
+            },
+            "linear_detrended_log10": {
+              "p10_period_days": 330.88902030356786,
+              "p11_period_days": 334.1827593071869,
+              "absolute_difference_days": 3.2937390036190664,
+              "relative_difference": 0.009904912836767142,
+              "within_10_percent": true
+            }
+          }
+        },
+        {
+          "window_start": "1985-04-06",
+          "window_stop": "1990-04-05",
+          "variants": {
+            "raw_log10": {
+              "p10_period_days": 399.8570747975226,
+              "p11_period_days": 350.95128580388877,
+              "absolute_difference_days": 48.90578899363385,
+              "relative_difference": 0.13027502505288943,
+              "within_10_percent": false
+            },
+            "linear_detrended_log10": {
+              "p10_period_days": 399.8570747975226,
+              "p11_period_days": 350.95128580388877,
+              "absolute_difference_days": 48.90578899363385,
+              "relative_difference": 0.13027502505288943,
+              "within_10_percent": false
+            }
+          }
+        },
+        {
+          "window_start": "1986-04-06",
+          "window_stop": "1991-04-05",
+          "variants": {
+            "raw_log10": {
+              "p10_period_days": 399.8570747975226,
+              "p11_period_days": 399.8570747975226,
+              "absolute_difference_days": 0.0,
+              "relative_difference": 0.0,
+              "within_10_percent": true
+            },
+            "linear_detrended_log10": {
+              "p10_period_days": 399.38139424220793,
+              "p11_period_days": 388.7447892542844,
+              "absolute_difference_days": 10.636604987923533,
+              "relative_difference": 0.026992137073113428,
+              "within_10_percent": true
+            }
+          }
+        },
+        {
+          "window_start": "1987-04-06",
+          "window_stop": "1992-04-05",
+          "variants": {
+            "raw_log10": {
+              "p10_period_days": 363.09755569976204,
+              "p11_period_days": 399.8570747975226,
+              "absolute_difference_days": 36.759519097760574,
+              "relative_difference": 0.0963609568076182,
+              "within_10_percent": true
+            },
+            "linear_detrended_log10": {
+              "p10_period_days": 330.23804839661614,
+              "p11_period_days": 399.8570747975226,
+              "absolute_difference_days": 69.61902640090648,
+              "relative_difference": 0.19071220773623537,
+              "within_10_percent": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "channel": "he_24_29_mev_n",
+      "label": "Helium 24\u201329 MeV/n",
+      "band": "annual_330_400",
+      "p11_quality_limited_after_1980_239": true,
+      "spacecraft": {
+        "p10": {
+          "calendar": {
+            "start": "1972-03-03",
+            "stop": "1992-08-31"
+          },
+          "variants": {
+            "raw_log10": {
+              "acf_band_morphology": {
+                "lag_calendar_days": 334.5,
+                "dcf": 0.4241492502732746,
+                "pairs": 34324,
+                "at_band_edge": true,
+                "is_local_peak": false,
+                "prominence": 0.0
+              },
+              "lomb_scargle_band_morphology": {
+                "period_days": 382.397813958784,
+                "power": 0.00433183976473603,
+                "at_band_edge": false,
+                "is_local_peak": true,
+                "prominence": 0.004255118238023588
+              },
+              "top_spectral_peaks_scan": [
+                {
+                  "period_days": 456.1455928290099,
+                  "power": 0.009119922005842726,
+                  "prominence": 0.009104543236046135
+                },
+                {
+                  "period_days": 253.51751207729467,
+                  "power": 0.0058594993744813155,
+                  "prominence": 0.0058560144608040135
+                },
+                {
+                  "period_days": 495.8807027904917,
+                  "power": 0.007544965814774826,
+                  "prominence": 0.005674305443546418
+                },
+                {
+                  "period_days": 382.397813958784,
+                  "power": 0.00433183976473603,
+                  "prominence": 0.004255118238023588
+                },
+                {
+                  "period_days": 553.4937376400791,
+                  "power": 0.004139506707736362,
+                  "prominence": 0.003703636717876252
+                },
+                {
+                  "period_days": 233.91837303245578,
+                  "power": 0.0037047969625652313,
+                  "prominence": 0.003581120401741303
+                }
+              ],
+              "acf_profile_csv": "profiles\\he_24_29_mev_n__annual_330_400__p10__raw_log10__acf.csv",
+              "lomb_scargle_profile_csv": "profiles\\he_24_29_mev_n__annual_330_400__p10__raw_log10__lomb_scargle.csv",
+              "windows": [
+                {
+                  "window_start": "1972-03-03",
+                  "window_stop": "1977-03-02",
+                  "period_days": 367.87201402586015,
+                  "power": 0.01116932819920767,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.01102231396696316
+                },
+                {
+                  "window_start": "1973-03-03",
+                  "window_stop": "1978-03-02",
+                  "period_days": 363.09755569976204,
+                  "power": 0.01525875948920265,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.008598449431451294
+                },
+                {
+                  "window_start": "1974-03-03",
+                  "window_stop": "1979-03-02",
+                  "period_days": 330.23804839661614,
+                  "power": 0.006573067346573858,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1975-03-03",
+                  "window_stop": "1980-03-02",
+                  "period_days": 399.8570747975226,
+                  "power": 0.024946396065481293,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1976-03-03",
+                  "window_stop": "1981-03-02",
+                  "period_days": 399.8570747975226,
+                  "power": 0.023555310407694773,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1977-03-03",
+                  "window_stop": "1982-03-02",
+                  "period_days": 374.85484591335415,
+                  "power": 0.027119278308346664,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.02398098761362789
+                },
+                {
+                  "window_start": "1978-03-03",
+                  "window_stop": "1983-03-02",
+                  "period_days": 373.18808359270787,
+                  "power": 0.035240503460633524,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.03303982069193382
+                },
+                {
+                  "window_start": "1979-03-03",
+                  "window_stop": "1984-03-02",
+                  "period_days": 365.0717703349282,
+                  "power": 0.0564705300436176,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.05624862849341318
+                },
+                {
+                  "window_start": "1980-03-03",
+                  "window_stop": "1985-03-02",
+                  "period_days": 399.8570747975226,
+                  "power": 0.05849908442845037,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1981-03-03",
+                  "window_stop": "1986-03-02",
+                  "period_days": 330.23804839661614,
+                  "power": 0.03953412603868021,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1982-03-03",
+                  "window_stop": "1987-03-02",
+                  "period_days": 330.23804839661614,
+                  "power": 0.034940320447436196,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1983-03-03",
+                  "window_stop": "1988-03-02",
+                  "period_days": 399.8570747975226,
+                  "power": 0.021217161618824507,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1984-03-03",
+                  "window_stop": "1989-03-02",
+                  "period_days": 354.6587787872385,
+                  "power": 0.0009683660155014902,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.0004484607044267561
+                },
+                {
+                  "window_start": "1985-03-03",
+                  "window_stop": "1990-03-02",
+                  "period_days": 330.23804839661614,
+                  "power": 0.002133642453795573,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1986-03-03",
+                  "window_stop": "1991-03-02",
+                  "period_days": 336.86534216335536,
+                  "power": 0.01516225326093661,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.014566027059943188
+                },
+                {
+                  "window_start": "1987-03-03",
+                  "window_stop": "1992-03-02",
+                  "period_days": 363.8846737481031,
+                  "power": 0.00835995672305731,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.0073778350926782775
+                }
+              ]
+            },
+            "linear_detrended_log10": {
+              "acf_band_morphology": {
+                "lag_calendar_days": 334.5,
+                "dcf": 0.31774915702069734,
+                "pairs": 34324,
+                "at_band_edge": true,
+                "is_local_peak": false,
+                "prominence": 0.0
+              },
+              "lomb_scargle_band_morphology": {
+                "period_days": 383.7084428196047,
+                "power": 0.004978401998195378,
+                "at_band_edge": false,
+                "is_local_peak": true,
+                "prominence": 0.004960625112191637
+              },
+              "top_spectral_peaks_scan": [
+                {
+                  "period_days": 457.6996456800218,
+                  "power": 0.009367880324053281,
+                  "prominence": 0.009218558103108858
+                },
+                {
+                  "period_days": 496.6139287298536,
+                  "power": 0.008650511921348022,
+                  "prominence": 0.007171870156267709
+                },
+                {
+                  "period_days": 253.51751207729467,
+                  "power": 0.006322558354155706,
+                  "prominence": 0.00629969685935974
+                },
+                {
+                  "period_days": 383.7084428196047,
+                  "power": 0.004978401998195378,
+                  "prominence": 0.004960625112191637
+                },
+                {
+                  "period_days": 234.24466452782815,
+                  "power": 0.004284539216450087,
+                  "prominence": 0.004239669232865468
+                },
+                {
+                  "period_days": 550.7707445063955,
+                  "power": 0.00488442196118883,
+                  "prominence": 0.0037555227674785263
+                }
+              ],
+              "acf_profile_csv": "profiles\\he_24_29_mev_n__annual_330_400__p10__linear_detrended_log10__acf.csv",
+              "lomb_scargle_profile_csv": "profiles\\he_24_29_mev_n__annual_330_400__p10__linear_detrended_log10__lomb_scargle.csv",
+              "windows": [
+                {
+                  "window_start": "1972-03-03",
+                  "window_stop": "1977-03-02",
+                  "period_days": 365.46919224907464,
+                  "power": 0.0017878670784785577,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.000812551254456028
+                },
+                {
+                  "window_start": "1973-03-03",
+                  "window_stop": "1978-03-02",
+                  "period_days": 330.23804839661614,
+                  "power": 0.01445865155319875,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1974-03-03",
+                  "window_stop": "1979-03-02",
+                  "period_days": 351.3185433235663,
+                  "power": 0.016067464430749284,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.015857779151910355
+                },
+                {
+                  "window_start": "1975-03-03",
+                  "window_stop": "1980-03-02",
+                  "period_days": 399.8570747975226,
+                  "power": 0.02390953960823323,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1976-03-03",
+                  "window_stop": "1981-03-02",
+                  "period_days": 399.8570747975226,
+                  "power": 0.04405759832155034,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1977-03-03",
+                  "window_stop": "1982-03-02",
+                  "period_days": 399.8570747975226,
+                  "power": 0.05669634672075354,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1978-03-03",
+                  "window_stop": "1983-03-02",
+                  "period_days": 399.8570747975226,
+                  "power": 0.053424677255072384,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1979-03-03",
+                  "window_stop": "1984-03-02",
+                  "period_days": 340.2797486316643,
+                  "power": 0.05037295653055822,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.03254839513171638
+                },
+                {
+                  "window_start": "1980-03-03",
+                  "window_stop": "1985-03-02",
+                  "period_days": 396.55090952043463,
+                  "power": 0.06351943178812967,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.04950605135404686
+                },
+                {
+                  "window_start": "1981-03-03",
+                  "window_stop": "1986-03-02",
+                  "period_days": 352.42494226327943,
+                  "power": 0.0394655320185975,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.03916889390438993
+                },
+                {
+                  "window_start": "1982-03-03",
+                  "window_stop": "1987-03-02",
+                  "period_days": 330.23804839661614,
+                  "power": 0.04198203949532281,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1983-03-03",
+                  "window_stop": "1988-03-02",
+                  "period_days": 392.37961664329123,
+                  "power": 0.0224936415675923,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.019531223542350252
+                },
+                {
+                  "window_start": "1984-03-03",
+                  "window_stop": "1989-03-02",
+                  "period_days": 365.8674803836094,
+                  "power": 0.006288831377700548,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.002762166883005867
+                },
+                {
+                  "window_start": "1985-03-03",
+                  "window_stop": "1990-03-02",
+                  "period_days": 330.23804839661614,
+                  "power": 0.0020656715216902655,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1986-03-03",
+                  "window_stop": "1991-03-02",
+                  "period_days": 399.8570747975226,
+                  "power": 0.025206387137697395,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1987-03-03",
+                  "window_stop": "1992-03-02",
+                  "period_days": 374.43676109747935,
+                  "power": 0.017890927150941136,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.0012096817300438663
+                }
+              ]
+            }
+          }
+        },
+        "p11": {
+          "calendar": {
+            "start": "1973-04-06",
+            "stop": "1980-08-21"
+          },
+          "variants": {
+            "raw_log10": {
+              "acf_band_morphology": {
+                "lag_calendar_days": 334.5,
+                "dcf": 0.10965859413988853,
+                "pairs": 17151,
+                "at_band_edge": true,
+                "is_local_peak": false,
+                "prominence": 0.0
+              },
+              "lomb_scargle_band_morphology": {
+                "period_days": 399.9285544177185,
+                "power": 0.017659489404341023,
+                "at_band_edge": true,
+                "is_local_peak": false,
+                "prominence": 0.0
+              },
+              "top_spectral_peaks_scan": [
+                {
+                  "period_days": 509.03304031524704,
+                  "power": 0.05279368684920173,
+                  "prominence": 0.05268729242179806
+                },
+                {
+                  "period_days": 304.41403063536666,
+                  "power": 0.031063758198592653,
+                  "prominence": 0.030997644664758447
+                },
+                {
+                  "period_days": 413.4679305675243,
+                  "power": 0.026034433657535494,
+                  "prominence": 0.025097888459136658
+                },
+                {
+                  "period_days": 262.9452751898536,
+                  "power": 0.020049878832150717,
+                  "prominence": 0.01873185055624136
+                },
+                {
+                  "period_days": 353.2393773664283,
+                  "power": 0.016064761082100094,
+                  "prominence": 0.01533265201614098
+                },
+                {
+                  "period_days": 219.11534446764088,
+                  "power": 0.011795048614420827,
+                  "prominence": 0.010547168620973843
+                }
+              ],
+              "acf_profile_csv": "profiles\\he_24_29_mev_n__annual_330_400__p11__raw_log10__acf.csv",
+              "lomb_scargle_profile_csv": "profiles\\he_24_29_mev_n__annual_330_400__p11__raw_log10__lomb_scargle.csv",
+              "windows": [
+                {
+                  "window_start": "1973-04-06",
+                  "window_stop": "1978-04-05",
+                  "period_days": 330.23804839661614,
+                  "power": 0.009371686906496077,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1974-04-06",
+                  "window_stop": "1979-04-05",
+                  "period_days": 393.7602627257799,
+                  "power": 0.002554590351979325,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.0013400101529929644
+                },
+                {
+                  "window_start": "1975-04-06",
+                  "window_stop": "1980-04-05",
+                  "period_days": 376.95935324500334,
+                  "power": 0.0179364123829012,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.008931076933355422
+                }
+              ]
+            },
+            "linear_detrended_log10": {
+              "acf_band_morphology": {
+                "lag_calendar_days": 364.5,
+                "dcf": 0.10062285801922644,
+                "pairs": 16955,
+                "at_band_edge": false,
+                "is_local_peak": true,
+                "prominence": 0.026495290798598192
+              },
+              "lomb_scargle_band_morphology": {
+                "period_days": 399.9285544177185,
+                "power": 0.017552882991964933,
+                "at_band_edge": true,
+                "is_local_peak": false,
+                "prominence": 0.0
+              },
+              "top_spectral_peaks_scan": [
+                {
+                  "period_days": 510.1929211605651,
+                  "power": 0.051897029833131526,
+                  "prominence": 0.05180053324104245
+                },
+                {
+                  "period_days": 304.41403063536666,
+                  "power": 0.030408705164574678,
+                  "prominence": 0.03022726827577233
+                },
+                {
+                  "period_days": 413.4679305675243,
+                  "power": 0.025859502123124004,
+                  "prominence": 0.02532398550297833
+                },
+                {
+                  "period_days": 262.53419838974435,
+                  "power": 0.019486393329688323,
+                  "prominence": 0.018113461680268363
+                },
+                {
+                  "period_days": 353.4252341365885,
+                  "power": 0.0158227357810762,
+                  "prominence": 0.01457428081436975
+                },
+                {
+                  "period_days": 219.18684330744628,
+                  "power": 0.011518650345628134,
+                  "prominence": 0.010177346071221153
+                }
+              ],
+              "acf_profile_csv": "profiles\\he_24_29_mev_n__annual_330_400__p11__linear_detrended_log10__acf.csv",
+              "lomb_scargle_profile_csv": "profiles\\he_24_29_mev_n__annual_330_400__p11__linear_detrended_log10__lomb_scargle.csv",
+              "windows": [
+                {
+                  "window_start": "1973-04-06",
+                  "window_stop": "1978-04-05",
+                  "period_days": 330.23804839661614,
+                  "power": 0.01128693532571883,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1974-04-06",
+                  "window_stop": "1979-04-05",
+                  "period_days": 377.38309352517985,
+                  "power": 0.005033792383664756,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.004884390885811788
+                },
+                {
+                  "window_start": "1975-04-06",
+                  "window_stop": "1980-04-05",
+                  "period_days": 330.23804839661614,
+                  "power": 0.013342236515276436,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                }
+              ]
+            }
+          }
+        }
+      },
+      "common_window_period_concordance": [
+        {
+          "window_start": "1973-04-06",
+          "window_stop": "1978-04-05",
+          "variants": {
+            "raw_log10": {
+              "p10_period_days": 370.3066401941319,
+              "p11_period_days": 330.23804839661614,
+              "absolute_difference_days": 40.06859179751575,
+              "relative_difference": 0.11439267886855242,
+              "within_10_percent": false
+            },
+            "linear_detrended_log10": {
+              "p10_period_days": 330.23804839661614,
+              "p11_period_days": 330.23804839661614,
+              "absolute_difference_days": 0.0,
+              "relative_difference": 0.0,
+              "within_10_percent": true
+            }
+          }
+        },
+        {
+          "window_start": "1974-04-06",
+          "window_stop": "1979-04-05",
+          "variants": {
+            "raw_log10": {
+              "p10_period_days": 330.23804839661614,
+              "p11_period_days": 393.7602627257799,
+              "absolute_difference_days": 63.52221432916377,
+              "relative_difference": 0.17547613952493044,
+              "within_10_percent": false
+            },
+            "linear_detrended_log10": {
+              "p10_period_days": 352.05536912751677,
+              "p11_period_days": 377.38309352517985,
+              "absolute_difference_days": 25.327724397663076,
+              "relative_difference": 0.06944444444444443,
+              "within_10_percent": true
+            }
+          }
+        },
+        {
+          "window_start": "1975-04-06",
+          "window_stop": "1980-04-05",
+          "variants": {
+            "raw_log10": {
+              "p10_period_days": 399.8570747975226,
+              "p11_period_days": 376.95935324500334,
+              "absolute_difference_days": 22.897721552519272,
+              "relative_difference": 0.05895272222864412,
+              "within_10_percent": true
+            },
+            "linear_detrended_log10": {
+              "p10_period_days": 399.8570747975226,
+              "p11_period_days": 330.23804839661614,
+              "absolute_difference_days": 69.61902640090648,
+              "relative_difference": 0.19071220773623537,
+              "within_10_percent": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "channel": "he_24_29_mev_n",
+      "label": "Helium 24\u201329 MeV/n",
+      "band": "one_point_three_year_430_520",
+      "p11_quality_limited_after_1980_239": true,
+      "spacecraft": {
+        "p10": {
+          "calendar": {
+            "start": "1972-03-03",
+            "stop": "1992-08-31"
+          },
+          "variants": {
+            "raw_log10": {
+              "acf_band_morphology": {
+                "lag_calendar_days": 434.5,
+                "dcf": 0.33274443656158686,
+                "pairs": 33170,
+                "at_band_edge": true,
+                "is_local_peak": false,
+                "prominence": 0.0
+              },
+              "lomb_scargle_band_morphology": {
+                "period_days": 456.1455928290099,
+                "power": 0.009119922005842726,
+                "at_band_edge": false,
+                "is_local_peak": true,
+                "prominence": 0.009104543236046135
+              },
+              "top_spectral_peaks_scan": [
+                {
+                  "period_days": 456.1455928290099,
+                  "power": 0.009119922005842726,
+                  "prominence": 0.009104543236046135
+                },
+                {
+                  "period_days": 253.51751207729467,
+                  "power": 0.0058594993744813155,
+                  "prominence": 0.0058560144608040135
+                },
+                {
+                  "period_days": 495.8807027904917,
+                  "power": 0.007544965814774826,
+                  "prominence": 0.005674305443546418
+                },
+                {
+                  "period_days": 382.397813958784,
+                  "power": 0.00433183976473603,
+                  "prominence": 0.004255118238023588
+                },
+                {
+                  "period_days": 553.4937376400791,
+                  "power": 0.004139506707736362,
+                  "prominence": 0.003703636717876252
+                },
+                {
+                  "period_days": 233.91837303245578,
+                  "power": 0.0037047969625652313,
+                  "prominence": 0.003581120401741303
+                }
+              ],
+              "acf_profile_csv": "profiles\\he_24_29_mev_n__one_point_three_year_430_520__p10__raw_log10__acf.csv",
+              "lomb_scargle_profile_csv": "profiles\\he_24_29_mev_n__one_point_three_year_430_520__p10__raw_log10__lomb_scargle.csv",
+              "windows": [
+                {
+                  "window_start": "1972-03-03",
+                  "window_stop": "1977-03-02",
+                  "period_days": 504.3870192307693,
+                  "power": 0.07244306711248404,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.06988184981223754
+                },
+                {
+                  "window_start": "1973-03-03",
+                  "window_stop": "1978-03-02",
+                  "period_days": 472.4458204334365,
+                  "power": 0.06700140461632081,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.04229852172495634
+                },
+                {
+                  "window_start": "1974-03-03",
+                  "window_stop": "1979-03-02",
+                  "period_days": 502.1238408615016,
+                  "power": 0.03593468526265258,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.022352563820097125
+                },
+                {
+                  "window_start": "1975-03-03",
+                  "window_stop": "1980-03-02",
+                  "period_days": 443.72191382500654,
+                  "power": 0.052485539621909584,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.04301137393292296
+                },
+                {
+                  "window_start": "1976-03-03",
+                  "window_stop": "1981-03-02",
+                  "period_days": 430.0794260825006,
+                  "power": 0.018929940163974174,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1977-03-03",
+                  "window_stop": "1982-03-02",
+                  "period_days": 453.30812854442337,
+                  "power": 0.008054053397373325,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.0008940267475580415
+                },
+                {
+                  "window_start": "1978-03-03",
+                  "window_stop": "1983-03-02",
+                  "period_days": 519.2081657902877,
+                  "power": 0.01471635252448997,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1979-03-03",
+                  "window_stop": "1984-03-02",
+                  "period_days": 430.0794260825006,
+                  "power": 0.007661135013550333,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1980-03-03",
+                  "window_stop": "1985-03-02",
+                  "period_days": 519.2081657902877,
+                  "power": 0.06771905671505905,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1981-03-03",
+                  "window_stop": "1986-03-02",
+                  "period_days": 519.2081657902877,
+                  "power": 0.05296205632389635,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1982-03-03",
+                  "window_stop": "1987-03-02",
+                  "period_days": 450.2682403433476,
+                  "power": 0.07425925276851095,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.05716507935711539
+                },
+                {
+                  "window_start": "1983-03-03",
+                  "window_stop": "1988-03-02",
+                  "period_days": 430.0794260825006,
+                  "power": 0.03003697830369514,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1984-03-03",
+                  "window_stop": "1989-03-02",
+                  "period_days": 507.43651753325275,
+                  "power": 0.02204999963231615,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.021134252838703457
+                },
+                {
+                  "window_start": "1985-03-03",
+                  "window_stop": "1990-03-02",
+                  "period_days": 492.54694835680755,
+                  "power": 0.013219388508683561,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.009542811924851112
+                },
+                {
+                  "window_start": "1986-03-03",
+                  "window_stop": "1991-03-02",
+                  "period_days": 430.0794260825006,
+                  "power": 0.011088753726554613,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1987-03-03",
+                  "window_stop": "1992-03-02",
+                  "period_days": 519.2081657902877,
+                  "power": 0.031815151058547,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                }
+              ]
+            },
+            "linear_detrended_log10": {
+              "acf_band_morphology": {
+                "lag_calendar_days": 434.5,
+                "dcf": 0.23173415877044765,
+                "pairs": 33170,
+                "at_band_edge": true,
+                "is_local_peak": false,
+                "prominence": 0.0
+              },
+              "lomb_scargle_band_morphology": {
+                "period_days": 457.6996456800218,
+                "power": 0.009367880324053281,
+                "at_band_edge": false,
+                "is_local_peak": true,
+                "prominence": 0.009218558103108858
+              },
+              "top_spectral_peaks_scan": [
+                {
+                  "period_days": 457.6996456800218,
+                  "power": 0.009367880324053281,
+                  "prominence": 0.009218558103108858
+                },
+                {
+                  "period_days": 496.6139287298536,
+                  "power": 0.008650511921348022,
+                  "prominence": 0.007171870156267709
+                },
+                {
+                  "period_days": 253.51751207729467,
+                  "power": 0.006322558354155706,
+                  "prominence": 0.00629969685935974
+                },
+                {
+                  "period_days": 383.7084428196047,
+                  "power": 0.004978401998195378,
+                  "prominence": 0.004960625112191637
+                },
+                {
+                  "period_days": 234.24466452782815,
+                  "power": 0.004284539216450087,
+                  "prominence": 0.004239669232865468
+                },
+                {
+                  "period_days": 550.7707445063955,
+                  "power": 0.00488442196118883,
+                  "prominence": 0.0037555227674785263
+                }
+              ],
+              "acf_profile_csv": "profiles\\he_24_29_mev_n__one_point_three_year_430_520__p10__linear_detrended_log10__acf.csv",
+              "lomb_scargle_profile_csv": "profiles\\he_24_29_mev_n__one_point_three_year_430_520__p10__linear_detrended_log10__lomb_scargle.csv",
+              "windows": [
+                {
+                  "window_start": "1972-03-03",
+                  "window_stop": "1977-03-02",
+                  "period_days": 519.2081657902877,
+                  "power": 0.07343545998275612,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1973-03-03",
+                  "window_stop": "1978-03-02",
+                  "period_days": 519.2081657902877,
+                  "power": 0.05398011920542275,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1974-03-03",
+                  "window_stop": "1979-03-02",
+                  "period_days": 484.72422754836845,
+                  "power": 0.06404714673828948,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.06375300251238
+                },
+                {
+                  "window_start": "1975-03-03",
+                  "window_stop": "1980-03-02",
+                  "period_days": 435.6605242668051,
+                  "power": 0.04209113899707078,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.038411449552714035
+                },
+                {
+                  "window_start": "1976-03-03",
+                  "window_stop": "1981-03-02",
+                  "period_days": 430.0794260825006,
+                  "power": 0.0375799938309037,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1977-03-03",
+                  "window_stop": "1982-03-02",
+                  "period_days": 430.0794260825006,
+                  "power": 0.06172056362511516,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1978-03-03",
+                  "window_stop": "1983-03-02",
+                  "period_days": 430.0794260825006,
+                  "power": 0.05371431231257651,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1979-03-03",
+                  "window_stop": "1984-03-02",
+                  "period_days": 430.0794260825006,
+                  "power": 0.056477895900196404,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1980-03-03",
+                  "window_stop": "1985-03-02",
+                  "period_days": 519.2081657902877,
+                  "power": 0.07516097986397548,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1981-03-03",
+                  "window_stop": "1986-03-02",
+                  "period_days": 519.2081657902877,
+                  "power": 0.009485852772176376,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1982-03-03",
+                  "window_stop": "1987-03-02",
+                  "period_days": 519.2081657902877,
+                  "power": 0.06169236545408583,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1983-03-03",
+                  "window_stop": "1988-03-02",
+                  "period_days": 519.2081657902877,
+                  "power": 0.014973551059647202,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1984-03-03",
+                  "window_stop": "1989-03-02",
+                  "period_days": 518.4064237183446,
+                  "power": 0.03214180697560594,
+                  "at_band_edge": true,
+                  "is_local_peak": true,
+                  "prominence": 0.009572805019700575
+                },
+                {
+                  "window_start": "1985-03-03",
+                  "window_stop": "1990-03-02",
+                  "period_days": 492.54694835680755,
+                  "power": 0.013247651565354429,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.009670906721109214
+                },
+                {
+                  "window_start": "1986-03-03",
+                  "window_stop": "1991-03-02",
+                  "period_days": 430.0794260825006,
+                  "power": 0.023714554855745196,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1987-03-03",
+                  "window_stop": "1992-03-02",
+                  "period_days": 492.54694835680755,
+                  "power": 0.0961861131556793,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.06402417150706517
+                }
+              ]
+            }
+          }
+        },
+        "p11": {
+          "calendar": {
+            "start": "1973-04-06",
+            "stop": "1980-08-21"
+          },
+          "variants": {
+            "raw_log10": {
+              "acf_band_morphology": {
+                "lag_calendar_days": 514.5,
+                "dcf": 0.11527021816215048,
+                "pairs": 15835,
+                "at_band_edge": false,
+                "is_local_peak": true,
+                "prominence": 0.08406171442519135
+              },
+              "lomb_scargle_band_morphology": {
+                "period_days": 509.03304031524704,
+                "power": 0.05279368684920173,
+                "at_band_edge": false,
+                "is_local_peak": true,
+                "prominence": 0.05268729242179806
+              },
+              "top_spectral_peaks_scan": [
+                {
+                  "period_days": 509.03304031524704,
+                  "power": 0.05279368684920173,
+                  "prominence": 0.05268729242179806
+                },
+                {
+                  "period_days": 304.41403063536666,
+                  "power": 0.031063758198592653,
+                  "prominence": 0.030997644664758447
+                },
+                {
+                  "period_days": 413.4679305675243,
+                  "power": 0.026034433657535494,
+                  "prominence": 0.025097888459136658
+                },
+                {
+                  "period_days": 262.9452751898536,
+                  "power": 0.020049878832150717,
+                  "prominence": 0.01873185055624136
+                },
+                {
+                  "period_days": 353.2393773664283,
+                  "power": 0.016064761082100094,
+                  "prominence": 0.01533265201614098
+                },
+                {
+                  "period_days": 219.11534446764088,
+                  "power": 0.011795048614420827,
+                  "prominence": 0.010547168620973843
+                }
+              ],
+              "acf_profile_csv": "profiles\\he_24_29_mev_n__one_point_three_year_430_520__p11__raw_log10__acf.csv",
+              "lomb_scargle_profile_csv": "profiles\\he_24_29_mev_n__one_point_three_year_430_520__p11__raw_log10__lomb_scargle.csv",
+              "windows": [
+                {
+                  "window_start": "1973-04-06",
+                  "window_stop": "1978-04-05",
+                  "period_days": 463.9579878385848,
+                  "power": 0.04658908539598523,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.0427472642198208
+                },
+                {
+                  "window_start": "1974-04-06",
+                  "window_stop": "1979-04-05",
+                  "period_days": 519.2081657902877,
+                  "power": 0.034135411594604946,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1975-04-06",
+                  "window_stop": "1980-04-05",
+                  "period_days": 519.2081657902877,
+                  "power": 0.017944341161647195,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                }
+              ]
+            },
+            "linear_detrended_log10": {
+              "acf_band_morphology": {
+                "lag_calendar_days": 514.5,
+                "dcf": 0.10768943408355384,
+                "pairs": 15835,
+                "at_band_edge": false,
+                "is_local_peak": true,
+                "prominence": 0.08530796780616255
+              },
+              "lomb_scargle_band_morphology": {
+                "period_days": 510.1929211605651,
+                "power": 0.051897029833131526,
+                "at_band_edge": false,
+                "is_local_peak": true,
+                "prominence": 0.05180053324104245
+              },
+              "top_spectral_peaks_scan": [
+                {
+                  "period_days": 510.1929211605651,
+                  "power": 0.051897029833131526,
+                  "prominence": 0.05180053324104245
+                },
+                {
+                  "period_days": 304.41403063536666,
+                  "power": 0.030408705164574678,
+                  "prominence": 0.03022726827577233
+                },
+                {
+                  "period_days": 413.4679305675243,
+                  "power": 0.025859502123124004,
+                  "prominence": 0.02532398550297833
+                },
+                {
+                  "period_days": 262.53419838974435,
+                  "power": 0.019486393329688323,
+                  "prominence": 0.018113461680268363
+                },
+                {
+                  "period_days": 353.4252341365885,
+                  "power": 0.0158227357810762,
+                  "prominence": 0.01457428081436975
+                },
+                {
+                  "period_days": 219.18684330744628,
+                  "power": 0.011518650345628134,
+                  "prominence": 0.010177346071221153
+                }
+              ],
+              "acf_profile_csv": "profiles\\he_24_29_mev_n__one_point_three_year_430_520__p11__linear_detrended_log10__acf.csv",
+              "lomb_scargle_profile_csv": "profiles\\he_24_29_mev_n__one_point_three_year_430_520__p11__linear_detrended_log10__lomb_scargle.csv",
+              "windows": [
+                {
+                  "window_start": "1973-04-06",
+                  "window_stop": "1978-04-05",
+                  "period_days": 519.2081657902877,
+                  "power": 0.03295530998218978,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1974-04-06",
+                  "window_stop": "1979-04-05",
+                  "period_days": 519.2081657902877,
+                  "power": 0.034482298522878825,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1975-04-06",
+                  "window_stop": "1980-04-05",
+                  "period_days": 519.2081657902877,
+                  "power": 0.016098673292053396,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                }
+              ]
+            }
+          }
+        }
+      },
+      "common_window_period_concordance": [
+        {
+          "window_start": "1973-04-06",
+          "window_stop": "1978-04-05",
+          "variants": {
+            "raw_log10": {
+              "p10_period_days": 477.8252206091659,
+              "p11_period_days": 463.9579878385848,
+              "absolute_difference_days": 13.867232770581097,
+              "relative_difference": 0.029448885149347914,
+              "within_10_percent": true
+            },
+            "linear_detrended_log10": {
+              "p10_period_days": 519.2081657902877,
+              "p11_period_days": 519.2081657902877,
+              "absolute_difference_days": 0.0,
+              "relative_difference": 0.0,
+              "within_10_percent": true
+            }
+          }
+        },
+        {
+          "window_start": "1974-04-06",
+          "window_stop": "1979-04-05",
+          "variants": {
+            "raw_log10": {
+              "p10_period_days": 496.92125518058026,
+              "p11_period_days": 519.2081657902877,
+              "absolute_difference_days": 22.286910609707434,
+              "relative_difference": 0.04386628346694902,
+              "within_10_percent": true
+            },
+            "linear_detrended_log10": {
+              "p10_period_days": 488.24898196625946,
+              "p11_period_days": 519.2081657902877,
+              "absolute_difference_days": 30.95918382402823,
+              "relative_difference": 0.061460050966871585,
+              "within_10_percent": true
+            }
+          }
+        },
+        {
+          "window_start": "1975-04-06",
+          "window_stop": "1980-04-05",
+          "variants": {
+            "raw_log10": {
+              "p10_period_days": 458.2582582582582,
+              "p11_period_days": 519.2081657902877,
+              "absolute_difference_days": 60.9499075320295,
+              "relative_difference": 0.12470997679814406,
+              "within_10_percent": false
+            },
+            "linear_detrended_log10": {
+              "p10_period_days": 508.2046624280956,
+              "p11_period_days": 519.2081657902877,
+              "absolute_difference_days": 11.003503362192077,
+              "relative_difference": 0.021419828641371045,
+              "within_10_percent": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "channel": "p_29_67_mev",
+      "label": "Protons 29\u201367 MeV",
+      "band": "one_point_three_year_430_520",
+      "p11_quality_limited_after_1980_239": true,
+      "spacecraft": {
+        "p10": {
+          "calendar": {
+            "start": "1972-03-03",
+            "stop": "1992-08-31"
+          },
+          "variants": {
+            "raw_log10": {
+              "acf_band_morphology": {
+                "lag_calendar_days": 494.5,
+                "dcf": 0.4103502183231792,
+                "pairs": 60315,
+                "at_band_edge": false,
+                "is_local_peak": true,
+                "prominence": 0.021353794351753608
+              },
+              "lomb_scargle_band_morphology": {
+                "period_days": 492.9693233524145,
+                "power": 0.004215618227365389,
+                "at_band_edge": false,
+                "is_local_peak": true,
+                "prominence": 0.004089728946258626
+              },
+              "top_spectral_peaks_scan": [
+                {
+                  "period_days": 263.87492143306093,
+                  "power": 0.014354122739734099,
+                  "prominence": 0.014181996431498447
+                },
+                {
+                  "period_days": 625.0884049879024,
+                  "power": 0.006388994714474947,
+                  "prominence": 0.0062767192728420875
+                },
+                {
+                  "period_days": 242.62081918659248,
+                  "power": 0.005519668686438438,
+                  "prominence": 0.00533835693501689
+                },
+                {
+                  "period_days": 368.7527448397013,
+                  "power": 0.0057341164184498096,
+                  "prominence": 0.0053242941439521725
+                },
+                {
+                  "period_days": 292.9948530053215,
+                  "power": 0.005268099103151558,
+                  "prominence": 0.00465800380627185
+                },
+                {
+                  "period_days": 492.9693233524145,
+                  "power": 0.004215618227365389,
+                  "prominence": 0.004089728946258626
+                }
+              ],
+              "acf_profile_csv": "profiles\\p_29_67_mev__one_point_three_year_430_520__p10__raw_log10__acf.csv",
+              "lomb_scargle_profile_csv": "profiles\\p_29_67_mev__one_point_three_year_430_520__p10__raw_log10__lomb_scargle.csv",
+              "windows": [
+                {
+                  "window_start": "1972-03-03",
+                  "window_stop": "1977-03-02",
+                  "period_days": 519.2081657902877,
+                  "power": 0.016831487598013155,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1973-03-03",
+                  "window_stop": "1978-03-02",
+                  "period_days": 461.40736668499176,
+                  "power": 0.01832485703591167,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.0070768174533448365
+                },
+                {
+                  "window_start": "1974-03-03",
+                  "window_stop": "1979-03-02",
+                  "period_days": 430.0794260825006,
+                  "power": 0.03817921712103131,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1975-03-03",
+                  "window_stop": "1980-03-02",
+                  "period_days": 432.2946175637394,
+                  "power": 0.07140686923667344,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.06818051126536336
+                },
+                {
+                  "window_start": "1976-03-03",
+                  "window_stop": "1981-03-02",
+                  "period_days": 519.2081657902877,
+                  "power": 0.014605842069591174,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1977-03-03",
+                  "window_stop": "1982-03-02",
+                  "period_days": 465.8895364973632,
+                  "power": 0.010552896372396035,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.004600593219945557
+                },
+                {
+                  "window_start": "1978-03-03",
+                  "window_stop": "1983-03-02",
+                  "period_days": 471.78189994378863,
+                  "power": 0.03871583186424714,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.024171867321127763
+                },
+                {
+                  "window_start": "1979-03-03",
+                  "window_stop": "1984-03-02",
+                  "period_days": 519.2081657902877,
+                  "power": 0.014787552270828008,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1980-03-03",
+                  "window_stop": "1985-03-02",
+                  "period_days": 430.0794260825006,
+                  "power": 0.027373585722269656,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1981-03-03",
+                  "window_stop": "1986-03-02",
+                  "period_days": 519.2081657902877,
+                  "power": 0.010670452486121673,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1982-03-03",
+                  "window_stop": "1987-03-02",
+                  "period_days": 491.1059098888239,
+                  "power": 0.016139685841570894,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.011554841887516314
+                },
+                {
+                  "window_start": "1983-03-03",
+                  "window_stop": "1988-03-02",
+                  "period_days": 452.69687162891046,
+                  "power": 0.04365917253433065,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.03847620358063913
+                },
+                {
+                  "window_start": "1984-03-03",
+                  "window_stop": "1989-03-02",
+                  "period_days": 475.1202943673931,
+                  "power": 0.02275569057228819,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.021632144783358804
+                },
+                {
+                  "window_start": "1985-03-03",
+                  "window_stop": "1990-03-02",
+                  "period_days": 519.2081657902877,
+                  "power": 0.049185950650133314,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1986-03-03",
+                  "window_stop": "1991-03-02",
+                  "period_days": 435.6605242668051,
+                  "power": 0.0279947856191997,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.02486133350094716
+                },
+                {
+                  "window_start": "1987-03-03",
+                  "window_stop": "1992-03-02",
+                  "period_days": 460.7740872906944,
+                  "power": 0.01714605898192731,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.013050222847385957
+                }
+              ]
+            },
+            "linear_detrended_log10": {
+              "acf_band_morphology": {
+                "lag_calendar_days": 434.5,
+                "dcf": 0.3763929006536759,
+                "pairs": 60604,
+                "at_band_edge": true,
+                "is_local_peak": false,
+                "prominence": 0.0
+              },
+              "lomb_scargle_band_morphology": {
+                "period_days": 491.52641592272795,
+                "power": 0.0034432541255764995,
+                "at_band_edge": false,
+                "is_local_peak": true,
+                "prominence": 0.0033545213268433433
+              },
+              "top_spectral_peaks_scan": [
+                {
+                  "period_days": 264.1862660269016,
+                  "power": 0.015251816196288192,
+                  "prominence": 0.015137285244691066
+                },
+                {
+                  "period_days": 242.5332177931831,
+                  "power": 0.006133987232639846,
+                  "prominence": 0.005809301660689798
+                },
+                {
+                  "period_days": 291.9760062592367,
+                  "power": 0.00548337671128715,
+                  "prominence": 0.004902008046624538
+                },
+                {
+                  "period_days": 623.3481811432814,
+                  "power": 0.004906410185634201,
+                  "prominence": 0.0047810086781538965
+                },
+                {
+                  "period_days": 368.14644305601223,
+                  "power": 0.004810732239594326,
+                  "prominence": 0.0043586746884199
+                },
+                {
+                  "period_days": 491.52641592272795,
+                  "power": 0.0034432541255764995,
+                  "prominence": 0.0033545213268433433
+                }
+              ],
+              "acf_profile_csv": "profiles\\p_29_67_mev__one_point_three_year_430_520__p10__linear_detrended_log10__acf.csv",
+              "lomb_scargle_profile_csv": "profiles\\p_29_67_mev__one_point_three_year_430_520__p10__linear_detrended_log10__lomb_scargle.csv",
+              "windows": [
+                {
+                  "window_start": "1972-03-03",
+                  "window_stop": "1977-03-02",
+                  "period_days": 519.2081657902877,
+                  "power": 0.014513061302700383,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1973-03-03",
+                  "window_stop": "1978-03-02",
+                  "period_days": 519.2081657902877,
+                  "power": 0.0183910930663353,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1974-03-03",
+                  "window_stop": "1979-03-02",
+                  "period_days": 435.6605242668051,
+                  "power": 0.06835919694593909,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.06648349623546325
+                },
+                {
+                  "window_start": "1975-03-03",
+                  "window_stop": "1980-03-02",
+                  "period_days": 432.2946175637394,
+                  "power": 0.07098721715802409,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.06725568493818007
+                },
+                {
+                  "window_start": "1976-03-03",
+                  "window_stop": "1981-03-02",
+                  "period_days": 519.2081657902877,
+                  "power": 0.034841985424810804,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1977-03-03",
+                  "window_stop": "1982-03-02",
+                  "period_days": 469.14477361654554,
+                  "power": 0.049000451913766715,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.019588775639735986
+                },
+                {
+                  "window_start": "1978-03-03",
+                  "window_stop": "1983-03-02",
+                  "period_days": 519.2081657902877,
+                  "power": 0.034168390233067905,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1979-03-03",
+                  "window_stop": "1984-03-02",
+                  "period_days": 519.2081657902877,
+                  "power": 0.03358686884362578,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1980-03-03",
+                  "window_stop": "1985-03-02",
+                  "period_days": 430.0794260825006,
+                  "power": 0.02628939978158724,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1981-03-03",
+                  "window_stop": "1986-03-02",
+                  "period_days": 519.2081657902877,
+                  "power": 0.014799201683914751,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1982-03-03",
+                  "window_stop": "1987-03-02",
+                  "period_days": 519.2081657902877,
+                  "power": 0.026146348881651307,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1983-03-03",
+                  "window_stop": "1988-03-02",
+                  "period_days": 519.2081657902877,
+                  "power": 0.03217835973706063,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1984-03-03",
+                  "window_stop": "1989-03-02",
+                  "period_days": 519.2081657902877,
+                  "power": 0.02302404639766896,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1985-03-03",
+                  "window_stop": "1990-03-02",
+                  "period_days": 519.2081657902877,
+                  "power": 0.058807277337140806,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1986-03-03",
+                  "window_stop": "1991-03-02",
+                  "period_days": 519.2081657902877,
+                  "power": 0.02000378313961088,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1987-03-03",
+                  "window_stop": "1992-03-02",
+                  "period_days": 470.4596412556054,
+                  "power": 0.030248088098032633,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.008923317890184922
+                }
+              ]
+            }
+          }
+        },
+        "p11": {
+          "calendar": {
+            "start": "1973-04-06",
+            "stop": "1980-08-25"
+          },
+          "variants": {
+            "raw_log10": {
+              "acf_band_morphology": {
+                "lag_calendar_days": 514.5,
+                "dcf": 0.2186199940864279,
+                "pairs": 20728,
+                "at_band_edge": false,
+                "is_local_peak": true,
+                "prominence": 0.29004876895435
+              },
+              "lomb_scargle_band_morphology": {
+                "period_days": 457.6996456800218,
+                "power": 0.05722672550147885,
+                "at_band_edge": false,
+                "is_local_peak": true,
+                "prominence": 0.037855428490925935
+              },
+              "top_spectral_peaks_scan": [
+                {
+                  "period_days": 590.4711673699015,
+                  "power": 0.06272467675986731,
+                  "prominence": 0.05573470898167574
+                },
+                {
+                  "period_days": 253.80488173505628,
+                  "power": 0.04398833713726936,
+                  "prominence": 0.04358635454656211
+                },
+                {
+                  "period_days": 457.6996456800218,
+                  "power": 0.05722672550147885,
+                  "prominence": 0.037855428490925935
+                },
+                {
+                  "period_days": 301.9509125235997,
+                  "power": 0.017812142227205834,
+                  "prominence": 0.017276680018681392
+                },
+                {
+                  "period_days": 221.13510666315509,
+                  "power": 0.023432497536320113,
+                  "prominence": 0.014066218304323468
+                },
+                {
+                  "period_days": 367.94478527607356,
+                  "power": 0.017506531084055522,
+                  "prominence": 0.009239948748440785
+                }
+              ],
+              "acf_profile_csv": "profiles\\p_29_67_mev__one_point_three_year_430_520__p11__raw_log10__acf.csv",
+              "lomb_scargle_profile_csv": "profiles\\p_29_67_mev__one_point_three_year_430_520__p11__raw_log10__lomb_scargle.csv",
+              "windows": [
+                {
+                  "window_start": "1973-04-06",
+                  "window_stop": "1978-04-05",
+                  "period_days": 519.2081657902877,
+                  "power": 0.02403294628957311,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1974-04-06",
+                  "window_stop": "1979-04-05",
+                  "period_days": 430.0794260825006,
+                  "power": 0.029163369036838412,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1975-04-06",
+                  "window_stop": "1980-04-05",
+                  "period_days": 430.0794260825006,
+                  "power": 0.05659538278779618,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                }
+              ]
+            },
+            "linear_detrended_log10": {
+              "acf_band_morphology": {
+                "lag_calendar_days": 514.5,
+                "dcf": 0.22083984816202715,
+                "pairs": 20728,
+                "at_band_edge": false,
+                "is_local_peak": true,
+                "prominence": 0.2847993791714572
+              },
+              "lomb_scargle_band_morphology": {
+                "period_days": 458.95053293249515,
+                "power": 0.0537647227575351,
+                "at_band_edge": false,
+                "is_local_peak": true,
+                "prominence": 0.03518940988069415
+              },
+              "top_spectral_peaks_scan": [
+                {
+                  "period_days": 594.1270122059083,
+                  "power": 0.06186834948348935,
+                  "prominence": 0.055958448757813625
+                },
+                {
+                  "period_days": 253.99682371625195,
+                  "power": 0.04375561005025794,
+                  "prominence": 0.04351552904919395
+                },
+                {
+                  "period_days": 458.95053293249515,
+                  "power": 0.0537647227575351,
+                  "prominence": 0.03518940988069415
+                },
+                {
+                  "period_days": 301.8152408339324,
+                  "power": 0.018997195802616215,
+                  "prominence": 0.01835010269651296
+                },
+                {
+                  "period_days": 220.91692429125828,
+                  "power": 0.02317058946126157,
+                  "prominence": 0.013904091150582016
+                },
+                {
+                  "period_days": 365.7410432320592,
+                  "power": 0.01682686788911559,
+                  "prominence": 0.008463381649927338
+                }
+              ],
+              "acf_profile_csv": "profiles\\p_29_67_mev__one_point_three_year_430_520__p11__linear_detrended_log10__acf.csv",
+              "lomb_scargle_profile_csv": "profiles\\p_29_67_mev__one_point_three_year_430_520__p11__linear_detrended_log10__lomb_scargle.csv",
+              "windows": [
+                {
+                  "window_start": "1973-04-06",
+                  "window_stop": "1978-04-05",
+                  "period_days": 519.2081657902877,
+                  "power": 0.027183172130605126,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1974-04-06",
+                  "window_stop": "1979-04-05",
+                  "period_days": 432.2946175637394,
+                  "power": 0.03453047988346997,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.03273918103906917
+                },
+                {
+                  "window_start": "1975-04-06",
+                  "window_stop": "1980-04-05",
+                  "period_days": 430.0794260825006,
+                  "power": 0.05784775765938042,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                }
+              ]
+            }
+          }
+        }
+      },
+      "common_window_period_concordance": [
+        {
+          "window_start": "1973-04-06",
+          "window_stop": "1978-04-05",
+          "variants": {
+            "raw_log10": {
+              "p10_period_days": 465.2439024390244,
+              "p11_period_days": 519.2081657902877,
+              "absolute_difference_days": 53.9642633512633,
+              "relative_difference": 0.10963309457681632,
+              "within_10_percent": false
+            },
+            "linear_detrended_log10": {
+              "p10_period_days": 519.2081657902877,
+              "p11_period_days": 519.2081657902877,
+              "absolute_difference_days": 0.0,
+              "relative_difference": 0.0,
+              "within_10_percent": true
+            }
+          }
+        },
+        {
+          "window_start": "1974-04-06",
+          "window_stop": "1979-04-05",
+          "variants": {
+            "raw_log10": {
+              "p10_period_days": 430.0794260825006,
+              "p11_period_days": 430.0794260825006,
+              "absolute_difference_days": 0.0,
+              "relative_difference": 0.0,
+              "within_10_percent": true
+            },
+            "linear_detrended_log10": {
+              "p10_period_days": 439.07925712791,
+              "p11_period_days": 432.2946175637394,
+              "absolute_difference_days": 6.784639564170618,
+              "relative_difference": 0.01557228133921614,
+              "within_10_percent": true
+            }
+          }
+        },
+        {
+          "window_start": "1975-04-06",
+          "window_stop": "1980-04-05",
+          "variants": {
+            "raw_log10": {
+              "p10_period_days": 431.18417672745954,
+              "p11_period_days": 430.0794260825006,
+              "absolute_difference_days": 1.1047506449589264,
+              "relative_difference": 0.0025654181631606515,
+              "within_10_percent": true
+            },
+            "linear_detrended_log10": {
+              "p10_period_days": 430.0794260825006,
+              "p11_period_days": 430.0794260825006,
+              "absolute_difference_days": 0.0,
+              "relative_difference": 0.0,
+              "within_10_percent": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "channel": "ions_gt67_mev_n",
+      "label": "Ions >67 MeV/n",
+      "band": "annual_330_400",
+      "p11_quality_limited_after_1980_239": true,
+      "spacecraft": {
+        "p10": {
+          "calendar": {
+            "start": "1972-03-03",
+            "stop": "1992-08-31"
+          },
+          "variants": {
+            "raw_log10": {
+              "acf_band_morphology": {
+                "lag_calendar_days": 334.5,
+                "dcf": 0.2995415327258796,
+                "pairs": 62476,
+                "at_band_edge": true,
+                "is_local_peak": false,
+                "prominence": 0.0
+              },
+              "lomb_scargle_band_morphology": {
+                "period_days": 337.4459961820557,
+                "power": 0.003320034509204782,
+                "at_band_edge": false,
+                "is_local_peak": true,
+                "prominence": 0.003305706877041247
+              },
+              "top_spectral_peaks_scan": [
+                {
+                  "period_days": 628.5981658244432,
+                  "power": 0.009940057814744701,
+                  "prominence": 0.00927606261907492
+                },
+                {
+                  "period_days": 498.45651528643515,
+                  "power": 0.005200336704589465,
+                  "prominence": 0.005194527999630367
+                },
+                {
+                  "period_days": 455.83604777415854,
+                  "power": 0.0038255212150223577,
+                  "prominence": 0.0038252303361525864
+                },
+                {
+                  "period_days": 337.4459961820557,
+                  "power": 0.003320034509204782,
+                  "prominence": 0.003305706877041247
+                },
+                {
+                  "period_days": 422.8377187460657,
+                  "power": 0.0030429254646164093,
+                  "prominence": 0.0030042313855325516
+                },
+                {
+                  "period_days": 309.60545722713863,
+                  "power": 0.002318373119605038,
+                  "prominence": 0.002035422017398478
+                }
+              ],
+              "acf_profile_csv": "profiles\\ions_gt67_mev_n__annual_330_400__p10__raw_log10__acf.csv",
+              "lomb_scargle_profile_csv": "profiles\\ions_gt67_mev_n__annual_330_400__p10__raw_log10__lomb_scargle.csv",
+              "windows": [
+                {
+                  "window_start": "1972-03-03",
+                  "window_stop": "1977-03-02",
+                  "period_days": 341.3176087840585,
+                  "power": 0.014120523884443651,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.01000503656623453
+                },
+                {
+                  "window_start": "1973-03-03",
+                  "window_stop": "1978-03-02",
+                  "period_days": 330.23804839661614,
+                  "power": 0.010849377385977008,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1974-03-03",
+                  "window_stop": "1979-03-02",
+                  "period_days": 399.8570747975226,
+                  "power": 0.0033275015496559697,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1975-03-03",
+                  "window_stop": "1980-03-02",
+                  "period_days": 399.8570747975226,
+                  "power": 0.02078698603887737,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1976-03-03",
+                  "window_stop": "1981-03-02",
+                  "period_days": 399.8570747975226,
+                  "power": 0.03324888644827917,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1977-03-03",
+                  "window_stop": "1982-03-02",
+                  "period_days": 369.08531222515387,
+                  "power": 0.009495190005418243,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.00895689210458277
+                },
+                {
+                  "window_start": "1978-03-03",
+                  "window_stop": "1983-03-02",
+                  "period_days": 367.87201402586015,
+                  "power": 0.025256329775237313,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.023743674515388443
+                },
+                {
+                  "window_start": "1979-03-03",
+                  "window_stop": "1984-03-02",
+                  "period_days": 399.8570747975226,
+                  "power": 0.015227131942069832,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1980-03-03",
+                  "window_stop": "1985-03-02",
+                  "period_days": 330.23804839661614,
+                  "power": 0.012757142664986152,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1981-03-03",
+                  "window_stop": "1986-03-02",
+                  "period_days": 359.982843662878,
+                  "power": 0.020316222797800137,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.01372637660509654
+                },
+                {
+                  "window_start": "1982-03-03",
+                  "window_stop": "1987-03-02",
+                  "period_days": 363.49068860978775,
+                  "power": 0.01098050776131277,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.009366212764446654
+                },
+                {
+                  "window_start": "1983-03-03",
+                  "window_stop": "1988-03-02",
+                  "period_days": 362.31383552773576,
+                  "power": 0.02691667087990051,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.02595650509893331
+                },
+                {
+                  "window_start": "1984-03-03",
+                  "window_stop": "1989-03-02",
+                  "period_days": 360.36925719192783,
+                  "power": 0.018026992001421563,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.017838384165698863
+                },
+                {
+                  "window_start": "1985-03-03",
+                  "window_stop": "1990-03-02",
+                  "period_days": 399.8570747975226,
+                  "power": 0.023690142550908448,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1986-03-03",
+                  "window_stop": "1991-03-02",
+                  "period_days": 399.8570747975226,
+                  "power": 0.013100966214446362,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1987-03-03",
+                  "window_stop": "1992-03-02",
+                  "period_days": 370.71554770318016,
+                  "power": 0.013501244258267315,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.0059424579012184705
+                }
+              ]
+            },
+            "linear_detrended_log10": {
+              "acf_band_morphology": {
+                "lag_calendar_days": 334.5,
+                "dcf": 0.2986175877501252,
+                "pairs": 62476,
+                "at_band_edge": true,
+                "is_local_peak": false,
+                "prominence": 0.0
+              },
+              "lomb_scargle_band_morphology": {
+                "period_days": 337.4459961820557,
+                "power": 0.0032483801178480568,
+                "at_band_edge": false,
+                "is_local_peak": true,
+                "prominence": 0.0032366622411998834
+              },
+              "top_spectral_peaks_scan": [
+                {
+                  "period_days": 628.5981658244432,
+                  "power": 0.009881909342719208,
+                  "prominence": 0.009166769026037355
+                },
+                {
+                  "period_days": 498.45651528643515,
+                  "power": 0.005333990701966939,
+                  "prominence": 0.005327223475733628
+                },
+                {
+                  "period_days": 456.1455928290099,
+                  "power": 0.0038649721339287764,
+                  "prominence": 0.0038636508397411743
+                },
+                {
+                  "period_days": 337.4459961820557,
+                  "power": 0.0032483801178480568,
+                  "prominence": 0.0032366622411998834
+                },
+                {
+                  "period_days": 422.8377187460657,
+                  "power": 0.0030479541007165213,
+                  "prominence": 0.002995505809652231
+                },
+                {
+                  "period_days": 309.7482246610717,
+                  "power": 0.0023272151716350986,
+                  "prominence": 0.0020407331865949733
+                }
+              ],
+              "acf_profile_csv": "profiles\\ions_gt67_mev_n__annual_330_400__p10__linear_detrended_log10__acf.csv",
+              "lomb_scargle_profile_csv": "profiles\\ions_gt67_mev_n__annual_330_400__p10__linear_detrended_log10__lomb_scargle.csv",
+              "windows": [
+                {
+                  "window_start": "1972-03-03",
+                  "window_stop": "1977-03-02",
+                  "period_days": 330.23804839661614,
+                  "power": 0.014685234517581794,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1973-03-03",
+                  "window_stop": "1978-03-02",
+                  "period_days": 330.23804839661614,
+                  "power": 0.011568768497100854,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1974-03-03",
+                  "window_stop": "1979-03-02",
+                  "period_days": 364.27951388888886,
+                  "power": 0.011546565109658007,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.006507496405095083
+                },
+                {
+                  "window_start": "1975-03-03",
+                  "window_stop": "1980-03-02",
+                  "period_days": 399.8570747975226,
+                  "power": 0.019265053125856798,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1976-03-03",
+                  "window_stop": "1981-03-02",
+                  "period_days": 399.8570747975226,
+                  "power": 0.03700737360003274,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1977-03-03",
+                  "window_stop": "1982-03-02",
+                  "period_days": 361.14457831325296,
+                  "power": 0.008649817587834145,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.0059510063130773705
+                },
+                {
+                  "window_start": "1978-03-03",
+                  "window_stop": "1983-03-02",
+                  "period_days": 374.43676109747935,
+                  "power": 0.014605035214632347,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.011644005543093408
+                },
+                {
+                  "window_start": "1979-03-03",
+                  "window_stop": "1984-03-02",
+                  "period_days": 399.8570747975226,
+                  "power": 0.019287412711070626,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1980-03-03",
+                  "window_stop": "1985-03-02",
+                  "period_days": 331.21546961325964,
+                  "power": 0.013479841046648434,
+                  "at_band_edge": true,
+                  "is_local_peak": true,
+                  "prominence": 0.010115983317427107
+                },
+                {
+                  "window_start": "1981-03-03",
+                  "window_stop": "1986-03-02",
+                  "period_days": 330.23804839661614,
+                  "power": 0.012062924140222626,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1982-03-03",
+                  "window_stop": "1987-03-02",
+                  "period_days": 399.8570747975226,
+                  "power": 0.013514345172504513,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1983-03-03",
+                  "window_stop": "1988-03-02",
+                  "period_days": 338.9057137088633,
+                  "power": 0.01419987001565573,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.013952172071824642
+                },
+                {
+                  "window_start": "1984-03-03",
+                  "window_stop": "1989-03-02",
+                  "period_days": 337.54273074602855,
+                  "power": 0.010779514497604437,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.010668713258947665
+                },
+                {
+                  "window_start": "1985-03-03",
+                  "window_stop": "1990-03-02",
+                  "period_days": 399.8570747975226,
+                  "power": 0.023703764302857245,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1986-03-03",
+                  "window_stop": "1991-03-02",
+                  "period_days": 399.8570747975226,
+                  "power": 0.014529385507388614,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1987-03-03",
+                  "window_stop": "1992-03-02",
+                  "period_days": 399.8570747975226,
+                  "power": 0.006823768092295402,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                }
+              ]
+            }
+          }
+        },
+        "p11": {
+          "calendar": {
+            "start": "1973-04-06",
+            "stop": "1980-08-25"
+          },
+          "variants": {
+            "raw_log10": {
+              "acf_band_morphology": {
+                "lag_calendar_days": 344.5,
+                "dcf": 0.08133257294787816,
+                "pairs": 21689,
+                "at_band_edge": false,
+                "is_local_peak": true,
+                "prominence": 0.015046769467342583
+              },
+              "lomb_scargle_band_morphology": {
+                "period_days": 352.8682496322757,
+                "power": 0.00732588286550167,
+                "at_band_edge": false,
+                "is_local_peak": true,
+                "prominence": 0.007203735579495853
+              },
+              "top_spectral_peaks_scan": [
+                {
+                  "period_days": 243.2358053302433,
+                  "power": 0.008772778447417714,
+                  "prominence": 0.008707210469300446
+                },
+                {
+                  "period_days": 352.8682496322757,
+                  "power": 0.00732588286550167,
+                  "prominence": 0.007203735579495853
+                },
+                {
+                  "period_days": 422.8377187460657,
+                  "power": 0.007747188991536975,
+                  "prominence": 0.006887807092804253
+                },
+                {
+                  "period_days": 520.0681325487767,
+                  "power": 0.006704160090899356,
+                  "prominence": 0.005687446161546783
+                },
+                {
+                  "period_days": 284.43428184281845,
+                  "power": 0.006459463125294236,
+                  "prominence": 0.0036345189049559186
+                },
+                {
+                  "period_days": 211.92579505300353,
+                  "power": 0.003962299032914257,
+                  "prominence": 0.002254592924037956
+                }
+              ],
+              "acf_profile_csv": "profiles\\ions_gt67_mev_n__annual_330_400__p11__raw_log10__acf.csv",
+              "lomb_scargle_profile_csv": "profiles\\ions_gt67_mev_n__annual_330_400__p11__raw_log10__lomb_scargle.csv",
+              "windows": [
+                {
+                  "window_start": "1973-04-06",
+                  "window_stop": "1978-04-05",
+                  "period_days": 360.36925719192783,
+                  "power": 0.01215098972446412,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.01158316103543722
+                },
+                {
+                  "window_start": "1974-04-06",
+                  "window_stop": "1979-04-05",
+                  "period_days": 338.9057137088633,
+                  "power": 0.008160015134604228,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.0066310489920434834
+                },
+                {
+                  "window_start": "1975-04-06",
+                  "window_stop": "1980-04-05",
+                  "period_days": 330.23804839661614,
+                  "power": 0.010340844198909887,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                }
+              ]
+            },
+            "linear_detrended_log10": {
+              "acf_band_morphology": {
+                "lag_calendar_days": 344.5,
+                "dcf": 0.05179769741183016,
+                "pairs": 21689,
+                "at_band_edge": false,
+                "is_local_peak": true,
+                "prominence": 0.016387776542969218
+              },
+              "lomb_scargle_band_morphology": {
+                "period_days": 349.38104649953186,
+                "power": 0.008975318737384283,
+                "at_band_edge": false,
+                "is_local_peak": true,
+                "prominence": 0.008964064878351954
+              },
+              "top_spectral_peaks_scan": [
+                {
+                  "period_days": 349.38104649953186,
+                  "power": 0.008975318737384283,
+                  "prominence": 0.008964064878351954
+                },
+                {
+                  "period_days": 289.2103676913803,
+                  "power": 0.008056365006807554,
+                  "prominence": 0.007901824518579001
+                },
+                {
+                  "period_days": 419.92998249562385,
+                  "power": 0.007777986737768774,
+                  "prominence": 0.007577729862186101
+                },
+                {
+                  "period_days": 511.7476763675148,
+                  "power": 0.005584132799691537,
+                  "prominence": 0.005223821901158296
+                },
+                {
+                  "period_days": 238.57081971871006,
+                  "power": 0.007761838101523313,
+                  "prominence": 0.004796447124431582
+                },
+                {
+                  "period_days": 210.79520492060502,
+                  "power": 0.004423757350803112,
+                  "prominence": 0.00274186209645068
+                }
+              ],
+              "acf_profile_csv": "profiles\\ions_gt67_mev_n__annual_330_400__p11__linear_detrended_log10__acf.csv",
+              "lomb_scargle_profile_csv": "profiles\\ions_gt67_mev_n__annual_330_400__p11__linear_detrended_log10__lomb_scargle.csv",
+              "windows": [
+                {
+                  "window_start": "1973-04-06",
+                  "window_stop": "1978-04-05",
+                  "period_days": 348.4018264840182,
+                  "power": 0.00843367124280006,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.00746796167522706
+                },
+                {
+                  "window_start": "1974-04-06",
+                  "window_stop": "1979-04-05",
+                  "period_days": 340.9709526711355,
+                  "power": 0.009115363266368534,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.008047393926378902
+                },
+                {
+                  "window_start": "1975-04-06",
+                  "window_stop": "1980-04-05",
+                  "period_days": 330.23804839661614,
+                  "power": 0.010997431361037322,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                }
+              ]
+            }
+          }
+        }
+      },
+      "common_window_period_concordance": [
+        {
+          "window_start": "1973-04-06",
+          "window_stop": "1978-04-05",
+          "variants": {
+            "raw_log10": {
+              "p10_period_days": 330.23804839661614,
+              "p11_period_days": 360.36925719192783,
+              "absolute_difference_days": 30.131208795311693,
+              "relative_difference": 0.08726003490401396,
+              "within_10_percent": true
+            },
+            "linear_detrended_log10": {
+              "p10_period_days": 330.23804839661614,
+              "p11_period_days": 348.4018264840182,
+              "absolute_difference_days": 18.16377808740208,
+              "relative_difference": 0.0535299464700535,
+              "within_10_percent": true
+            }
+          }
+        },
+        {
+          "window_start": "1974-04-06",
+          "window_stop": "1979-04-05",
+          "variants": {
+            "raw_log10": {
+              "p10_period_days": 358.828559213339,
+              "p11_period_days": 338.9057137088633,
+              "absolute_difference_days": 19.92284550447573,
+              "relative_difference": 0.05710725781331122,
+              "within_10_percent": true
+            },
+            "linear_detrended_log10": {
+              "p10_period_days": 362.705272255834,
+              "p11_period_days": 340.9709526711355,
+              "absolute_difference_days": 21.73431958469854,
+              "relative_difference": 0.06177363626845349,
+              "within_10_percent": true
+            }
+          }
+        },
+        {
+          "window_start": "1975-04-06",
+          "window_stop": "1980-04-05",
+          "variants": {
+            "raw_log10": {
+              "p10_period_days": 399.8570747975226,
+              "p11_period_days": 330.23804839661614,
+              "absolute_difference_days": 69.61902640090648,
+              "relative_difference": 0.19071220773623537,
+              "within_10_percent": false
+            },
+            "linear_detrended_log10": {
+              "p10_period_days": 399.8570747975226,
+              "p11_period_days": 330.23804839661614,
+              "absolute_difference_days": 69.61902640090648,
+              "relative_difference": 0.19071220773623537,
+              "within_10_percent": false
+            }
+          }
+        }
+      ]
+    },
+    {
+      "channel": "ions_zgt5_gt67_mev_n",
+      "label": "Z>5 ions >67 MeV/n",
+      "band": "annual_330_400",
+      "p11_quality_limited_after_1980_239": true,
+      "spacecraft": {
+        "p10": {
+          "calendar": {
+            "start": "1972-03-03",
+            "stop": "1992-08-29"
+          },
+          "variants": {
+            "raw_log10": {
+              "acf_band_morphology": {
+                "lag_calendar_days": 344.5,
+                "dcf": 0.0982712076341046,
+                "pairs": 51025,
+                "at_band_edge": false,
+                "is_local_peak": true,
+                "prominence": 0.009459951010468301
+              },
+              "lomb_scargle_band_morphology": {
+                "period_days": 375.5563010175556,
+                "power": 0.004046450723979162,
+                "at_band_edge": false,
+                "is_local_peak": true,
+                "prominence": 0.003965564723938427
+              },
+              "top_spectral_peaks_scan": [
+                {
+                  "period_days": 629.7768610538159,
+                  "power": 0.0060791629813938325,
+                  "prominence": 0.005986955542102349
+                },
+                {
+                  "period_days": 375.5563010175556,
+                  "power": 0.004046450723979162,
+                  "prominence": 0.003965564723938427
+                },
+                {
+                  "period_days": 308.6097583386934,
+                  "power": 0.0033245936274201296,
+                  "prominence": 0.0032307936187105585
+                },
+                {
+                  "period_days": 454.6020573903627,
+                  "power": 0.0028228768108004053,
+                  "prominence": 0.0025519075674069343
+                },
+                {
+                  "period_days": 339.492570504397,
+                  "power": 0.00242081449430803,
+                  "prominence": 0.002185622577681495
+                },
+                {
+                  "period_days": 270.0273355844991,
+                  "power": 0.0021489145896798623,
+                  "prominence": 0.0021222745147590908
+                }
+              ],
+              "acf_profile_csv": "profiles\\ions_zgt5_gt67_mev_n__annual_330_400__p10__raw_log10__acf.csv",
+              "lomb_scargle_profile_csv": "profiles\\ions_zgt5_gt67_mev_n__annual_330_400__p10__raw_log10__lomb_scargle.csv",
+              "windows": [
+                {
+                  "window_start": "1972-03-03",
+                  "window_stop": "1977-03-02",
+                  "period_days": 330.23804839661614,
+                  "power": 0.014774707599018739,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1973-03-03",
+                  "window_stop": "1978-03-02",
+                  "period_days": 330.23804839661614,
+                  "power": 0.012358256763948961,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1974-03-03",
+                  "window_stop": "1979-03-02",
+                  "period_days": 330.23804839661614,
+                  "power": 0.006113585678537882,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1975-03-03",
+                  "window_stop": "1980-03-02",
+                  "period_days": 346.9615543613063,
+                  "power": 0.016324288502559056,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.010506805690119126
+                },
+                {
+                  "window_start": "1976-03-03",
+                  "window_stop": "1981-03-02",
+                  "period_days": 364.6752118183793,
+                  "power": 0.016934562900981134,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.0017666355817006225
+                },
+                {
+                  "window_start": "1977-03-03",
+                  "window_stop": "1982-03-02",
+                  "period_days": 369.08531222515387,
+                  "power": 0.012265845051963464,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.008662077772552804
+                },
+                {
+                  "window_start": "1978-03-03",
+                  "window_stop": "1983-03-02",
+                  "period_days": 378.2334384858044,
+                  "power": 0.015720601570399294,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.015564454346746878
+                },
+                {
+                  "window_start": "1979-03-03",
+                  "window_stop": "1984-03-02",
+                  "period_days": 349.8541058774489,
+                  "power": 0.009057588937751996,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.008445608118671554
+                },
+                {
+                  "window_start": "1980-03-03",
+                  "window_stop": "1985-03-02",
+                  "period_days": 340.2797486316643,
+                  "power": 0.006338126168862241,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.0062806886815115264
+                },
+                {
+                  "window_start": "1981-03-03",
+                  "window_stop": "1986-03-02",
+                  "period_days": 330.23804839661614,
+                  "power": 0.002692745828055245,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1982-03-03",
+                  "window_stop": "1987-03-02",
+                  "period_days": 399.8570747975226,
+                  "power": 0.001679510024756563,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1983-03-03",
+                  "window_stop": "1988-03-02",
+                  "period_days": 357.30097914005955,
+                  "power": 0.003257177118130527,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.003040264547349754
+                },
+                {
+                  "window_start": "1984-03-03",
+                  "window_stop": "1989-03-02",
+                  "period_days": 360.36925719192783,
+                  "power": 0.001965817467501896,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.0003981898907727561
+                },
+                {
+                  "window_start": "1985-03-03",
+                  "window_stop": "1990-03-02",
+                  "period_days": 334.84939158188706,
+                  "power": 0.006719974775931308,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.006480154917363977
+                },
+                {
+                  "window_start": "1986-03-03",
+                  "window_stop": "1991-03-02",
+                  "period_days": 345.1778737404894,
+                  "power": 0.0026652535132464885,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.0016554654250579917
+                },
+                {
+                  "window_start": "1987-03-03",
+                  "window_stop": "1992-03-02",
+                  "period_days": 364.6752118183793,
+                  "power": 0.007138862699103179,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.005547438019975507
+                }
+              ]
+            },
+            "linear_detrended_log10": {
+              "acf_band_morphology": {
+                "lag_calendar_days": 344.5,
+                "dcf": 0.09752622578494152,
+                "pairs": 51025,
+                "at_band_edge": false,
+                "is_local_peak": true,
+                "prominence": 0.009741275857785073
+              },
+              "lomb_scargle_band_morphology": {
+                "period_days": 375.7663906914298,
+                "power": 0.004083208005402525,
+                "at_band_edge": false,
+                "is_local_peak": true,
+                "prominence": 0.003950101721437193
+              },
+              "top_spectral_peaks_scan": [
+                {
+                  "period_days": 629.7768610538159,
+                  "power": 0.006051987879845156,
+                  "prominence": 0.00590330525972182
+                },
+                {
+                  "period_days": 375.7663906914298,
+                  "power": 0.004083208005402525,
+                  "prominence": 0.003950101721437193
+                },
+                {
+                  "period_days": 308.7516087516088,
+                  "power": 0.0033921061123973963,
+                  "prominence": 0.0032942601500647903
+                },
+                {
+                  "period_days": 455.52692255526927,
+                  "power": 0.0029131823004953056,
+                  "prominence": 0.0025762999811845323
+                },
+                {
+                  "period_days": 270.1359285771736,
+                  "power": 0.0022354468275302803,
+                  "prominence": 0.002206238333437545
+                },
+                {
+                  "period_days": 339.492570504397,
+                  "power": 0.0022530858531439203,
+                  "prominence": 0.002048183224660128
+                }
+              ],
+              "acf_profile_csv": "profiles\\ions_zgt5_gt67_mev_n__annual_330_400__p10__linear_detrended_log10__acf.csv",
+              "lomb_scargle_profile_csv": "profiles\\ions_zgt5_gt67_mev_n__annual_330_400__p10__linear_detrended_log10__lomb_scargle.csv",
+              "windows": [
+                {
+                  "window_start": "1972-03-03",
+                  "window_stop": "1977-03-02",
+                  "period_days": 330.23804839661614,
+                  "power": 0.0157518341383041,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1973-03-03",
+                  "window_stop": "1978-03-02",
+                  "period_days": 330.23804839661614,
+                  "power": 0.01256670613988496,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1974-03-03",
+                  "window_stop": "1979-03-02",
+                  "period_days": 341.6649704864645,
+                  "power": 0.007447673939040529,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.007264128579782747
+                },
+                {
+                  "window_start": "1975-03-03",
+                  "window_stop": "1980-03-02",
+                  "period_days": 344.4695259593679,
+                  "power": 0.015063197025605258,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.009692540594534168
+                },
+                {
+                  "window_start": "1976-03-03",
+                  "window_stop": "1981-03-02",
+                  "period_days": 399.8570747975226,
+                  "power": 0.011090197892220495,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1977-03-03",
+                  "window_stop": "1982-03-02",
+                  "period_days": 359.5972579263067,
+                  "power": 0.008972549517018683,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.0016138730595007724
+                },
+                {
+                  "window_start": "1978-03-03",
+                  "window_stop": "1983-03-02",
+                  "period_days": 382.10789893011605,
+                  "power": 0.013671603170022929,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.00932073730447094
+                },
+                {
+                  "window_start": "1979-03-03",
+                  "window_stop": "1984-03-02",
+                  "period_days": 344.4695259593679,
+                  "power": 0.010757610159571633,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.010621147197509851
+                },
+                {
+                  "window_start": "1980-03-03",
+                  "window_stop": "1985-03-02",
+                  "period_days": 343.4124386252046,
+                  "power": 0.006885674845673993,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.0067288985633331124
+                },
+                {
+                  "window_start": "1981-03-03",
+                  "window_stop": "1986-03-02",
+                  "period_days": 330.23804839661614,
+                  "power": 0.0014351865165931196,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1982-03-03",
+                  "window_stop": "1987-03-02",
+                  "period_days": 388.29516539440203,
+                  "power": 0.0040599425500857855,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.003738449940584929
+                },
+                {
+                  "window_start": "1983-03-03",
+                  "window_stop": "1988-03-02",
+                  "period_days": 399.8570747975226,
+                  "power": 0.0021512657664693523,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1984-03-03",
+                  "window_stop": "1989-03-02",
+                  "period_days": 373.6033830402848,
+                  "power": 0.002078687801234071,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.000481878364729532
+                },
+                {
+                  "window_start": "1985-03-03",
+                  "window_stop": "1990-03-02",
+                  "period_days": 336.1906669337072,
+                  "power": 0.006876037457870843,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.0063878948079406405
+                },
+                {
+                  "window_start": "1986-03-03",
+                  "window_stop": "1991-03-02",
+                  "period_days": 340.2797486316643,
+                  "power": 0.0023104393225676966,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.0005449702548368412
+                },
+                {
+                  "window_start": "1987-03-03",
+                  "window_stop": "1992-03-02",
+                  "period_days": 347.6801988400994,
+                  "power": 0.004718191550710859,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.0032646800624801164
+                }
+              ]
+            }
+          }
+        },
+        "p11": {
+          "calendar": {
+            "start": "1973-04-06",
+            "stop": "1980-08-25"
+          },
+          "variants": {
+            "raw_log10": {
+              "acf_band_morphology": {
+                "lag_calendar_days": 344.5,
+                "dcf": 0.06509797647658333,
+                "pairs": 20388,
+                "at_band_edge": false,
+                "is_local_peak": true,
+                "prominence": 0.014317342292378597
+              },
+              "lomb_scargle_band_morphology": {
+                "period_days": 356.23674162070427,
+                "power": 0.0045717050986922685,
+                "at_band_edge": false,
+                "is_local_peak": true,
+                "prominence": 0.00445822001899405
+              },
+              "top_spectral_peaks_scan": [
+                {
+                  "period_days": 509.4190808433187,
+                  "power": 0.011144909614720642,
+                  "prominence": 0.010981546255360113
+                },
+                {
+                  "period_days": 256.9111910043601,
+                  "power": 0.007159882538966156,
+                  "prominence": 0.007115989683094489
+                },
+                {
+                  "period_days": 214.0189893583126,
+                  "power": 0.005475874743043626,
+                  "prominence": 0.005114561617666291
+                },
+                {
+                  "period_days": 356.23674162070427,
+                  "power": 0.0045717050986922685,
+                  "prominence": 0.00445822001899405
+                },
+                {
+                  "period_days": 416.02873776786817,
+                  "power": 0.0036266207609962154,
+                  "prominence": 0.002547868355745073
+                },
+                {
+                  "period_days": 662.707182320442,
+                  "power": 0.00650187427932724,
+                  "prominence": 0.0018176126814905477
+                }
+              ],
+              "acf_profile_csv": "profiles\\ions_zgt5_gt67_mev_n__annual_330_400__p11__raw_log10__acf.csv",
+              "lomb_scargle_profile_csv": "profiles\\ions_zgt5_gt67_mev_n__annual_330_400__p11__raw_log10__lomb_scargle.csv",
+              "windows": [
+                {
+                  "window_start": "1973-04-06",
+                  "window_stop": "1978-04-05",
+                  "period_days": 361.14457831325296,
+                  "power": 0.014292311009803495,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.011046943703066171
+                },
+                {
+                  "window_start": "1974-04-06",
+                  "window_stop": "1979-04-05",
+                  "period_days": 330.23804839661614,
+                  "power": 0.0042591352794848665,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1975-04-06",
+                  "window_stop": "1980-04-05",
+                  "period_days": 330.23804839661614,
+                  "power": 0.0054308167018182465,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                }
+              ]
+            },
+            "linear_detrended_log10": {
+              "acf_band_morphology": {
+                "lag_calendar_days": 344.5,
+                "dcf": 0.0490157261196374,
+                "pairs": 20388,
+                "at_band_edge": false,
+                "is_local_peak": true,
+                "prominence": 0.014925567662551938
+              },
+              "lomb_scargle_band_morphology": {
+                "period_days": 364.94621319135064,
+                "power": 0.004942160010077045,
+                "at_band_edge": false,
+                "is_local_peak": true,
+                "prominence": 0.0032899540628099425
+              },
+              "top_spectral_peaks_scan": [
+                {
+                  "period_days": 502.9350104821803,
+                  "power": 0.009565303485693033,
+                  "prominence": 0.009525281857503525
+                },
+                {
+                  "period_days": 258.5925469664306,
+                  "power": 0.007946642195054254,
+                  "prominence": 0.007934868594975431
+                },
+                {
+                  "period_days": 214.70306207249246,
+                  "power": 0.004882159669854981,
+                  "prominence": 0.004842195113310083
+                },
+                {
+                  "period_days": 364.94621319135064,
+                  "power": 0.004942160010077045,
+                  "prominence": 0.0032899540628099425
+                },
+                {
+                  "period_days": 650.5132674801472,
+                  "power": 0.004265985827320021,
+                  "prominence": 0.0018805459081204022
+                },
+                {
+                  "period_days": 288.5891046571576,
+                  "power": 0.0020506072955017536,
+                  "prominence": 0.0008009048693511424
+                }
+              ],
+              "acf_profile_csv": "profiles\\ions_zgt5_gt67_mev_n__annual_330_400__p11__linear_detrended_log10__acf.csv",
+              "lomb_scargle_profile_csv": "profiles\\ions_zgt5_gt67_mev_n__annual_330_400__p11__linear_detrended_log10__lomb_scargle.csv",
+              "windows": [
+                {
+                  "window_start": "1973-04-06",
+                  "window_stop": "1978-04-05",
+                  "period_days": 356.1638022490982,
+                  "power": 0.009252293317129066,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.00637915956207199
+                },
+                {
+                  "window_start": "1974-04-06",
+                  "window_stop": "1979-04-05",
+                  "period_days": 330.23804839661614,
+                  "power": 0.00425796200636209,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1975-04-06",
+                  "window_stop": "1980-04-05",
+                  "period_days": 330.23804839661614,
+                  "power": 0.004990962511145992,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                }
+              ]
+            }
+          }
+        }
+      },
+      "common_window_period_concordance": [
+        {
+          "window_start": "1973-04-06",
+          "window_stop": "1978-04-05",
+          "variants": {
+            "raw_log10": {
+              "p10_period_days": 330.23804839661614,
+              "p11_period_days": 361.14457831325296,
+              "absolute_difference_days": 30.906529916636828,
+              "relative_difference": 0.0894049943479601,
+              "within_10_percent": true
+            },
+            "linear_detrended_log10": {
+              "p10_period_days": 330.23804839661614,
+              "p11_period_days": 356.1638022490982,
+              "absolute_difference_days": 25.925753852482046,
+              "relative_difference": 0.07554103715802363,
+              "within_10_percent": true
+            }
+          }
+        },
+        {
+          "window_start": "1974-04-06",
+          "window_stop": "1979-04-05",
+          "variants": {
+            "raw_log10": {
+              "p10_period_days": 330.23804839661614,
+              "p11_period_days": 330.23804839661614,
+              "absolute_difference_days": 0.0,
+              "relative_difference": 0.0,
+              "within_10_percent": true
+            },
+            "linear_detrended_log10": {
+              "p10_period_days": 339.5913412907141,
+              "p11_period_days": 330.23804839661614,
+              "absolute_difference_days": 9.35329289409799,
+              "relative_difference": 0.02792738878914828,
+              "within_10_percent": true
+            }
+          }
+        },
+        {
+          "window_start": "1975-04-06",
+          "window_stop": "1980-04-05",
+          "variants": {
+            "raw_log10": {
+              "p10_period_days": 350.95128580388877,
+              "p11_period_days": 330.23804839661614,
+              "absolute_difference_days": 20.71323740727263,
+              "relative_difference": 0.06081491992702219,
+              "within_10_percent": true
+            },
+            "linear_detrended_log10": {
+              "p10_period_days": 346.9615543613063,
+              "p11_period_days": 330.23804839661614,
+              "absolute_difference_days": 16.723505964690162,
+              "relative_difference": 0.04939018244128619,
+              "within_10_percent": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "channel": "ions_zgt5_gt67_mev_n",
+      "label": "Z>5 ions >67 MeV/n",
+      "band": "one_point_three_year_430_520",
+      "p11_quality_limited_after_1980_239": true,
+      "spacecraft": {
+        "p10": {
+          "calendar": {
+            "start": "1972-03-03",
+            "stop": "1992-08-29"
+          },
+          "variants": {
+            "raw_log10": {
+              "acf_band_morphology": {
+                "lag_calendar_days": 434.5,
+                "dcf": 0.08775421244133384,
+                "pairs": 50161,
+                "at_band_edge": true,
+                "is_local_peak": false,
+                "prominence": 0.0
+              },
+              "lomb_scargle_band_morphology": {
+                "period_days": 454.6020573903627,
+                "power": 0.0028228768108004053,
+                "at_band_edge": false,
+                "is_local_peak": true,
+                "prominence": 0.0025519075674069343
+              },
+              "top_spectral_peaks_scan": [
+                {
+                  "period_days": 629.7768610538159,
+                  "power": 0.0060791629813938325,
+                  "prominence": 0.005986955542102349
+                },
+                {
+                  "period_days": 375.5563010175556,
+                  "power": 0.004046450723979162,
+                  "prominence": 0.003965564723938427
+                },
+                {
+                  "period_days": 308.6097583386934,
+                  "power": 0.0033245936274201296,
+                  "prominence": 0.0032307936187105585
+                },
+                {
+                  "period_days": 454.6020573903627,
+                  "power": 0.0028228768108004053,
+                  "prominence": 0.0025519075674069343
+                },
+                {
+                  "period_days": 339.492570504397,
+                  "power": 0.00242081449430803,
+                  "prominence": 0.002185622577681495
+                },
+                {
+                  "period_days": 270.0273355844991,
+                  "power": 0.0021489145896798623,
+                  "prominence": 0.0021222745147590908
+                }
+              ],
+              "acf_profile_csv": "profiles\\ions_zgt5_gt67_mev_n__one_point_three_year_430_520__p10__raw_log10__acf.csv",
+              "lomb_scargle_profile_csv": "profiles\\ions_zgt5_gt67_mev_n__one_point_three_year_430_520__p10__raw_log10__lomb_scargle.csv",
+              "windows": [
+                {
+                  "window_start": "1972-03-03",
+                  "window_stop": "1977-03-02",
+                  "period_days": 519.2081657902877,
+                  "power": 0.00870639214229297,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1973-03-03",
+                  "window_stop": "1978-03-02",
+                  "period_days": 458.8846364133406,
+                  "power": 0.016076645476854962,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.008188408388248945
+                },
+                {
+                  "window_start": "1974-03-03",
+                  "window_stop": "1979-03-02",
+                  "period_days": 462.0423892100193,
+                  "power": 0.004245189355456375,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.0033119653060107498
+                },
+                {
+                  "window_start": "1975-03-03",
+                  "window_stop": "1980-03-02",
+                  "period_days": 491.82537357163784,
+                  "power": 0.020839857087279527,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.011471359284380962
+                },
+                {
+                  "window_start": "1976-03-03",
+                  "window_stop": "1981-03-02",
+                  "period_days": 453.92103839913466,
+                  "power": 0.021714535279725965,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.021388453360613822
+                },
+                {
+                  "window_start": "1977-03-03",
+                  "window_stop": "1982-03-02",
+                  "period_days": 519.2081657902877,
+                  "power": 0.008191215937954778,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1978-03-03",
+                  "window_stop": "1983-03-02",
+                  "period_days": 519.2081657902877,
+                  "power": 0.006638576095533476,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1979-03-03",
+                  "window_stop": "1984-03-02",
+                  "period_days": 430.0794260825006,
+                  "power": 0.005306059369022401,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1980-03-03",
+                  "window_stop": "1985-03-02",
+                  "period_days": 519.2081657902877,
+                  "power": 0.001931460561945495,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1981-03-03",
+                  "window_stop": "1986-03-02",
+                  "period_days": 449.66514867398877,
+                  "power": 0.003524905812625295,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.003489561597687557
+                },
+                {
+                  "window_start": "1982-03-03",
+                  "window_stop": "1987-03-02",
+                  "period_days": 519.2081657902877,
+                  "power": 0.004396975182705358,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1983-03-03",
+                  "window_stop": "1988-03-02",
+                  "period_days": 457.0106180234141,
+                  "power": 0.014450502970031722,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.012839727296551626
+                },
+                {
+                  "window_start": "1984-03-03",
+                  "window_stop": "1989-03-02",
+                  "period_days": 473.7792830934236,
+                  "power": 0.003641341338689111,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.0016649406222662808
+                },
+                {
+                  "window_start": "1985-03-03",
+                  "window_stop": "1990-03-02",
+                  "period_days": 449.063670411985,
+                  "power": 0.005063911770095144,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.00293310626915322
+                },
+                {
+                  "window_start": "1986-03-03",
+                  "window_stop": "1991-03-02",
+                  "period_days": 454.5356079068508,
+                  "power": 0.004453315103911506,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.00321109518117663
+                },
+                {
+                  "window_start": "1987-03-03",
+                  "window_stop": "1992-03-02",
+                  "period_days": 447.26885158539835,
+                  "power": 0.0054095108252582335,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.0006257613592910161
+                }
+              ]
+            },
+            "linear_detrended_log10": {
+              "acf_band_morphology": {
+                "lag_calendar_days": 434.5,
+                "dcf": 0.08679590387626554,
+                "pairs": 50161,
+                "at_band_edge": true,
+                "is_local_peak": false,
+                "prominence": 0.0
+              },
+              "lomb_scargle_band_morphology": {
+                "period_days": 455.52692255526927,
+                "power": 0.0029131823004953056,
+                "at_band_edge": false,
+                "is_local_peak": true,
+                "prominence": 0.0025762999811845323
+              },
+              "top_spectral_peaks_scan": [
+                {
+                  "period_days": 629.7768610538159,
+                  "power": 0.006051987879845156,
+                  "prominence": 0.00590330525972182
+                },
+                {
+                  "period_days": 375.7663906914298,
+                  "power": 0.004083208005402525,
+                  "prominence": 0.003950101721437193
+                },
+                {
+                  "period_days": 308.7516087516088,
+                  "power": 0.0033921061123973963,
+                  "prominence": 0.0032942601500647903
+                },
+                {
+                  "period_days": 455.52692255526927,
+                  "power": 0.0029131823004953056,
+                  "prominence": 0.0025762999811845323
+                },
+                {
+                  "period_days": 270.1359285771736,
+                  "power": 0.0022354468275302803,
+                  "prominence": 0.002206238333437545
+                },
+                {
+                  "period_days": 339.492570504397,
+                  "power": 0.0022530858531439203,
+                  "prominence": 0.002048183224660128
+                }
+              ],
+              "acf_profile_csv": "profiles\\ions_zgt5_gt67_mev_n__one_point_three_year_430_520__p10__linear_detrended_log10__acf.csv",
+              "lomb_scargle_profile_csv": "profiles\\ions_zgt5_gt67_mev_n__one_point_three_year_430_520__p10__linear_detrended_log10__lomb_scargle.csv",
+              "windows": [
+                {
+                  "window_start": "1972-03-03",
+                  "window_stop": "1977-03-02",
+                  "period_days": 519.2081657902877,
+                  "power": 0.009054786338635622,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1973-03-03",
+                  "window_stop": "1978-03-02",
+                  "period_days": 455.7697529188161,
+                  "power": 0.01427827441383543,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.00706706831682469
+                },
+                {
+                  "window_start": "1974-03-03",
+                  "window_stop": "1979-03-02",
+                  "period_days": 467.1861953799054,
+                  "power": 0.004199693616743816,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.003183291293038777
+                },
+                {
+                  "window_start": "1975-03-03",
+                  "window_stop": "1980-03-02",
+                  "period_days": 496.92125518058026,
+                  "power": 0.01949271730957825,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.011880770269798502
+                },
+                {
+                  "window_start": "1976-03-03",
+                  "window_stop": "1981-03-02",
+                  "period_days": 435.6605242668051,
+                  "power": 0.013815055660781934,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.012600834299470818
+                },
+                {
+                  "window_start": "1977-03-03",
+                  "window_stop": "1982-03-02",
+                  "period_days": 478.50627137970355,
+                  "power": 0.011929274128947598,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.008101669706604074
+                },
+                {
+                  "window_start": "1978-03-03",
+                  "window_stop": "1983-03-02",
+                  "period_days": 519.2081657902877,
+                  "power": 0.011040592971870815,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1979-03-03",
+                  "window_stop": "1984-03-02",
+                  "period_days": 430.0794260825006,
+                  "power": 0.008982021921840385,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1980-03-03",
+                  "window_stop": "1985-03-02",
+                  "period_days": 519.2081657902877,
+                  "power": 0.002107657959655657,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1981-03-03",
+                  "window_stop": "1986-03-02",
+                  "period_days": 519.2081657902877,
+                  "power": 0.001319912378103977,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1982-03-03",
+                  "window_stop": "1987-03-02",
+                  "period_days": 519.2081657902877,
+                  "power": 0.006807875756605787,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1983-03-03",
+                  "window_stop": "1988-03-02",
+                  "period_days": 430.63109286813744,
+                  "power": 0.0034751879760688597,
+                  "at_band_edge": true,
+                  "is_local_peak": true,
+                  "prominence": 0.0032776600499037573
+                },
+                {
+                  "window_start": "1984-03-03",
+                  "window_stop": "1989-03-02",
+                  "period_days": 482.63369752731455,
+                  "power": 0.0025645520082013514,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.002548577659264825
+                },
+                {
+                  "window_start": "1985-03-03",
+                  "window_stop": "1990-03-02",
+                  "period_days": 452.08726097495287,
+                  "power": 0.006433694780279614,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.0037464517241290523
+                },
+                {
+                  "window_start": "1986-03-03",
+                  "window_stop": "1991-03-02",
+                  "period_days": 451.4792899408284,
+                  "power": 0.0035663426042883144,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.0022031511673382322
+                },
+                {
+                  "window_start": "1987-03-03",
+                  "window_stop": "1992-03-02",
+                  "period_days": 439.6542692509167,
+                  "power": 0.0053378552988132336,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.003781241326086875
+                }
+              ]
+            }
+          }
+        },
+        "p11": {
+          "calendar": {
+            "start": "1973-04-06",
+            "stop": "1980-08-25"
+          },
+          "variants": {
+            "raw_log10": {
+              "acf_band_morphology": {
+                "lag_calendar_days": 444.5,
+                "dcf": 0.048545917922533405,
+                "pairs": 19475,
+                "at_band_edge": false,
+                "is_local_peak": true,
+                "prominence": 0.002427512308223606
+              },
+              "lomb_scargle_band_morphology": {
+                "period_days": 509.4190808433187,
+                "power": 0.011144909614720642,
+                "at_band_edge": false,
+                "is_local_peak": true,
+                "prominence": 0.010981546255360113
+              },
+              "top_spectral_peaks_scan": [
+                {
+                  "period_days": 509.4190808433187,
+                  "power": 0.011144909614720642,
+                  "prominence": 0.010981546255360113
+                },
+                {
+                  "period_days": 256.9111910043601,
+                  "power": 0.007159882538966156,
+                  "prominence": 0.007115989683094489
+                },
+                {
+                  "period_days": 214.0189893583126,
+                  "power": 0.005475874743043626,
+                  "prominence": 0.005114561617666291
+                },
+                {
+                  "period_days": 356.23674162070427,
+                  "power": 0.0045717050986922685,
+                  "prominence": 0.00445822001899405
+                },
+                {
+                  "period_days": 416.02873776786817,
+                  "power": 0.0036266207609962154,
+                  "prominence": 0.002547868355745073
+                },
+                {
+                  "period_days": 662.707182320442,
+                  "power": 0.00650187427932724,
+                  "prominence": 0.0018176126814905477
+                }
+              ],
+              "acf_profile_csv": "profiles\\ions_zgt5_gt67_mev_n__one_point_three_year_430_520__p11__raw_log10__acf.csv",
+              "lomb_scargle_profile_csv": "profiles\\ions_zgt5_gt67_mev_n__one_point_three_year_430_520__p11__raw_log10__lomb_scargle.csv",
+              "windows": [
+                {
+                  "window_start": "1973-04-06",
+                  "window_stop": "1978-04-05",
+                  "period_days": 474.4488411531939,
+                  "power": 0.012179003245321566,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.006940526166709424
+                },
+                {
+                  "window_start": "1974-04-06",
+                  "window_stop": "1979-04-05",
+                  "period_days": 519.2081657902877,
+                  "power": 0.012178282309753794,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1975-04-06",
+                  "window_stop": "1980-04-05",
+                  "period_days": 454.5356079068508,
+                  "power": 0.008035583334150982,
+                  "at_band_edge": false,
+                  "is_local_peak": true,
+                  "prominence": 0.006576464934653067
+                }
+              ]
+            },
+            "linear_detrended_log10": {
+              "acf_band_morphology": {
+                "lag_calendar_days": 464.5,
+                "dcf": 0.032948946929431795,
+                "pairs": 19249,
+                "at_band_edge": false,
+                "is_local_peak": true,
+                "prominence": 0.01757828637509965
+              },
+              "lomb_scargle_band_morphology": {
+                "period_days": 502.9350104821803,
+                "power": 0.009565303485693033,
+                "at_band_edge": false,
+                "is_local_peak": true,
+                "prominence": 0.009525281857503525
+              },
+              "top_spectral_peaks_scan": [
+                {
+                  "period_days": 502.9350104821803,
+                  "power": 0.009565303485693033,
+                  "prominence": 0.009525281857503525
+                },
+                {
+                  "period_days": 258.5925469664306,
+                  "power": 0.007946642195054254,
+                  "prominence": 0.007934868594975431
+                },
+                {
+                  "period_days": 214.70306207249246,
+                  "power": 0.004882159669854981,
+                  "prominence": 0.004842195113310083
+                },
+                {
+                  "period_days": 364.94621319135064,
+                  "power": 0.004942160010077045,
+                  "prominence": 0.0032899540628099425
+                },
+                {
+                  "period_days": 650.5132674801472,
+                  "power": 0.004265985827320021,
+                  "prominence": 0.0018805459081204022
+                },
+                {
+                  "period_days": 288.5891046571576,
+                  "power": 0.0020506072955017536,
+                  "prominence": 0.0008009048693511424
+                }
+              ],
+              "acf_profile_csv": "profiles\\ions_zgt5_gt67_mev_n__one_point_three_year_430_520__p11__linear_detrended_log10__acf.csv",
+              "lomb_scargle_profile_csv": "profiles\\ions_zgt5_gt67_mev_n__one_point_three_year_430_520__p11__linear_detrended_log10__lomb_scargle.csv",
+              "windows": [
+                {
+                  "window_start": "1973-04-06",
+                  "window_stop": "1978-04-05",
+                  "period_days": 519.2081657902877,
+                  "power": 0.008069261356858958,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1974-04-06",
+                  "window_stop": "1979-04-05",
+                  "period_days": 519.2081657902877,
+                  "power": 0.012090760252867082,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                },
+                {
+                  "window_start": "1975-04-06",
+                  "window_stop": "1980-04-05",
+                  "period_days": 430.0794260825006,
+                  "power": 0.0032814287843596504,
+                  "at_band_edge": true,
+                  "is_local_peak": false,
+                  "prominence": 0.0
+                }
+              ]
+            }
+          }
+        }
+      },
+      "common_window_period_concordance": [
+        {
+          "window_start": "1973-04-06",
+          "window_stop": "1978-04-05",
+          "variants": {
+            "raw_log10": {
+              "p10_period_days": 466.5369649805447,
+              "p11_period_days": 474.4488411531939,
+              "absolute_difference_days": 7.911876172649158,
+              "relative_difference": 0.016816143497757872,
+              "within_10_percent": true
+            },
+            "linear_detrended_log10": {
+              "p10_period_days": 462.6791620727673,
+              "p11_period_days": 519.2081657902877,
+              "absolute_difference_days": 56.52900371752037,
+              "relative_difference": 0.11514356507797713,
+              "within_10_percent": false
+            }
+          }
+        },
+        {
+          "window_start": "1974-04-06",
+          "window_stop": "1979-04-05",
+          "variants": {
+            "raw_log10": {
+              "p10_period_days": 466.5369649805447,
+              "p11_period_days": 519.2081657902877,
+              "absolute_difference_days": 52.67120080974297,
+              "relative_difference": 0.1068657590396722,
+              "within_10_percent": false
+            },
+            "linear_detrended_log10": {
+              "p10_period_days": 465.8895364973632,
+              "p11_period_days": 519.2081657902877,
+              "absolute_difference_days": 53.31862929292447,
+              "relative_difference": 0.10825043885313074,
+              "within_10_percent": false
+            }
+          }
+        },
+        {
+          "window_start": "1975-04-06",
+          "window_stop": "1980-04-05",
+          "variants": {
+            "raw_log10": {
+              "p10_period_days": 496.1868164351167,
+              "p11_period_days": 454.5356079068508,
+              "absolute_difference_days": 41.6512085282659,
+              "relative_difference": 0.08762012436404736,
+              "within_10_percent": true
+            },
+            "linear_detrended_log10": {
+              "p10_period_days": 499.8808814770696,
+              "p11_period_days": 430.0794260825006,
+              "absolute_difference_days": 69.80145539456896,
+              "relative_difference": 0.1501170637653214,
+              "within_10_percent": false
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

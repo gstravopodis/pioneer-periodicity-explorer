@@ -1,0 +1,331 @@
+{
+  "phase": "B9 candidate-focused mask-preserving AR1 spectral significance",
+  "purpose": "Test whether maximum spectral power inside the B8-locked ~1.3-year candidate band exceeds daily AR(1) red-noise expectations when the exact historical observation mask is reapplied.",
+  "guardrails": [
+    "B9 candidates were selected after examining earlier phases; these p-values are post-selection evidence, not an independent replication.",
+    "The statistic is the maximum classical Lomb-Scargle power anywhere inside the locked 430-520 d band, not a single chosen frequency.",
+    "Daily AR(1) surrogates are generated on the complete calendar and sampled through the exact positive-flux observation mask.",
+    "Holm and Benjamini-Hochberg adjustments are applied across the locked family of four spacecraft/channel tests separately for each robustness variant.",
+    "A significant B9 result still requires time-frequency localization before a physical quasi-periodicity claim."
+  ],
+  "locked_candidates": [
+    {
+      "channel": "he_20_24_mev_n",
+      "band": "one_point_three_year_430_520",
+      "range": [
+        430,
+        520
+      ],
+      "role": "primary_after_B8"
+    },
+    {
+      "channel": "he_11_20_mev_n",
+      "band": "one_point_three_year_430_520",
+      "range": [
+        430,
+        520
+      ],
+      "role": "secondary_long_baseline_comparator"
+    }
+  ],
+  "simulations_per_test": 1999,
+  "frequency_grid_points_per_band": 96,
+  "records": [
+    {
+      "channel": "he_20_24_mev_n",
+      "label": "Helium 20\u201324 MeV/n",
+      "band": "one_point_three_year_430_520",
+      "role": "primary_after_B8",
+      "variants": {
+        "raw_log10": {
+          "p10": {
+            "status": "ok",
+            "transform": "log10 positive flux",
+            "detrend": "none",
+            "band_calendar_days": [
+              430.0,
+              520.0
+            ],
+            "frequency_grid_points": 96,
+            "calendar": {
+              "start": "1972-03-03",
+              "stop": "1992-08-31",
+              "grid_days": 7487
+            },
+            "observations": 6940,
+            "ar1": {
+              "phi_1day": 0.841051159636876,
+              "adjacent_pairs": 6592,
+              "observations": 6940
+            },
+            "observed": {
+              "period_days": 497.2631578947368,
+              "power": 0.004554329802752501
+            },
+            "p_value_band_max_ar1_lomb": 0.766,
+            "null_q95": 0.015405208153539091,
+            "null_q99": 0.0205672389136249,
+            "exceedances": 1531,
+            "null_simulations_used": 1999,
+            "simulations": 1999,
+            "statistic_note": "maximum classical Lomb-Scargle power inside the locked band; same statistic for observed and surrogates",
+            "p_holm_across_locked_4_tests": 1.0,
+            "q_bh_fdr_across_locked_4_tests": 0.8805
+          },
+          "p11": {
+            "status": "ok",
+            "transform": "log10 positive flux",
+            "detrend": "none",
+            "band_calendar_days": [
+              430.0,
+              520.0
+            ],
+            "frequency_grid_points": 96,
+            "calendar": {
+              "start": "1973-04-06",
+              "stop": "1992-11-27",
+              "grid_days": 7176
+            },
+            "observations": 5462,
+            "ar1": {
+              "phi_1day": 0.8428156264682527,
+              "adjacent_pairs": 4716,
+              "observations": 5462
+            },
+            "observed": {
+              "period_days": 447.05263157894734,
+              "power": 0.005741176807700611
+            },
+            "p_value_band_max_ar1_lomb": 0.6985,
+            "null_q95": 0.017846353354410312,
+            "null_q99": 0.023870658886375545,
+            "exceedances": 1396,
+            "null_simulations_used": 1999,
+            "simulations": 1999,
+            "statistic_note": "maximum classical Lomb-Scargle power inside the locked band; same statistic for observed and surrogates",
+            "p_holm_across_locked_4_tests": 1.0,
+            "q_bh_fdr_across_locked_4_tests": 0.8805
+          }
+        },
+        "linear_detrended_log10": {
+          "p10": {
+            "status": "ok",
+            "transform": "log10 positive flux",
+            "detrend": "linear",
+            "band_calendar_days": [
+              430.0,
+              520.0
+            ],
+            "frequency_grid_points": 96,
+            "calendar": {
+              "start": "1972-03-03",
+              "stop": "1992-08-31",
+              "grid_days": 7487
+            },
+            "observations": 6940,
+            "ar1": {
+              "phi_1day": 0.841051159636876,
+              "adjacent_pairs": 6592,
+              "observations": 6940
+            },
+            "observed": {
+              "period_days": 497.2631578947368,
+              "power": 0.003932043388742608
+            },
+            "p_value_band_max_ar1_lomb": 0.845,
+            "null_q95": 0.016256246857363085,
+            "null_q99": 0.022714383513973646,
+            "exceedances": 1689,
+            "null_simulations_used": 1999,
+            "simulations": 1999,
+            "statistic_note": "maximum classical Lomb-Scargle power inside the locked band; same statistic for observed and surrogates",
+            "p_holm_across_locked_4_tests": 1.0,
+            "q_bh_fdr_across_locked_4_tests": 0.845
+          },
+          "p11": {
+            "status": "ok",
+            "transform": "log10 positive flux",
+            "detrend": "linear",
+            "band_calendar_days": [
+              430.0,
+              520.0
+            ],
+            "frequency_grid_points": 96,
+            "calendar": {
+              "start": "1973-04-06",
+              "stop": "1992-11-27",
+              "grid_days": 7176
+            },
+            "observations": 5462,
+            "ar1": {
+              "phi_1day": 0.8428156264682527,
+              "adjacent_pairs": 4716,
+              "observations": 5462
+            },
+            "observed": {
+              "period_days": 448.9473684210526,
+              "power": 0.008194170291841892
+            },
+            "p_value_band_max_ar1_lomb": 0.4565,
+            "null_q95": 0.01816271555640156,
+            "null_q99": 0.02592814427872428,
+            "exceedances": 912,
+            "null_simulations_used": 1999,
+            "simulations": 1999,
+            "statistic_note": "maximum classical Lomb-Scargle power inside the locked band; same statistic for observed and surrogates",
+            "p_holm_across_locked_4_tests": 1.0,
+            "q_bh_fdr_across_locked_4_tests": 0.845
+          }
+        }
+      }
+    },
+    {
+      "channel": "he_11_20_mev_n",
+      "label": "Helium 11\u201320 MeV/n",
+      "band": "one_point_three_year_430_520",
+      "role": "secondary_long_baseline_comparator",
+      "variants": {
+        "raw_log10": {
+          "p10": {
+            "status": "ok",
+            "transform": "log10 positive flux",
+            "detrend": "none",
+            "band_calendar_days": [
+              430.0,
+              520.0
+            ],
+            "frequency_grid_points": 96,
+            "calendar": {
+              "start": "1972-03-03",
+              "stop": "1992-08-31",
+              "grid_days": 7487
+            },
+            "observations": 6371,
+            "ar1": {
+              "phi_1day": 0.908033771724061,
+              "adjacent_pairs": 5696,
+              "observations": 6371
+            },
+            "observed": {
+              "period_days": 466.9473684210526,
+              "power": 0.011153150961674152
+            },
+            "p_value_band_max_ar1_lomb": 0.574,
+            "null_q95": 0.029280555320558323,
+            "null_q99": 0.039272642427678583,
+            "exceedances": 1147,
+            "null_simulations_used": 1999,
+            "simulations": 1999,
+            "statistic_note": "maximum classical Lomb-Scargle power inside the locked band; same statistic for observed and surrogates",
+            "p_holm_across_locked_4_tests": 1.0,
+            "q_bh_fdr_across_locked_4_tests": 0.8805
+          },
+          "p11": {
+            "status": "ok",
+            "transform": "log10 positive flux",
+            "detrend": "none",
+            "band_calendar_days": [
+              430.0,
+              520.0
+            ],
+            "frequency_grid_points": 96,
+            "calendar": {
+              "start": "1973-04-06",
+              "stop": "1992-11-27",
+              "grid_days": 7176
+            },
+            "observations": 4805,
+            "ar1": {
+              "phi_1day": 0.8879027848425153,
+              "adjacent_pairs": 3879,
+              "observations": 4805
+            },
+            "observed": {
+              "period_days": 486.8421052631579,
+              "power": 0.00540974342336941
+            },
+            "p_value_band_max_ar1_lomb": 0.8805,
+            "null_q95": 0.027811221366522032,
+            "null_q99": 0.03807484525839289,
+            "exceedances": 1760,
+            "null_simulations_used": 1999,
+            "simulations": 1999,
+            "statistic_note": "maximum classical Lomb-Scargle power inside the locked band; same statistic for observed and surrogates",
+            "p_holm_across_locked_4_tests": 1.0,
+            "q_bh_fdr_across_locked_4_tests": 0.8805
+          }
+        },
+        "linear_detrended_log10": {
+          "p10": {
+            "status": "ok",
+            "transform": "log10 positive flux",
+            "detrend": "linear",
+            "band_calendar_days": [
+              430.0,
+              520.0
+            ],
+            "frequency_grid_points": 96,
+            "calendar": {
+              "start": "1972-03-03",
+              "stop": "1992-08-31",
+              "grid_days": 7487
+            },
+            "observations": 6371,
+            "ar1": {
+              "phi_1day": 0.908033771724061,
+              "adjacent_pairs": 5696,
+              "observations": 6371
+            },
+            "observed": {
+              "period_days": 466.9473684210526,
+              "power": 0.008240836981564713
+            },
+            "p_value_band_max_ar1_lomb": 0.767,
+            "null_q95": 0.028530602589809228,
+            "null_q99": 0.037484507024502754,
+            "exceedances": 1533,
+            "null_simulations_used": 1999,
+            "simulations": 1999,
+            "statistic_note": "maximum classical Lomb-Scargle power inside the locked band; same statistic for observed and surrogates",
+            "p_holm_across_locked_4_tests": 1.0,
+            "q_bh_fdr_across_locked_4_tests": 0.845
+          },
+          "p11": {
+            "status": "ok",
+            "transform": "log10 positive flux",
+            "detrend": "linear",
+            "band_calendar_days": [
+              430.0,
+              520.0
+            ],
+            "frequency_grid_points": 96,
+            "calendar": {
+              "start": "1973-04-06",
+              "stop": "1992-11-27",
+              "grid_days": 7176
+            },
+            "observations": 4805,
+            "ar1": {
+              "phi_1day": 0.8879027848425153,
+              "adjacent_pairs": 3879,
+              "observations": 4805
+            },
+            "observed": {
+              "period_days": 481.1578947368421,
+              "power": 0.009240800820560833
+            },
+            "p_value_band_max_ar1_lomb": 0.6415,
+            "null_q95": 0.0256253747081754,
+            "null_q99": 0.03600988548779893,
+            "exceedances": 1282,
+            "null_simulations_used": 1999,
+            "simulations": 1999,
+            "statistic_note": "maximum classical Lomb-Scargle power inside the locked band; same statistic for observed and surrogates",
+            "p_holm_across_locked_4_tests": 1.0,
+            "q_bh_fdr_across_locked_4_tests": 0.845
+          }
+        }
+      }
+    }
+  ]
+}

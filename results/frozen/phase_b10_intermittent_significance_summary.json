@@ -1,0 +1,854 @@
+{
+  "phase": "B10 intermittent same-window/same-period AR1 spectral significance",
+  "purpose": "Test the distinct hypothesis left open by B9: an intermittent ~1.3-year signal may be weak globally but recur during limited epochs in both spacecraft. The look-elsewhere scan over fixed windows and frequencies is included in the null statistic.",
+  "guardrails": [
+    "B9 found no full-record global spectral significance for either locked candidate; B10 therefore tests intermittency, not persistent periodicity.",
+    "Candidates remain post-selection from earlier phases; B10 is not independent replication.",
+    "Windows are fixed at 8 calendar years with a 2-year step before B10 results are examined.",
+    "The joint statistic requires P10 and P11 Lomb power at the same period in the same window and is maximized over the entire locked search.",
+    "Daily AR(1) surrogates are generated independently for P10/P11 on the common complete calendar and sampled through the exact positive-flux masks.",
+    "No interpolation is used. A non-significant joint result is evidence against the remaining intermittent shared-signal hypothesis under this null model."
+  ],
+  "locked_candidates": [
+    {
+      "channel": "he_20_24_mev_n",
+      "band": "one_point_three_year_430_520",
+      "range": [
+        430,
+        520
+      ],
+      "role": "primary_after_B8"
+    },
+    {
+      "channel": "he_11_20_mev_n",
+      "band": "one_point_three_year_430_520",
+      "range": [
+        430,
+        520
+      ],
+      "role": "secondary_long_baseline_comparator"
+    }
+  ],
+  "window_years": 8,
+  "step_years": 2,
+  "simulations_per_test": 1999,
+  "frequency_grid_points_per_band": 96,
+  "records": [
+    {
+      "channel": "he_20_24_mev_n",
+      "label": "Helium 20\u201324 MeV/n",
+      "band": "one_point_three_year_430_520",
+      "role": "primary_after_B8",
+      "variants": {
+        "raw_log10": {
+          "status": "ok",
+          "transform": "log10 positive flux",
+          "detrend": "none",
+          "band_calendar_days": [
+            430.0,
+            520.0
+          ],
+          "frequency_grid_points": 96,
+          "window_years": 8,
+          "step_years": 2,
+          "common_calendar": {
+            "start": "1973-04-06",
+            "stop": "1992-08-31",
+            "grid_days": 7088
+          },
+          "windows_used": 6,
+          "ar1": {
+            "p10": {
+              "phi_1day": 0.8448005791690477,
+              "adjacent_pairs": 6218,
+              "observations": 6558
+            },
+            "p11": {
+              "phi_1day": 0.8424637330520248,
+              "adjacent_pairs": 4662,
+              "observations": 5405
+            }
+          },
+          "observed": {
+            "p10_max_over_time_frequency": {
+              "power": 0.040667948135813585,
+              "period_days": 462.2105263157895,
+              "window_start": "1973-04-06",
+              "window_stop": "1981-04-05"
+            },
+            "p11_max_over_time_frequency": {
+              "power": 0.032045713794737564,
+              "period_days": 436.63157894736844,
+              "window_start": "1983-04-06",
+              "window_stop": "1991-04-05"
+            },
+            "joint_same_window_same_period_max": {
+              "power": 0.02467337157308607,
+              "period_days": 443.2631578947368,
+              "p10_power": 0.020349269520556115,
+              "p11_power": 0.029916320296834664,
+              "window_start": "1983-04-06",
+              "window_stop": "1991-04-05"
+            }
+          },
+          "observed_windows": [
+            {
+              "window_start": "1973-04-06",
+              "window_stop": "1981-04-05",
+              "p10_observations": 2718,
+              "p11_observations": 2846,
+              "p10_peak": {
+                "period_days": 462.2105263157895,
+                "power": 0.040667948135813585
+              },
+              "p11_peak": {
+                "period_days": 456.5263157894737,
+                "power": 0.013201470672184433
+              },
+              "joint_peak": {
+                "period_days": 458.42105263157896,
+                "geometric_mean_power": 0.022934312174729955,
+                "p10_power": 0.040149991899306514,
+                "p11_power": 0.013100442865520269
+              }
+            },
+            {
+              "window_start": "1975-04-06",
+              "window_stop": "1983-04-05",
+              "p10_observations": 2733,
+              "p11_observations": 2751,
+              "p10_peak": {
+                "period_days": 484.9473684210526,
+                "power": 0.011512056827095158
+              },
+              "p11_peak": {
+                "period_days": 499.1578947368421,
+                "power": 0.01009627774628556
+              },
+              "joint_peak": {
+                "period_days": 491.57894736842104,
+                "geometric_mean_power": 0.010242924496725763,
+                "p10_power": 0.010976854049089472,
+                "p11_power": 0.009558066616939998
+              }
+            },
+            {
+              "window_start": "1977-04-06",
+              "window_stop": "1985-04-05",
+              "p10_observations": 2736,
+              "p11_observations": 2682,
+              "p10_peak": {
+                "period_days": 520.0,
+                "power": 0.00697454251490904
+              },
+              "p11_peak": {
+                "period_days": 469.7894736842105,
+                "power": 0.006762196033086683
+              },
+              "joint_peak": {
+                "period_days": 471.6842105263158,
+                "geometric_mean_power": 0.006447045904206998,
+                "p10_power": 0.006171589758235082,
+                "p11_power": 0.006734796465609307
+              }
+            },
+            {
+              "window_start": "1979-04-06",
+              "window_stop": "1987-04-05",
+              "p10_observations": 2762,
+              "p11_observations": 2454,
+              "p10_peak": {
+                "period_days": 462.2105263157895,
+                "power": 0.014409536072463659
+              },
+              "p11_peak": {
+                "period_days": 520.0,
+                "power": 0.015483098258403591
+              },
+              "joint_peak": {
+                "period_days": 520.0,
+                "geometric_mean_power": 0.01066904873117119,
+                "p10_power": 0.007351797355308011,
+                "p11_power": 0.015483098258403591
+              }
+            },
+            {
+              "window_start": "1981-04-06",
+              "window_stop": "1989-04-05",
+              "p10_observations": 2821,
+              "p11_observations": 2157,
+              "p10_peak": {
+                "period_days": 489.6842105263158,
+                "power": 0.007453024955802562
+              },
+              "p11_peak": {
+                "period_days": 471.6842105263158,
+                "power": 0.008403679258109125
+              },
+              "joint_peak": {
+                "period_days": 482.10526315789474,
+                "geometric_mean_power": 0.00718940579487916,
+                "p10_power": 0.0068733444904925155,
+                "p11_power": 0.007520000744170227
+              }
+            },
+            {
+              "window_start": "1983-04-06",
+              "window_stop": "1991-04-05",
+              "p10_observations": 2738,
+              "p11_observations": 1804,
+              "p10_peak": {
+                "period_days": 449.89473684210526,
+                "power": 0.021679112264355826
+              },
+              "p11_peak": {
+                "period_days": 436.63157894736844,
+                "power": 0.032045713794737564
+              },
+              "joint_peak": {
+                "period_days": 443.2631578947368,
+                "geometric_mean_power": 0.02467337157308607,
+                "p10_power": 0.020349269520556115,
+                "p11_power": 0.029916320296834664
+              }
+            }
+          ],
+          "null": {
+            "p10": {
+              "p_value": 0.0945,
+              "exceedances": 188,
+              "null_simulations_used": 1999,
+              "null_q95": 0.04496565834810092,
+              "null_q99": 0.05743663748799105
+            },
+            "p11": {
+              "p_value": 0.228,
+              "exceedances": 455,
+              "null_simulations_used": 1999,
+              "null_q95": 0.04825519376233469,
+              "null_q99": 0.06236455066219657
+            },
+            "joint": {
+              "p_value": 0.1075,
+              "exceedances": 214,
+              "null_simulations_used": 1999,
+              "null_q95": 0.028333986836572993,
+              "null_q99": 0.03428151101720046,
+              "p_holm_across_locked_2_joint_tests": 0.215,
+              "q_bh_fdr_across_locked_2_joint_tests": 0.215
+            }
+          },
+          "statistic_note": "Each p-value is calibrated to the maximum across every predeclared window and every frequency in the locked band; the joint statistic is the maximum geometric mean of P10/P11 Lomb power at the same period in the same window."
+        },
+        "linear_detrended_log10": {
+          "status": "ok",
+          "transform": "log10 positive flux",
+          "detrend": "linear",
+          "band_calendar_days": [
+            430.0,
+            520.0
+          ],
+          "frequency_grid_points": 96,
+          "window_years": 8,
+          "step_years": 2,
+          "common_calendar": {
+            "start": "1973-04-06",
+            "stop": "1992-08-31",
+            "grid_days": 7088
+          },
+          "windows_used": 6,
+          "ar1": {
+            "p10": {
+              "phi_1day": 0.8448005791690477,
+              "adjacent_pairs": 6218,
+              "observations": 6558
+            },
+            "p11": {
+              "phi_1day": 0.8424637330520248,
+              "adjacent_pairs": 4662,
+              "observations": 5405
+            }
+          },
+          "observed": {
+            "p10_max_over_time_frequency": {
+              "power": 0.050910531906849944,
+              "period_days": 460.3157894736842,
+              "window_start": "1973-04-06",
+              "window_stop": "1981-04-05"
+            },
+            "p11_max_over_time_frequency": {
+              "power": 0.037230411121499864,
+              "period_days": 436.63157894736844,
+              "window_start": "1983-04-06",
+              "window_stop": "1991-04-05"
+            },
+            "joint_same_window_same_period_max": {
+              "power": 0.031796662784777635,
+              "period_days": 459.36842105263156,
+              "p10_power": 0.050885308337879485,
+              "p11_power": 0.019868755781838207,
+              "window_start": "1973-04-06",
+              "window_stop": "1981-04-05"
+            }
+          },
+          "observed_windows": [
+            {
+              "window_start": "1973-04-06",
+              "window_stop": "1981-04-05",
+              "p10_observations": 2718,
+              "p11_observations": 2846,
+              "p10_peak": {
+                "period_days": 460.3157894736842,
+                "power": 0.050910531906849944
+              },
+              "p11_peak": {
+                "period_days": 459.36842105263156,
+                "power": 0.019868755781838207
+              },
+              "joint_peak": {
+                "period_days": 459.36842105263156,
+                "geometric_mean_power": 0.031796662784777635,
+                "p10_power": 0.050885308337879485,
+                "p11_power": 0.019868755781838207
+              }
+            },
+            {
+              "window_start": "1975-04-06",
+              "window_stop": "1983-04-05",
+              "p10_observations": 2733,
+              "p11_observations": 2751,
+              "p10_peak": {
+                "period_days": 520.0,
+                "power": 0.015529288018656943
+              },
+              "p11_peak": {
+                "period_days": 520.0,
+                "power": 0.005229088208707323
+              },
+              "joint_peak": {
+                "period_days": 520.0,
+                "geometric_mean_power": 0.009011327142434623,
+                "p10_power": 0.015529288018656943,
+                "p11_power": 0.005229088208707323
+              }
+            },
+            {
+              "window_start": "1977-04-06",
+              "window_stop": "1985-04-05",
+              "p10_observations": 2736,
+              "p11_observations": 2682,
+              "p10_peak": {
+                "period_days": 520.0,
+                "power": 0.01584098715631709
+              },
+              "p11_peak": {
+                "period_days": 430.0,
+                "power": 0.0046158924960864635
+              },
+              "joint_peak": {
+                "period_days": 430.0,
+                "geometric_mean_power": 0.004925147998764512,
+                "p10_power": 0.005255122997405202,
+                "p11_power": 0.0046158924960864635
+              }
+            },
+            {
+              "window_start": "1979-04-06",
+              "window_stop": "1987-04-05",
+              "p10_observations": 2762,
+              "p11_observations": 2454,
+              "p10_peak": {
+                "period_days": 452.7368421052632,
+                "power": 0.014506378241591216
+              },
+              "p11_peak": {
+                "period_days": 520.0,
+                "power": 0.020068293469530287
+              },
+              "joint_peak": {
+                "period_days": 520.0,
+                "geometric_mean_power": 0.013850720413218526,
+                "p10_power": 0.00955948029444671,
+                "p11_power": 0.020068293469530287
+              }
+            },
+            {
+              "window_start": "1981-04-06",
+              "window_stop": "1989-04-05",
+              "p10_observations": 2821,
+              "p11_observations": 2157,
+              "p10_peak": {
+                "period_days": 500.10526315789474,
+                "power": 0.0047191708013070936
+              },
+              "p11_peak": {
+                "period_days": 435.6842105263158,
+                "power": 0.009722018204561051
+              },
+              "joint_peak": {
+                "period_days": 500.10526315789474,
+                "geometric_mean_power": 0.0063793988296309825,
+                "p10_power": 0.0047191708013070936,
+                "p11_power": 0.008623703430319827
+              }
+            },
+            {
+              "window_start": "1983-04-06",
+              "window_stop": "1991-04-05",
+              "p10_observations": 2738,
+              "p11_observations": 1804,
+              "p10_peak": {
+                "period_days": 449.89473684210526,
+                "power": 0.022545354970653374
+              },
+              "p11_peak": {
+                "period_days": 436.63157894736844,
+                "power": 0.037230411121499864
+              },
+              "joint_peak": {
+                "period_days": 443.2631578947368,
+                "geometric_mean_power": 0.02718950549869077,
+                "p10_power": 0.021200849581720915,
+                "p11_power": 0.03486979172290923
+              }
+            }
+          ],
+          "null": {
+            "p10": {
+              "p_value": 0.0305,
+              "exceedances": 60,
+              "null_simulations_used": 1999,
+              "null_q95": 0.04670488068161003,
+              "null_q99": 0.060770743749634565
+            },
+            "p11": {
+              "p_value": 0.135,
+              "exceedances": 269,
+              "null_simulations_used": 1999,
+              "null_q95": 0.04779938914364903,
+              "null_q99": 0.0588460981397554
+            },
+            "joint": {
+              "p_value": 0.027,
+              "exceedances": 53,
+              "null_simulations_used": 1999,
+              "null_q95": 0.028735176156402274,
+              "null_q99": 0.03655595646424557,
+              "p_holm_across_locked_2_joint_tests": 0.054,
+              "q_bh_fdr_across_locked_2_joint_tests": 0.054
+            }
+          },
+          "statistic_note": "Each p-value is calibrated to the maximum across every predeclared window and every frequency in the locked band; the joint statistic is the maximum geometric mean of P10/P11 Lomb power at the same period in the same window."
+        }
+      }
+    },
+    {
+      "channel": "he_11_20_mev_n",
+      "label": "Helium 11\u201320 MeV/n",
+      "band": "one_point_three_year_430_520",
+      "role": "secondary_long_baseline_comparator",
+      "variants": {
+        "raw_log10": {
+          "status": "ok",
+          "transform": "log10 positive flux",
+          "detrend": "none",
+          "band_calendar_days": [
+            430.0,
+            520.0
+          ],
+          "frequency_grid_points": 96,
+          "window_years": 8,
+          "step_years": 2,
+          "common_calendar": {
+            "start": "1973-04-06",
+            "stop": "1992-08-31",
+            "grid_days": 7088
+          },
+          "windows_used": 6,
+          "ar1": {
+            "p10": {
+              "phi_1day": 0.8996296039584848,
+              "adjacent_pairs": 5323,
+              "observations": 5990
+            },
+            "p11": {
+              "phi_1day": 0.8888639623565151,
+              "adjacent_pairs": 3827,
+              "observations": 4749
+            }
+          },
+          "observed": {
+            "p10_max_over_time_frequency": {
+              "power": 0.03213260030085918,
+              "period_days": 519.0526315789474,
+              "window_start": "1979-04-06",
+              "window_stop": "1987-04-05"
+            },
+            "p11_max_over_time_frequency": {
+              "power": 0.02638694161044333,
+              "period_days": 520.0,
+              "window_start": "1979-04-06",
+              "window_stop": "1987-04-05"
+            },
+            "joint_same_window_same_period_max": {
+              "power": 0.02911381356306597,
+              "period_days": 520.0,
+              "p10_power": 0.032122485155668755,
+              "p11_power": 0.02638694161044333,
+              "window_start": "1979-04-06",
+              "window_stop": "1987-04-05"
+            }
+          },
+          "observed_windows": [
+            {
+              "window_start": "1973-04-06",
+              "window_stop": "1981-04-05",
+              "p10_observations": 2651,
+              "p11_observations": 2752,
+              "p10_peak": {
+                "period_days": 430.0,
+                "power": 0.022399979854057846
+              },
+              "p11_peak": {
+                "period_days": 487.7894736842105,
+                "power": 0.01834853102565401
+              },
+              "joint_peak": {
+                "period_days": 491.57894736842104,
+                "geometric_mean_power": 0.011623216677252121,
+                "p10_power": 0.007406051762833329,
+                "p11_power": 0.018241725855108932
+              }
+            },
+            {
+              "window_start": "1975-04-06",
+              "window_stop": "1983-04-05",
+              "p10_observations": 2525,
+              "p11_observations": 2500,
+              "p10_peak": {
+                "period_days": 430.0,
+                "power": 0.015699824126925725
+              },
+              "p11_peak": {
+                "period_days": 514.3157894736842,
+                "power": 0.017880764713122964
+              },
+              "joint_peak": {
+                "period_days": 501.0526315789474,
+                "geometric_mean_power": 0.010235799615855723,
+                "p10_power": 0.006191143910817144,
+                "p11_power": 0.01692281673389882
+              }
+            },
+            {
+              "window_start": "1977-04-06",
+              "window_stop": "1985-04-05",
+              "p10_observations": 2421,
+              "p11_observations": 2239,
+              "p10_peak": {
+                "period_days": 480.2105263157895,
+                "power": 0.015740488657977253
+              },
+              "p11_peak": {
+                "period_days": 520.0,
+                "power": 0.008087721685815303
+              },
+              "joint_peak": {
+                "period_days": 501.0526315789474,
+                "geometric_mean_power": 0.00744659466934028,
+                "p10_power": 0.011270275655543859,
+                "p11_power": 0.004920178872658745
+              }
+            },
+            {
+              "window_start": "1979-04-06",
+              "window_stop": "1987-04-05",
+              "p10_observations": 2415,
+              "p11_observations": 1942,
+              "p10_peak": {
+                "period_days": 519.0526315789474,
+                "power": 0.03213260030085918
+              },
+              "p11_peak": {
+                "period_days": 520.0,
+                "power": 0.02638694161044333
+              },
+              "joint_peak": {
+                "period_days": 520.0,
+                "geometric_mean_power": 0.02911381356306597,
+                "p10_power": 0.032122485155668755,
+                "p11_power": 0.02638694161044333
+              }
+            },
+            {
+              "window_start": "1981-04-06",
+              "window_stop": "1989-04-05",
+              "p10_observations": 2538,
+              "p11_observations": 1726,
+              "p10_peak": {
+                "period_days": 477.36842105263156,
+                "power": 0.004718897974090736
+              },
+              "p11_peak": {
+                "period_days": 445.1578947368421,
+                "power": 0.012806530070248635
+              },
+              "joint_peak": {
+                "period_days": 463.1578947368421,
+                "geometric_mean_power": 0.00590525771446212,
+                "p10_power": 0.0037196489580442623,
+                "p11_power": 0.009375096700670812
+              }
+            },
+            {
+              "window_start": "1983-04-06",
+              "window_stop": "1991-04-05",
+              "p10_observations": 2453,
+              "p11_observations": 1436,
+              "p10_peak": {
+                "period_days": 446.10526315789474,
+                "power": 0.018809296577672822
+              },
+              "p11_peak": {
+                "period_days": 430.0,
+                "power": 0.021451496388918596
+              },
+              "joint_peak": {
+                "period_days": 435.6842105263158,
+                "geometric_mean_power": 0.017458125436049597,
+                "p10_power": 0.01615523390256872,
+                "p11_power": 0.018866092907041117
+              }
+            }
+          ],
+          "null": {
+            "p10": {
+              "p_value": 0.609,
+              "exceedances": 1217,
+              "null_simulations_used": 1999,
+              "null_q95": 0.07527543696623396,
+              "null_q99": 0.0948283288177285
+            },
+            "p11": {
+              "p_value": 0.726,
+              "exceedances": 1451,
+              "null_simulations_used": 1999,
+              "null_q95": 0.06960118500153892,
+              "null_q99": 0.09194153086384335
+            },
+            "joint": {
+              "p_value": 0.347,
+              "exceedances": 693,
+              "null_simulations_used": 1999,
+              "null_q95": 0.04562742967065154,
+              "null_q99": 0.055437706813162076,
+              "p_holm_across_locked_2_joint_tests": 0.347,
+              "q_bh_fdr_across_locked_2_joint_tests": 0.347
+            }
+          },
+          "statistic_note": "Each p-value is calibrated to the maximum across every predeclared window and every frequency in the locked band; the joint statistic is the maximum geometric mean of P10/P11 Lomb power at the same period in the same window."
+        },
+        "linear_detrended_log10": {
+          "status": "ok",
+          "transform": "log10 positive flux",
+          "detrend": "linear",
+          "band_calendar_days": [
+            430.0,
+            520.0
+          ],
+          "frequency_grid_points": 96,
+          "window_years": 8,
+          "step_years": 2,
+          "common_calendar": {
+            "start": "1973-04-06",
+            "stop": "1992-08-31",
+            "grid_days": 7088
+          },
+          "windows_used": 6,
+          "ar1": {
+            "p10": {
+              "phi_1day": 0.8996296039584848,
+              "adjacent_pairs": 5323,
+              "observations": 5990
+            },
+            "p11": {
+              "phi_1day": 0.8888639623565151,
+              "adjacent_pairs": 3827,
+              "observations": 4749
+            }
+          },
+          "observed": {
+            "p10_max_over_time_frequency": {
+              "power": 0.032876551280118876,
+              "period_days": 520.0,
+              "window_start": "1979-04-06",
+              "window_stop": "1987-04-05"
+            },
+            "p11_max_over_time_frequency": {
+              "power": 0.02958315103037453,
+              "period_days": 504.8421052631579,
+              "window_start": "1983-04-06",
+              "window_stop": "1991-04-05"
+            },
+            "joint_same_window_same_period_max": {
+              "power": 0.02959158844242775,
+              "period_days": 520.0,
+              "p10_power": 0.032876551280118876,
+              "p11_power": 0.02663485287994773,
+              "window_start": "1979-04-06",
+              "window_stop": "1987-04-05"
+            }
+          },
+          "observed_windows": [
+            {
+              "window_start": "1973-04-06",
+              "window_stop": "1981-04-05",
+              "p10_observations": 2651,
+              "p11_observations": 2752,
+              "p10_peak": {
+                "period_days": 430.0,
+                "power": 0.015979790438419073
+              },
+              "p11_peak": {
+                "period_days": 488.7368421052632,
+                "power": 0.02936405761056302
+              },
+              "joint_peak": {
+                "period_days": 494.42105263157896,
+                "geometric_mean_power": 0.009352857220373264,
+                "p10_power": 0.0030322117543234725,
+                "p11_power": 0.028848888294150606
+              }
+            },
+            {
+              "window_start": "1975-04-06",
+              "window_stop": "1983-04-05",
+              "p10_observations": 2525,
+              "p11_observations": 2500,
+              "p10_peak": {
+                "period_days": 470.7368421052632,
+                "power": 0.015463148739301318
+              },
+              "p11_peak": {
+                "period_days": 520.0,
+                "power": 0.018378717995397496
+              },
+              "joint_peak": {
+                "period_days": 486.8421052631579,
+                "geometric_mean_power": 0.009393870313478039,
+                "p10_power": 0.011633592994708442,
+                "p11_power": 0.007585343539745827
+              }
+            },
+            {
+              "window_start": "1977-04-06",
+              "window_stop": "1985-04-05",
+              "p10_observations": 2421,
+              "p11_observations": 2239,
+              "p10_peak": {
+                "period_days": 430.0,
+                "power": 0.0233332004674917
+              },
+              "p11_peak": {
+                "period_days": 520.0,
+                "power": 0.015176441477124953
+              },
+              "joint_peak": {
+                "period_days": 430.0,
+                "geometric_mean_power": 0.015367285137483273,
+                "p10_power": 0.0233332004674917,
+                "p11_power": 0.010120919880910816
+              }
+            },
+            {
+              "window_start": "1979-04-06",
+              "window_stop": "1987-04-05",
+              "p10_observations": 2415,
+              "p11_observations": 1942,
+              "p10_peak": {
+                "period_days": 520.0,
+                "power": 0.032876551280118876
+              },
+              "p11_peak": {
+                "period_days": 520.0,
+                "power": 0.02663485287994773
+              },
+              "joint_peak": {
+                "period_days": 520.0,
+                "geometric_mean_power": 0.02959158844242775,
+                "p10_power": 0.032876551280118876,
+                "p11_power": 0.02663485287994773
+              }
+            },
+            {
+              "window_start": "1981-04-06",
+              "window_stop": "1989-04-05",
+              "p10_observations": 2538,
+              "p11_observations": 1726,
+              "p10_peak": {
+                "period_days": 489.6842105263158,
+                "power": 0.020854394862345606
+              },
+              "p11_peak": {
+                "period_days": 442.3157894736842,
+                "power": 0.014166863894842912
+              },
+              "joint_peak": {
+                "period_days": 484.9473684210526,
+                "geometric_mean_power": 0.012586242150237697,
+                "p10_power": 0.0203655637183009,
+                "p11_power": 0.007778497745292781
+              }
+            },
+            {
+              "window_start": "1983-04-06",
+              "window_stop": "1991-04-05",
+              "p10_observations": 2453,
+              "p11_observations": 1436,
+              "p10_peak": {
+                "period_days": 446.10526315789474,
+                "power": 0.018949639723679454
+              },
+              "p11_peak": {
+                "period_days": 504.8421052631579,
+                "power": 0.02958315103037453
+              },
+              "joint_peak": {
+                "period_days": 431.89473684210526,
+                "geometric_mean_power": 0.018849138677459017,
+                "p10_power": 0.01415089911968444,
+                "p11_power": 0.02510724059843374
+              }
+            }
+          ],
+          "null": {
+            "p10": {
+              "p_value": 0.6015,
+              "exceedances": 1202,
+              "null_simulations_used": 1999,
+              "null_q95": 0.07206520245211774,
+              "null_q99": 0.09308971139762803
+            },
+            "p11": {
+              "p_value": 0.639,
+              "exceedances": 1277,
+              "null_simulations_used": 1999,
+              "null_q95": 0.06909543639656981,
+              "null_q99": 0.09023036765239734
+            },
+            "joint": {
+              "p_value": 0.3275,
+              "exceedances": 654,
+              "null_simulations_used": 1999,
+              "null_q95": 0.04561116152127983,
+              "null_q99": 0.05966033024080055,
+              "p_holm_across_locked_2_joint_tests": 0.3275,
+              "q_bh_fdr_across_locked_2_joint_tests": 0.3275
+            }
+          },
+          "statistic_note": "Each p-value is calibrated to the maximum across every predeclared window and every frequency in the locked band; the joint statistic is the maximum geometric mean of P10/P11 Lomb power at the same period in the same window."
+        }
+      }
+    }
+  ]
+}

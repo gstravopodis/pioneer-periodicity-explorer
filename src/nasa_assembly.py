@@ -35,6 +35,7 @@ def find_time_column(df: pd.DataFrame, info: HapiDatasetInfo | dict | None = Non
     for c in df.columns:
         if _norm(c) in {"TIME", "EPOCH", "DATETIME", "TIMESTAMP", "UT"}:
             return str(c)
+    # HAPI requires the first parameter to be time; use it only as a last resort.
     if len(df.columns):
         return str(df.columns[0])
     raise ValueError("Could not identify HAPI time column")
@@ -44,6 +45,7 @@ def _channel_score(target: str, name: str, p: dict) -> int:
     n = _norm(name)
     text = _norm(_parameter_text(p))
     score = 0
+    # First prefer the field aliases used by SPDF/OMNI exports.
     if n in {_norm(k) for k, v in NASA_FIELD_ALIASES.items() if v == target}:
         score += 100
 
@@ -76,6 +78,12 @@ def _channel_score(target: str, name: str, p: dict) -> int:
 
 
 def resolve_cpi_channels(df: pd.DataFrame, info: HapiDatasetInfo | dict) -> dict[str, str]:
+    """Map PDS/HAPI CPI fields to thesis particle columns.
+
+    Resolution is deliberately conservative: a field must score positively and
+    ties are rejected.  We prefer a hard failure to silently assigning the wrong
+    energy channel.
+    """
     meta = _metadata_by_name(info)
     result: dict[str, str] = {}
     used: set[str] = set()
@@ -109,6 +117,7 @@ def _coord_score(axis: str, name: str, p: dict) -> int:
         score += 10
     if any(k in text for k in ("HELIOCENTRIC", "ECLIPTIC", "CARTESIAN", "SPACECRAFTPOSITION")):
         score += 8
+    # Make the requested axis explicit and reject obvious other-axis fields.
     if axis.upper() in n:
         score += 5
     for other in set(aliases) - {axis.upper()}:
@@ -170,6 +179,7 @@ def resolve_bulk_speed(df: pd.DataFrame, info: HapiDatasetInfo | dict) -> str:
 
 def thesis_decimal_year(dates: Iterable[pd.Timestamp]) -> np.ndarray:
     d = pd.to_datetime(pd.Series(dates), errors="coerce")
+    # Historical encoding uses YY + DOY/365 even in leap years.
     return (d.dt.year % 100).to_numpy(float) + d.dt.dayofyear.to_numpy(float) / 365.0
 
 
@@ -182,6 +192,9 @@ def canonicalise_cpi_daily(df: pd.DataFrame, info: HapiDatasetInfo | dict) -> tu
     for target, source in mapping.items():
         out[target] = pd.to_numeric(df[source], errors="coerce")
     out = out.dropna(subset=["date"]).sort_values("date")
+    # Some HAPI collections can expose multiple records per calendar date; the
+    # historical input had one row/day.  Particle count/rate and coordinates are
+    # collapsed by arithmetic mean, matching a daily-mean reconstruction.
     value_cols = [c for c in out.columns if c != "date"]
     out = out.groupby("date", as_index=False)[value_cols].mean()
     return out, {"time": time_col, "mapping": mapping}
@@ -218,7 +231,9 @@ def assemble_thesis17(cpi_daily: pd.DataFrame, pa_daily_speed: pd.DataFrame | No
     return out[[*THESIS_COLUMNS, "date"]].sort_values("date").reset_index(drop=True)
 
 
+
 def cpi_core_report(df: pd.DataFrame, spacecraft: str, source_notes: dict | None = None) -> dict:
+    """Report the particle-only Phase-A backbone without implying full thesis17 assembly."""
     date = pd.to_datetime(df["date"], errors="coerce")
     fields = {}
     for c in PARTICLE_COLUMNS:
@@ -247,7 +262,6 @@ def cpi_core_report(df: pd.DataFrame, spacecraft: str, source_notes: dict | None
     if source_notes:
         report["sources"] = source_notes
     return report
-
 
 def thesis17_report(df: pd.DataFrame, spacecraft: str, source_notes: dict | None = None) -> dict:
     date = pd.to_datetime(df["date"], errors="coerce")

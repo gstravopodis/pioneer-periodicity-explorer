@@ -1,0 +1,394 @@
+{
+  "channel": "p_11_20_mev",
+  "inputs": {
+    "p10": {
+      "path": "C:\\TEMP\\PPE\\data\\nasa\\processed\\p10_cpi_daily.csv",
+      "sha256": "3bc1545dd6568f4c64be9750a3ff38eb23fe4bc2ee10c78711a8ecca2fd3f0cd"
+    },
+    "p11": {
+      "path": "C:\\TEMP\\PPE\\data\\nasa\\processed\\p11_cpi_daily.csv",
+      "sha256": "8566285a8ad5cebe03db4e0bb1c17796067ca0b3b25593e101797a2d36acbf97",
+      "quality_mask": true
+    }
+  },
+  "spacecraft": {
+    "p10": {
+      "rows": 7042,
+      "finite_channel_values": 7042,
+      "acf_target_430_520_days": {
+        "lag_days": 469,
+        "coefficient": 0.18997452021070532
+      },
+      "thesis_benchmark": {
+        "expected": [
+          {
+            "lag_days": 469,
+            "coefficient": 0.19
+          }
+        ],
+        "observed_exact_lags": [
+          {
+            "lag_days": 469,
+            "coefficient": 0.18997452021070532
+          }
+        ],
+        "replication_checks": [
+          {
+            "expected_lag_days": 469,
+            "expected_coefficient": 0.19,
+            "observed_lag_days": 469,
+            "observed_coefficient": 0.18997452021070532,
+            "lag_tolerance_days": 0,
+            "coefficient_tolerance": 0.015,
+            "replicated": true
+          }
+        ]
+      }
+    },
+    "p11": {
+      "rows": 5826,
+      "finite_channel_values": 5826,
+      "acf_target_430_520_days": {
+        "lag_days": 467,
+        "coefficient": 0.1066831768799189
+      },
+      "thesis_benchmark": {
+        "expected": [
+          {
+            "lag_days": 1697,
+            "coefficient": 0.21
+          },
+          {
+            "lag_days": 467,
+            "coefficient": 0.11
+          }
+        ],
+        "observed_exact_lags": [
+          {
+            "lag_days": 1697,
+            "coefficient": 0.2062352869616722
+          },
+          {
+            "lag_days": 467,
+            "coefficient": 0.1066831768799189
+          }
+        ],
+        "replication_checks": [
+          {
+            "expected_lag_days": 1697,
+            "expected_coefficient": 0.21,
+            "observed_lag_days": 1697,
+            "observed_coefficient": 0.2062352869616722,
+            "lag_tolerance_days": 0,
+            "coefficient_tolerance": 0.015,
+            "replicated": true
+          },
+          {
+            "expected_lag_days": 467,
+            "expected_coefficient": 0.11,
+            "observed_lag_days": 467,
+            "observed_coefficient": 0.1066831768799189,
+            "lag_tolerance_days": 0,
+            "coefficient_tolerance": 0.015,
+            "replicated": true
+          }
+        ]
+      }
+    }
+  },
+  "crosscorrelation": {
+    "lag_convention": {
+      "raw": "SciPy signal.correlate lag sign",
+      "thesis": "thesis_lag = -scipy_lag",
+      "reason": "The 1998 P10/P11 benchmark coefficients reproduce at the opposite SciPy lag signs; amplitudes and absolute lags match."
+    },
+    "target_315_365_samples_scipy_positive": {
+      "lag_days": 361,
+      "coefficient": 8.553569551153016e-05
+    },
+    "target_315_365_samples_scipy_negative": {
+      "lag_days": -341,
+      "coefficient": 0.23869955994578054
+    },
+    "top_positive_correlation_peaks_raw_scipy": [
+      {
+        "lag_days": -1905,
+        "coefficient": 0.8741976723362338
+      },
+      {
+        "lag_days": -341,
+        "coefficient": 0.23869955994578054
+      },
+      {
+        "lag_days": -1524,
+        "coefficient": 0.12930291755077572
+      },
+      {
+        "lag_days": -1510,
+        "coefficient": 0.12293149037923325
+      },
+      {
+        "lag_days": -1929,
+        "coefficient": 0.10352075157277293
+      },
+      {
+        "lag_days": -1513,
+        "coefficient": 0.08336495409246406
+      },
+      {
+        "lag_days": 214,
+        "coefficient": 0.08092369722971168
+      },
+      {
+        "lag_days": -274,
+        "coefficient": 0.04776950294137991
+      },
+      {
+        "lag_days": -277,
+        "coefficient": 0.047372620539305126
+      },
+      {
+        "lag_days": -1506,
+        "coefficient": 0.03840205572645521
+      },
+      {
+        "lag_days": -2509,
+        "coefficient": 0.029302293368863874
+      },
+      {
+        "lag_days": -2507,
+        "coefficient": 0.029207775504373253
+      },
+      {
+        "lag_days": 231,
+        "coefficient": 0.028820899482436678
+      },
+      {
+        "lag_days": -3090,
+        "coefficient": 0.02562697798146619
+      },
+      {
+        "lag_days": -2512,
+        "coefficient": 0.025329071658567504
+      },
+      {
+        "lag_days": -1655,
+        "coefficient": 0.022503796731802257
+      }
+    ],
+    "top_positive_correlation_peaks_thesis_convention": [
+      {
+        "thesis_lag_samples": 1905,
+        "scipy_lag_samples": -1905,
+        "coefficient": 0.8741976723362338
+      },
+      {
+        "thesis_lag_samples": 341,
+        "scipy_lag_samples": -341,
+        "coefficient": 0.23869955994578054
+      },
+      {
+        "thesis_lag_samples": 1524,
+        "scipy_lag_samples": -1524,
+        "coefficient": 0.12930291755077572
+      },
+      {
+        "thesis_lag_samples": 1510,
+        "scipy_lag_samples": -1510,
+        "coefficient": 0.12293149037923325
+      },
+      {
+        "thesis_lag_samples": 1929,
+        "scipy_lag_samples": -1929,
+        "coefficient": 0.10352075157277293
+      },
+      {
+        "thesis_lag_samples": 1513,
+        "scipy_lag_samples": -1513,
+        "coefficient": 0.08336495409246406
+      },
+      {
+        "thesis_lag_samples": -214,
+        "scipy_lag_samples": 214,
+        "coefficient": 0.08092369722971168
+      },
+      {
+        "thesis_lag_samples": 274,
+        "scipy_lag_samples": -274,
+        "coefficient": 0.04776950294137991
+      },
+      {
+        "thesis_lag_samples": 277,
+        "scipy_lag_samples": -277,
+        "coefficient": 0.047372620539305126
+      },
+      {
+        "thesis_lag_samples": 1506,
+        "scipy_lag_samples": -1506,
+        "coefficient": 0.03840205572645521
+      },
+      {
+        "thesis_lag_samples": 2509,
+        "scipy_lag_samples": -2509,
+        "coefficient": 0.029302293368863874
+      },
+      {
+        "thesis_lag_samples": 2507,
+        "scipy_lag_samples": -2507,
+        "coefficient": 0.029207775504373253
+      },
+      {
+        "thesis_lag_samples": -231,
+        "scipy_lag_samples": 231,
+        "coefficient": 0.028820899482436678
+      },
+      {
+        "thesis_lag_samples": 3090,
+        "scipy_lag_samples": -3090,
+        "coefficient": 0.02562697798146619
+      },
+      {
+        "thesis_lag_samples": 2512,
+        "scipy_lag_samples": -2512,
+        "coefficient": 0.025329071658567504
+      },
+      {
+        "thesis_lag_samples": 1655,
+        "scipy_lag_samples": -1655,
+        "coefficient": 0.022503796731802257
+      }
+    ],
+    "alignment": {
+      "common_rows": 5493,
+      "start_date": "1973-04-06",
+      "stop_date": "1992-08-31",
+      "calendar_span_days": 7087,
+      "one_day_steps": 4854,
+      "gaps_gt_1_day": 638,
+      "max_gap_days": 336,
+      "mean_step_days": 1.290422432629279,
+      "median_step_days": 1.0,
+      "note": "As in the 1998 MATLAB code, xcorr lags are sample-index lags; the thesis labels them as days."
+    },
+    "thesis_benchmark": {
+      "expected": [
+        {
+          "lag_days": 1905,
+          "coefficient": 0.88
+        },
+        {
+          "lag_days": 341,
+          "coefficient": 0.24
+        },
+        {
+          "lag_days": 1524,
+          "coefficient": 0.13
+        },
+        {
+          "lag_days": -214,
+          "coefficient": 0.08
+        }
+      ],
+      "observed_thesis_convention": [
+        {
+          "lag_days": 1905,
+          "coefficient": 0.8741976723362338,
+          "raw_scipy_lag_samples": -1905
+        },
+        {
+          "lag_days": 341,
+          "coefficient": 0.23869955994578054,
+          "raw_scipy_lag_samples": -341
+        },
+        {
+          "lag_days": 1524,
+          "coefficient": 0.12930291755077572,
+          "raw_scipy_lag_samples": -1524
+        },
+        {
+          "lag_days": -214,
+          "coefficient": 0.08092369722971168,
+          "raw_scipy_lag_samples": 214
+        }
+      ],
+      "replication_checks": [
+        {
+          "expected_lag_days": 1905,
+          "expected_coefficient": 0.88,
+          "observed_lag_days": 1905,
+          "observed_coefficient": 0.8741976723362338,
+          "lag_tolerance_days": 0,
+          "coefficient_tolerance": 0.015,
+          "replicated": true
+        },
+        {
+          "expected_lag_days": 341,
+          "expected_coefficient": 0.24,
+          "observed_lag_days": 341,
+          "observed_coefficient": 0.23869955994578054,
+          "lag_tolerance_days": 0,
+          "coefficient_tolerance": 0.015,
+          "replicated": true
+        },
+        {
+          "expected_lag_days": 1524,
+          "expected_coefficient": 0.13,
+          "observed_lag_days": 1524,
+          "observed_coefficient": 0.12930291755077572,
+          "lag_tolerance_days": 0,
+          "coefficient_tolerance": 0.015,
+          "replicated": true
+        },
+        {
+          "expected_lag_days": -214,
+          "expected_coefficient": 0.08,
+          "observed_lag_days": -214,
+          "observed_coefficient": 0.08092369722971168,
+          "lag_tolerance_days": 0,
+          "coefficient_tolerance": 0.015,
+          "replicated": true
+        }
+      ],
+      "all_four_replicated": true,
+      "calendar_separation_diagnostics": [
+        {
+          "sample_lag": 1905,
+          "pairs": 3588,
+          "mean_calendar_days": 2149.1753065774806,
+          "median_calendar_days": 2070.0,
+          "min_calendar_days": 1948,
+          "max_calendar_days": 3271
+        },
+        {
+          "sample_lag": 341,
+          "pairs": 5152,
+          "mean_calendar_days": 412.73233695652175,
+          "median_calendar_days": 365.0,
+          "min_calendar_days": 342,
+          "max_calendar_days": 1160
+        },
+        {
+          "sample_lag": 1524,
+          "pairs": 3969,
+          "mean_calendar_days": 1731.6946334089191,
+          "median_calendar_days": 1654.0,
+          "min_calendar_days": 1550,
+          "max_calendar_days": 2882
+        },
+        {
+          "sample_lag": -214,
+          "pairs": 5279,
+          "mean_calendar_days": 262.86815684788786,
+          "median_calendar_days": 225.0,
+          "min_calendar_days": 215,
+          "max_calendar_days": 851
+        }
+      ],
+      "interpretation_note": "The historical xcorr lag is an index/sample lag after common-date filtering. Because the aligned series contains gaps, the thesis label 'days' is not always equal to actual calendar days. The calendar diagnostics quantify that distinction without altering the historical replication."
+    }
+  },
+  "propagation_shifted_crosscorrelation": {
+    "status": "not_run",
+    "reason": "XYZ coordinates and/or solar-wind speed are not yet available from the reconstructed particle backbone."
+  }
+}

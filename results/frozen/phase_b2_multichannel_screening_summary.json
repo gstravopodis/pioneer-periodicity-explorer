@@ -1,0 +1,1265 @@
+{
+  "phase": "B2 multichannel uneven-sampling screening",
+  "purpose": "Screen annual and ~1.3-year bands with an interpolation-free DCF and log10 generalized Lomb-Scargle before spending computation on red-noise significance tests.",
+  "guardrail": "B2 is not a significance claim. Peaks close to the sampling-window spectrum remain suspect; only B3 red-noise/surrogate tests may promote a candidate.",
+  "bands_calendar_days": {
+    "annual_330_400": [
+      330,
+      400
+    ],
+    "one_point_three_year_430_520": [
+      430,
+      520
+    ]
+  },
+  "channels": [
+    {
+      "channel": "p_11_20_mev",
+      "label": "Protons 11\u201320 MeV",
+      "finite_values": {
+        "p10": 7042,
+        "p11": 5826
+      },
+      "dcf_definition": {
+        "transform": "log10 positive flux",
+        "bin_days": 10,
+        "positive_cross_lag": "P10(t+L) paired with P11(t)",
+        "interpolation": false
+      },
+      "bands": {
+        "annual_330_400": {
+          "p10_dcf_acf": {
+            "lag_calendar_days": 394.5,
+            "bin_start": 390,
+            "bin_end": 399,
+            "dcf": 0.10775628373342486,
+            "stderr": 0.004299236505810495,
+            "pairs": 55600
+          },
+          "p11_dcf_acf": {
+            "lag_calendar_days": 394.5,
+            "bin_start": 390,
+            "bin_end": 399,
+            "dcf": 0.11450212122578636,
+            "stderr": 0.005044670003228907,
+            "pairs": 45096
+          },
+          "p10_p11_dcf_ccf": {
+            "lag_calendar_days": 334.5,
+            "bin_start": 330,
+            "bin_end": 339,
+            "dcf": -0.007587049495976976,
+            "stderr": 0.0038637390342528962,
+            "pairs": 47878
+          },
+          "p10_gls_log10": {
+            "period_days": 369.1447460964974,
+            "power": 0.03273489855629954
+          },
+          "p11_gls_log10": {
+            "period_days": 358.72462579454583,
+            "power": 0.0256613378710117
+          },
+          "p10_sampling_window": {
+            "period_days": 374.35,
+            "power": 0.0006938655344348318
+          },
+          "p11_sampling_window": {
+            "period_days": 398.66666666666663,
+            "power": 0.0002958994037083643
+          },
+          "p10_gls_minus_window_days": -5.205253903502637,
+          "p11_gls_minus_window_days": -39.9420408721208
+        },
+        "one_point_three_year_430_520": {
+          "p10_dcf_acf": {
+            "lag_calendar_days": 434.5,
+            "bin_start": 430,
+            "bin_end": 439,
+            "dcf": 0.0428183772973411,
+            "stderr": 0.0035528391707294743,
+            "pairs": 55109
+          },
+          "p11_dcf_acf": {
+            "lag_calendar_days": 444.5,
+            "bin_start": 440,
+            "bin_end": 449,
+            "dcf": 0.1895940090253452,
+            "stderr": 0.005384011655312443,
+            "pairs": 44691
+          },
+          "p10_p11_dcf_ccf": {
+            "lag_calendar_days": 494.5,
+            "bin_start": 490,
+            "bin_end": 499,
+            "dcf": 0.04193364831837988,
+            "stderr": 0.004535410493104506,
+            "pairs": 47449
+          },
+          "p10_gls_log10": {
+            "period_days": 437.79455311340035,
+            "power": 0.02456162732176066
+          },
+          "p11_gls_log10": {
+            "period_days": 442.57525929673665,
+            "power": 0.03338258167722869
+          },
+          "p10_sampling_window": {
+            "period_days": 499.1333333333333,
+            "power": 0.0005671539872683963
+          },
+          "p11_sampling_window": {
+            "period_days": 448.5,
+            "power": 0.00033497776294230983
+          },
+          "p10_gls_minus_window_days": -61.33878021993297,
+          "p11_gls_minus_window_days": -5.924740703263353
+        }
+      }
+    },
+    {
+      "channel": "he_11_20_mev_n",
+      "label": "Helium 11\u201320 MeV/n",
+      "finite_values": {
+        "p10": 7042,
+        "p11": 5826
+      },
+      "dcf_definition": {
+        "transform": "log10 positive flux",
+        "bin_days": 10,
+        "positive_cross_lag": "P10(t+L) paired with P11(t)",
+        "interpolation": false
+      },
+      "bands": {
+        "annual_330_400": {
+          "p10_dcf_acf": {
+            "lag_calendar_days": 344.5,
+            "bin_start": 340,
+            "bin_end": 349,
+            "dcf": 0.48566311664448897,
+            "stderr": 0.0042767344666042465,
+            "pairs": 52802
+          },
+          "p11_dcf_acf": {
+            "lag_calendar_days": 394.5,
+            "bin_start": 390,
+            "bin_end": 399,
+            "dcf": 0.2878284981822683,
+            "stderr": 0.005694189398854634,
+            "pairs": 34790
+          },
+          "p10_p11_dcf_ccf": {
+            "lag_calendar_days": 334.5,
+            "bin_start": 330,
+            "bin_end": 339,
+            "dcf": 0.3174641210931935,
+            "stderr": 0.004366995512532323,
+            "pairs": 40663
+          },
+          "p10_gls_log10": {
+            "period_days": 365.545340576682,
+            "power": 0.008207279973526695
+          },
+          "p11_gls_log10": {
+            "period_days": 345.6599051633298,
+            "power": 0.009131007684950749
+          },
+          "p10_sampling_window": {
+            "period_days": 374.35,
+            "power": 0.0006938655344348318
+          },
+          "p11_sampling_window": {
+            "period_days": 398.66666666666663,
+            "power": 0.0002958994037083643
+          },
+          "p10_gls_minus_window_days": -8.804659423318014,
+          "p11_gls_minus_window_days": -53.006761503336804
+        },
+        "one_point_three_year_430_520": {
+          "p10_dcf_acf": {
+            "lag_calendar_days": 434.5,
+            "bin_start": 430,
+            "bin_end": 439,
+            "dcf": 0.3832799019017811,
+            "stderr": 0.0034206564924393022,
+            "pairs": 51955
+          },
+          "p11_dcf_acf": {
+            "lag_calendar_days": 434.5,
+            "bin_start": 430,
+            "bin_end": 439,
+            "dcf": 0.25051114615013403,
+            "stderr": 0.005396002696328494,
+            "pairs": 34795
+          },
+          "p10_p11_dcf_ccf": {
+            "lag_calendar_days": 434.5,
+            "bin_start": 430,
+            "bin_end": 439,
+            "dcf": 0.271596789033271,
+            "stderr": 0.004371436868864157,
+            "pairs": 40493
+          },
+          "p10_gls_log10": {
+            "period_days": 466.6785222069088,
+            "power": 0.008244015823557764
+          },
+          "p11_gls_log10": {
+            "period_days": 481.51376146788994,
+            "power": 0.009245091004286816
+          },
+          "p10_sampling_window": {
+            "period_days": 499.1333333333333,
+            "power": 0.0005671539872683963
+          },
+          "p11_sampling_window": {
+            "period_days": 448.5,
+            "power": 0.00033497776294230983
+          },
+          "p10_gls_minus_window_days": -32.454811126424545,
+          "p11_gls_minus_window_days": 33.013761467889935
+        }
+      }
+    },
+    {
+      "channel": "p_20_24_mev",
+      "label": "Protons 20\u201324 MeV",
+      "finite_values": {
+        "p10": 7042,
+        "p11": 5826
+      },
+      "dcf_definition": {
+        "transform": "log10 positive flux",
+        "bin_days": 10,
+        "positive_cross_lag": "P10(t+L) paired with P11(t)",
+        "interpolation": false
+      },
+      "bands": {
+        "annual_330_400": {
+          "p10_dcf_acf": {
+            "lag_calendar_days": 384.5,
+            "bin_start": 380,
+            "bin_end": 389,
+            "dcf": 0.22910529222527726,
+            "stderr": 0.003269530038450643,
+            "pairs": 61681
+          },
+          "p11_dcf_acf": {
+            "lag_calendar_days": 334.5,
+            "bin_start": 330,
+            "bin_end": 339,
+            "dcf": 0.08284513683969191,
+            "stderr": 0.005341702402959848,
+            "pairs": 45654
+          },
+          "p10_p11_dcf_ccf": {
+            "lag_calendar_days": 384.5,
+            "bin_start": 380,
+            "bin_end": 389,
+            "dcf": 0.053480106554979756,
+            "stderr": 0.004659448352879604,
+            "pairs": 50774
+          },
+          "p10_gls_log10": {
+            "period_days": 369.87315010570825,
+            "power": 0.022000427211714954
+          },
+          "p11_gls_log10": {
+            "period_days": 354.904148493762,
+            "power": 0.02055954246929868
+          },
+          "p10_sampling_window": {
+            "period_days": 374.35,
+            "power": 0.0006938655344348318
+          },
+          "p11_sampling_window": {
+            "period_days": 398.66666666666663,
+            "power": 0.0002958994037083643
+          },
+          "p10_gls_minus_window_days": -4.4768498942917745,
+          "p11_gls_minus_window_days": -43.762518172904606
+        },
+        "one_point_three_year_430_520": {
+          "p10_dcf_acf": {
+            "lag_calendar_days": 494.5,
+            "bin_start": 490,
+            "bin_end": 499,
+            "dcf": 0.19733830602179614,
+            "stderr": 0.004823625711310851,
+            "pairs": 60793
+          },
+          "p11_dcf_acf": {
+            "lag_calendar_days": 434.5,
+            "bin_start": 430,
+            "bin_end": 439,
+            "dcf": 0.1743027111719665,
+            "stderr": 0.005270115609912946,
+            "pairs": 45396
+          },
+          "p10_p11_dcf_ccf": {
+            "lag_calendar_days": 514.5,
+            "bin_start": 510,
+            "bin_end": 519,
+            "dcf": 0.0908450724365204,
+            "stderr": 0.0061578355500554035,
+            "pairs": 50468
+          },
+          "p10_gls_log10": {
+            "period_days": 434.3706033269883,
+            "power": 0.01942350175937188
+          },
+          "p11_gls_log10": {
+            "period_days": 436.3931154901472,
+            "power": 0.016517425777275534
+          },
+          "p10_sampling_window": {
+            "period_days": 499.1333333333333,
+            "power": 0.0005671539872683963
+          },
+          "p11_sampling_window": {
+            "period_days": 448.5,
+            "power": 0.00033497776294230983
+          },
+          "p10_gls_minus_window_days": -64.76273000634501,
+          "p11_gls_minus_window_days": -12.106884509852819
+        }
+      }
+    },
+    {
+      "channel": "he_20_24_mev_n",
+      "label": "Helium 20\u201324 MeV/n",
+      "finite_values": {
+        "p10": 7042,
+        "p11": 5826
+      },
+      "dcf_definition": {
+        "transform": "log10 positive flux",
+        "bin_days": 10,
+        "positive_cross_lag": "P10(t+L) paired with P11(t)",
+        "interpolation": false
+      },
+      "bands": {
+        "annual_330_400": {
+          "p10_dcf_acf": {
+            "lag_calendar_days": 334.5,
+            "bin_start": 330,
+            "bin_end": 339,
+            "dcf": 0.6415708876294586,
+            "stderr": 0.0038433951404279075,
+            "pairs": 62236
+          },
+          "p11_dcf_acf": {
+            "lag_calendar_days": 334.5,
+            "bin_start": 330,
+            "bin_end": 339,
+            "dcf": 0.5187642701054389,
+            "stderr": 0.004712252629401578,
+            "pairs": 43599
+          },
+          "p10_p11_dcf_ccf": {
+            "lag_calendar_days": 334.5,
+            "bin_start": 330,
+            "bin_end": 339,
+            "dcf": 0.5697614765576029,
+            "stderr": 0.00412171091981759,
+            "pairs": 49774
+          },
+          "p10_gls_log10": {
+            "period_days": 378.7479704131337,
+            "power": 0.0012588328326565935
+          },
+          "p11_gls_log10": {
+            "period_days": 345.02366552721537,
+            "power": 0.002300998840597107
+          },
+          "p10_sampling_window": {
+            "period_days": 374.35,
+            "power": 0.0006938655344348318
+          },
+          "p11_sampling_window": {
+            "period_days": 398.66666666666663,
+            "power": 0.0002958994037083643
+          },
+          "p10_gls_minus_window_days": 4.397970413133692,
+          "p11_gls_minus_window_days": -53.64300113945126
+        },
+        "one_point_three_year_430_520": {
+          "p10_dcf_acf": {
+            "lag_calendar_days": 434.5,
+            "bin_start": 430,
+            "bin_end": 439,
+            "dcf": 0.5649610883865965,
+            "stderr": 0.003704243768256729,
+            "pairs": 61194
+          },
+          "p11_dcf_acf": {
+            "lag_calendar_days": 434.5,
+            "bin_start": 430,
+            "bin_end": 439,
+            "dcf": 0.46845665107738277,
+            "stderr": 0.004554586561058521,
+            "pairs": 43369
+          },
+          "p10_p11_dcf_ccf": {
+            "lag_calendar_days": 434.5,
+            "bin_start": 430,
+            "bin_end": 439,
+            "dcf": 0.5016393404705211,
+            "stderr": 0.004126085968459195,
+            "pairs": 49396
+          },
+          "p10_gls_log10": {
+            "period_days": 496.9935135646986,
+            "power": 0.003936163074431684
+          },
+          "p11_gls_log10": {
+            "period_days": 449.33864132528566,
+            "power": 0.008204155729630657
+          },
+          "p10_sampling_window": {
+            "period_days": 499.1333333333333,
+            "power": 0.0005671539872683963
+          },
+          "p11_sampling_window": {
+            "period_days": 448.5,
+            "power": 0.00033497776294230983
+          },
+          "p10_gls_minus_window_days": -2.139819768634709,
+          "p11_gls_minus_window_days": 0.8386413252856642
+        }
+      }
+    },
+    {
+      "channel": "p_24_29_mev",
+      "label": "Protons 24\u201329 MeV",
+      "finite_values": {
+        "p10": 7042,
+        "p11": 2654
+      },
+      "dcf_definition": {
+        "transform": "log10 positive flux",
+        "bin_days": 10,
+        "positive_cross_lag": "P10(t+L) paired with P11(t)",
+        "interpolation": false
+      },
+      "bands": {
+        "annual_330_400": {
+          "p10_dcf_acf": {
+            "lag_calendar_days": 384.5,
+            "bin_start": 380,
+            "bin_end": 389,
+            "dcf": 0.07877031851040772,
+            "stderr": 0.005309947609400365,
+            "pairs": 33336
+          },
+          "p11_dcf_acf": {
+            "lag_calendar_days": 364.5,
+            "bin_start": 360,
+            "bin_end": 369,
+            "dcf": 0.08054283713162784,
+            "stderr": 0.007471153005711201,
+            "pairs": 19704
+          },
+          "p10_p11_dcf_ccf": {
+            "lag_calendar_days": 384.5,
+            "bin_start": 380,
+            "bin_end": 389,
+            "dcf": 0.039645071003179946,
+            "stderr": 0.008054000413230735,
+            "pairs": 19618
+          },
+          "p10_gls_log10": {
+            "period_days": 368.9630931458699,
+            "power": 0.024570188331324964
+          },
+          "p11_gls_log10": {
+            "period_days": 368.8723336964543,
+            "power": 0.038322721269799735
+          },
+          "p10_sampling_window": {
+            "period_days": 374.35,
+            "power": 0.0006938655344348318
+          },
+          "p11_sampling_window": {
+            "period_days": 385.57142857142856,
+            "power": 9.920819563644884e-05
+          },
+          "p10_gls_minus_window_days": -5.386906854130132,
+          "p11_gls_minus_window_days": -16.699094874974264
+        },
+        "one_point_three_year_430_520": {
+          "p10_dcf_acf": {
+            "lag_calendar_days": 514.5,
+            "bin_start": 510,
+            "bin_end": 519,
+            "dcf": 0.12436924263488089,
+            "stderr": 0.007320001988130776,
+            "pairs": 32079
+          },
+          "p11_dcf_acf": {
+            "lag_calendar_days": 514.5,
+            "bin_start": 510,
+            "bin_end": 519,
+            "dcf": 0.21366037068615257,
+            "stderr": 0.012610862930836401,
+            "pairs": 18277
+          },
+          "p10_p11_dcf_ccf": {
+            "lag_calendar_days": 514.5,
+            "bin_start": 510,
+            "bin_end": 519,
+            "dcf": 0.1116596523486775,
+            "stderr": 0.01191157403677548,
+            "pairs": 19222
+          },
+          "p10_gls_log10": {
+            "period_days": 431.123706259241,
+            "power": 0.013201719210381716
+          },
+          "p11_gls_log10": {
+            "period_days": 452.32042056276117,
+            "power": 0.07735086205944124
+          },
+          "p10_sampling_window": {
+            "period_days": 499.1333333333333,
+            "power": 0.0005671539872683963
+          },
+          "p11_sampling_window": {
+            "period_days": 449.8333333333333,
+            "power": 3.190334631691054e-05
+          },
+          "p10_gls_minus_window_days": -68.00962707409235,
+          "p11_gls_minus_window_days": 2.487087229427857
+        }
+      }
+    },
+    {
+      "channel": "he_24_29_mev_n",
+      "label": "Helium 24\u201329 MeV/n",
+      "finite_values": {
+        "p10": 7042,
+        "p11": 2654
+      },
+      "dcf_definition": {
+        "transform": "log10 positive flux",
+        "bin_days": 10,
+        "positive_cross_lag": "P10(t+L) paired with P11(t)",
+        "interpolation": false
+      },
+      "bands": {
+        "annual_330_400": {
+          "p10_dcf_acf": {
+            "lag_calendar_days": 334.5,
+            "bin_start": 330,
+            "bin_end": 339,
+            "dcf": 0.42414925027327466,
+            "stderr": 0.005234485587773542,
+            "pairs": 34324
+          },
+          "p11_dcf_acf": {
+            "lag_calendar_days": 334.5,
+            "bin_start": 330,
+            "bin_end": 339,
+            "dcf": 0.10965859413988856,
+            "stderr": 0.006767253469625223,
+            "pairs": 17151
+          },
+          "p10_p11_dcf_ccf": {
+            "lag_calendar_days": 374.5,
+            "bin_start": 370,
+            "bin_end": 379,
+            "dcf": 0.17297466877871356,
+            "stderr": 0.005087295306983185,
+            "pairs": 17762
+          },
+          "p10_gls_log10": {
+            "period_days": 383.5921797917047,
+            "power": 0.004978814605059316
+          },
+          "p11_gls_log10": {
+            "period_days": 399.9618975042866,
+            "power": 0.017589046173939644
+          },
+          "p10_sampling_window": {
+            "period_days": 374.35,
+            "power": 0.0006938655344348318
+          },
+          "p11_sampling_window": {
+            "period_days": 385.57142857142856,
+            "power": 9.920819563644884e-05
+          },
+          "p10_gls_minus_window_days": 9.2421797917047,
+          "p11_gls_minus_window_days": 14.390468932858028
+        },
+        "one_point_three_year_430_520": {
+          "p10_dcf_acf": {
+            "lag_calendar_days": 434.5,
+            "bin_start": 430,
+            "bin_end": 439,
+            "dcf": 0.33274443656158686,
+            "stderr": 0.005104963808984956,
+            "pairs": 33170
+          },
+          "p11_dcf_acf": {
+            "lag_calendar_days": 514.5,
+            "bin_start": 510,
+            "bin_end": 519,
+            "dcf": 0.11527021816215051,
+            "stderr": 0.0094712835856417,
+            "pairs": 15835
+          },
+          "p10_p11_dcf_ccf": {
+            "lag_calendar_days": 434.5,
+            "bin_start": 430,
+            "bin_end": 439,
+            "dcf": 0.18453344609291242,
+            "stderr": 0.005464234952189608,
+            "pairs": 17359
+          },
+          "p10_gls_log10": {
+            "period_days": 457.7047178861079,
+            "power": 0.009367913831487398
+          },
+          "p11_gls_log10": {
+            "period_days": 510.18226002430134,
+            "power": 0.05189701703960401
+          },
+          "p10_sampling_window": {
+            "period_days": 499.1333333333333,
+            "power": 0.0005671539872683963
+          },
+          "p11_sampling_window": {
+            "period_days": 449.8333333333333,
+            "power": 3.190334631691054e-05
+          },
+          "p10_gls_minus_window_days": -41.42861544722541,
+          "p11_gls_minus_window_days": 60.34892669096803
+        }
+      }
+    },
+    {
+      "channel": "p_29_67_mev",
+      "label": "Protons 29\u201367 MeV",
+      "finite_values": {
+        "p10": 7042,
+        "p11": 2654
+      },
+      "dcf_definition": {
+        "transform": "log10 positive flux",
+        "bin_days": 10,
+        "positive_cross_lag": "P10(t+L) paired with P11(t)",
+        "interpolation": false
+      },
+      "bands": {
+        "annual_330_400": {
+          "p10_dcf_acf": {
+            "lag_calendar_days": 334.5,
+            "bin_start": 330,
+            "bin_end": 339,
+            "dcf": 0.478306936271954,
+            "stderr": 0.003240566957828046,
+            "pairs": 61503
+          },
+          "p11_dcf_acf": {
+            "lag_calendar_days": 364.5,
+            "bin_start": 360,
+            "bin_end": 369,
+            "dcf": 0.04642157820109495,
+            "stderr": 0.006265140064908805,
+            "pairs": 22220
+          },
+          "p10_p11_dcf_ccf": {
+            "lag_calendar_days": 384.5,
+            "bin_start": 380,
+            "bin_end": 389,
+            "dcf": 0.1855538352328305,
+            "stderr": 0.005741107097082937,
+            "pairs": 24618
+          },
+          "p10_gls_log10": {
+            "period_days": 368.1478623785642,
+            "power": 0.004810740836472804
+          },
+          "p11_gls_log10": {
+            "period_days": 365.72364295171064,
+            "power": 0.01682689045971704
+          },
+          "p10_sampling_window": {
+            "period_days": 374.35,
+            "power": 0.0006938655344348318
+          },
+          "p11_sampling_window": {
+            "period_days": 385.57142857142856,
+            "power": 9.920819563644884e-05
+          },
+          "p10_gls_minus_window_days": -6.202137621435838,
+          "p11_gls_minus_window_days": -19.84778561971791
+        },
+        "one_point_three_year_430_520": {
+          "p10_dcf_acf": {
+            "lag_calendar_days": 494.5,
+            "bin_start": 490,
+            "bin_end": 499,
+            "dcf": 0.4103502183231792,
+            "stderr": 0.004317912047900628,
+            "pairs": 60315
+          },
+          "p11_dcf_acf": {
+            "lag_calendar_days": 514.5,
+            "bin_start": 510,
+            "bin_end": 519,
+            "dcf": 0.218619994086428,
+            "stderr": 0.013105041538480702,
+            "pairs": 20728
+          },
+          "p10_p11_dcf_ccf": {
+            "lag_calendar_days": 514.5,
+            "bin_start": 510,
+            "bin_end": 519,
+            "dcf": 0.22234588781293893,
+            "stderr": 0.009441911811500977,
+            "pairs": 24596
+          },
+          "p10_gls_log10": {
+            "period_days": 491.61671037841893,
+            "power": 0.003443443840184215
+          },
+          "p11_gls_log10": {
+            "period_days": 459.1060181945416,
+            "power": 0.05376499429813823
+          },
+          "p10_sampling_window": {
+            "period_days": 499.1333333333333,
+            "power": 0.0005671539872683963
+          },
+          "p11_sampling_window": {
+            "period_days": 449.8333333333333,
+            "power": 3.190334631691054e-05
+          },
+          "p10_gls_minus_window_days": -7.516622954914396,
+          "p11_gls_minus_window_days": 9.27268486120829
+        }
+      }
+    },
+    {
+      "channel": "he_29_67_mev_n",
+      "label": "Helium 29\u201367 MeV/n",
+      "finite_values": {
+        "p10": 7042,
+        "p11": 2654
+      },
+      "dcf_definition": {
+        "transform": "log10 positive flux",
+        "bin_days": 10,
+        "positive_cross_lag": "P10(t+L) paired with P11(t)",
+        "interpolation": false
+      },
+      "bands": {
+        "annual_330_400": {
+          "p10_dcf_acf": {
+            "lag_calendar_days": 334.5,
+            "bin_start": 330,
+            "bin_end": 339,
+            "dcf": 0.6656650029240192,
+            "stderr": 0.0041087037490626895,
+            "pairs": 59729
+          },
+          "p11_dcf_acf": {
+            "lag_calendar_days": 364.5,
+            "bin_start": 360,
+            "bin_end": 369,
+            "dcf": 0.20275383484685758,
+            "stderr": 0.005165457460716338,
+            "pairs": 21915
+          },
+          "p10_p11_dcf_ccf": {
+            "lag_calendar_days": 384.5,
+            "bin_start": 380,
+            "bin_end": 389,
+            "dcf": 0.47524318293429674,
+            "stderr": 0.006629967847273896,
+            "pairs": 23970
+          },
+          "p10_gls_log10": {
+            "period_days": 399.9618975042866,
+            "power": 0.0014164429228695392
+          },
+          "p11_gls_log10": {
+            "period_days": 360.27594728171334,
+            "power": 0.012267497083589094
+          },
+          "p10_sampling_window": {
+            "period_days": 374.35,
+            "power": 0.0006938655344348318
+          },
+          "p11_sampling_window": {
+            "period_days": 385.57142857142856,
+            "power": 9.920819563644884e-05
+          },
+          "p10_gls_minus_window_days": 25.61189750428656,
+          "p11_gls_minus_window_days": -25.295481289715212
+        },
+        "one_point_three_year_430_520": {
+          "p10_dcf_acf": {
+            "lag_calendar_days": 434.5,
+            "bin_start": 430,
+            "bin_end": 439,
+            "dcf": 0.5907254289208924,
+            "stderr": 0.004010835717390853,
+            "pairs": 58752
+          },
+          "p11_dcf_acf": {
+            "lag_calendar_days": 444.5,
+            "bin_start": 440,
+            "bin_end": 449,
+            "dcf": 0.1638395885410281,
+            "stderr": 0.005309250897344074,
+            "pairs": 21121
+          },
+          "p10_p11_dcf_ccf": {
+            "lag_calendar_days": 464.5,
+            "bin_start": 460,
+            "bin_end": 469,
+            "dcf": 0.504450185563321,
+            "stderr": 0.00695248109985317,
+            "pairs": 23913
+          },
+          "p10_gls_log10": {
+            "period_days": 456.8680362116992,
+            "power": 0.005395328253152281
+          },
+          "p11_gls_log10": {
+            "period_days": 501.31333874588086,
+            "power": 0.05241038914590182
+          },
+          "p10_sampling_window": {
+            "period_days": 499.1333333333333,
+            "power": 0.0005671539872683963
+          },
+          "p11_sampling_window": {
+            "period_days": 449.8333333333333,
+            "power": 3.190334631691054e-05
+          },
+          "p10_gls_minus_window_days": -42.26529712163415,
+          "p11_gls_minus_window_days": 51.48000541254754
+        }
+      }
+    },
+    {
+      "channel": "e_7_17_mev",
+      "label": "Electrons 7\u201317 MeV",
+      "finite_values": {
+        "p10": 7042,
+        "p11": 2654
+      },
+      "dcf_definition": {
+        "transform": "log10 positive flux",
+        "bin_days": 10,
+        "positive_cross_lag": "P10(t+L) paired with P11(t)",
+        "interpolation": false
+      },
+      "bands": {
+        "annual_330_400": {
+          "p10_dcf_acf": {
+            "lag_calendar_days": 344.5,
+            "bin_start": 340,
+            "bin_end": 349,
+            "dcf": 0.3819713606994619,
+            "stderr": 0.004835564713419011,
+            "pairs": 61279
+          },
+          "p11_dcf_acf": {
+            "lag_calendar_days": 354.5,
+            "bin_start": 350,
+            "bin_end": 359,
+            "dcf": -0.0099477493907118,
+            "stderr": 0.005087589728800375,
+            "pairs": 22129
+          },
+          "p10_p11_dcf_ccf": {
+            "lag_calendar_days": 394.5,
+            "bin_start": 390,
+            "bin_end": 399,
+            "dcf": 0.014772453218727496,
+            "stderr": 0.00413024440594971,
+            "pairs": 24276
+          },
+          "p10_gls_log10": {
+            "period_days": 399.9618975042866,
+            "power": 0.005108925768676956
+          },
+          "p11_gls_log10": {
+            "period_days": 358.2960712700959,
+            "power": 0.020733708536020044
+          },
+          "p10_sampling_window": {
+            "period_days": 374.35,
+            "power": 0.0006938655344348318
+          },
+          "p11_sampling_window": {
+            "period_days": 385.57142857142856,
+            "power": 9.920819563644884e-05
+          },
+          "p10_gls_minus_window_days": 25.61189750428656,
+          "p11_gls_minus_window_days": -27.275357301332633
+        },
+        "one_point_three_year_430_520": {
+          "p10_dcf_acf": {
+            "lag_calendar_days": 474.5,
+            "bin_start": 470,
+            "bin_end": 479,
+            "dcf": 0.3594203398815793,
+            "stderr": 0.007120449241652114,
+            "pairs": 60161
+          },
+          "p11_dcf_acf": {
+            "lag_calendar_days": 454.5,
+            "bin_start": 450,
+            "bin_end": 459,
+            "dcf": -0.09113374133788732,
+            "stderr": 0.005142350335697206,
+            "pairs": 21164
+          },
+          "p10_p11_dcf_ccf": {
+            "lag_calendar_days": 514.5,
+            "bin_start": 510,
+            "bin_end": 519,
+            "dcf": 0.004180037358979056,
+            "stderr": 0.004115273363475218,
+            "pairs": 24223
+          },
+          "p10_gls_log10": {
+            "period_days": 512.2736811283002,
+            "power": 0.011376457753688972
+          },
+          "p11_gls_log10": {
+            "period_days": 434.7483951128598,
+            "power": 0.018022897186430645
+          },
+          "p10_sampling_window": {
+            "period_days": 499.1333333333333,
+            "power": 0.0005671539872683963
+          },
+          "p11_sampling_window": {
+            "period_days": 449.8333333333333,
+            "power": 3.190334631691054e-05
+          },
+          "p10_gls_minus_window_days": 13.140347794966829,
+          "p11_gls_minus_window_days": -15.084938220473532
+        }
+      }
+    },
+    {
+      "channel": "minimum_ionizing_x2",
+      "label": "2 \u00d7 minimum-ionizing",
+      "finite_values": {
+        "p10": 7042,
+        "p11": 2654
+      },
+      "dcf_definition": {
+        "transform": "log10 positive flux",
+        "bin_days": 10,
+        "positive_cross_lag": "P10(t+L) paired with P11(t)",
+        "interpolation": false
+      },
+      "bands": {
+        "annual_330_400": {
+          "p10_dcf_acf": {
+            "lag_calendar_days": 344.5,
+            "bin_start": 340,
+            "bin_end": 349,
+            "dcf": 0.1226395655569015,
+            "stderr": 0.0036096505214471483,
+            "pairs": 62544
+          },
+          "p11_dcf_acf": {
+            "lag_calendar_days": 364.5,
+            "bin_start": 360,
+            "bin_end": 369,
+            "dcf": 0.05391307698815716,
+            "stderr": 0.004072282800823246,
+            "pairs": 21911
+          },
+          "p10_p11_dcf_ccf": {
+            "lag_calendar_days": 364.5,
+            "bin_start": 360,
+            "bin_end": 369,
+            "dcf": -0.010505564085246936,
+            "stderr": 0.005316050257798132,
+            "pairs": 24475
+          },
+          "p10_gls_log10": {
+            "period_days": 332.9949560638264,
+            "power": 0.003009941323724159
+          },
+          "p11_gls_log10": {
+            "period_days": 373.09401101830457,
+            "power": 0.022141307392304858
+          },
+          "p10_sampling_window": {
+            "period_days": 374.35,
+            "power": 0.0006938655344348318
+          },
+          "p11_sampling_window": {
+            "period_days": 385.57142857142856,
+            "power": 9.920819563644884e-05
+          },
+          "p10_gls_minus_window_days": -41.355043936173615,
+          "p11_gls_minus_window_days": -12.477417553123985
+        },
+        "one_point_three_year_430_520": {
+          "p10_dcf_acf": {
+            "lag_calendar_days": 434.5,
+            "bin_start": 430,
+            "bin_end": 439,
+            "dcf": 0.09672138624625591,
+            "stderr": 0.003513864080773076,
+            "pairs": 61637
+          },
+          "p11_dcf_acf": {
+            "lag_calendar_days": 454.5,
+            "bin_start": 450,
+            "bin_end": 459,
+            "dcf": 0.032386899155685024,
+            "stderr": 0.0034975832170327237,
+            "pairs": 21030
+          },
+          "p10_p11_dcf_ccf": {
+            "lag_calendar_days": 514.5,
+            "bin_start": 510,
+            "bin_end": 519,
+            "dcf": 0.011752789388486033,
+            "stderr": 0.004895270966465604,
+            "pairs": 24363
+          },
+          "p10_gls_log10": {
+            "period_days": 503.67064920109397,
+            "power": 0.012116236731169346
+          },
+          "p11_gls_log10": {
+            "period_days": 430.01106058744006,
+            "power": 0.007987421937929813
+          },
+          "p10_sampling_window": {
+            "period_days": 499.1333333333333,
+            "power": 0.0005671539872683963
+          },
+          "p11_sampling_window": {
+            "period_days": 449.8333333333333,
+            "power": 3.190334631691054e-05
+          },
+          "p10_gls_minus_window_days": 4.53731586776064,
+          "p11_gls_minus_window_days": -19.822272745893258
+        }
+      }
+    },
+    {
+      "channel": "ions_gt67_mev_n",
+      "label": "Ions >67 MeV/n",
+      "finite_values": {
+        "p10": 7042,
+        "p11": 2654
+      },
+      "dcf_definition": {
+        "transform": "log10 positive flux",
+        "bin_days": 10,
+        "positive_cross_lag": "P10(t+L) paired with P11(t)",
+        "interpolation": false
+      },
+      "bands": {
+        "annual_330_400": {
+          "p10_dcf_acf": {
+            "lag_calendar_days": 334.5,
+            "bin_start": 330,
+            "bin_end": 339,
+            "dcf": 0.2995415327258796,
+            "stderr": 0.0032456120696880827,
+            "pairs": 62476
+          },
+          "p11_dcf_acf": {
+            "lag_calendar_days": 344.5,
+            "bin_start": 340,
+            "bin_end": 349,
+            "dcf": 0.08133257294787817,
+            "stderr": 0.005500316876599548,
+            "pairs": 21689
+          },
+          "p10_p11_dcf_ccf": {
+            "lag_calendar_days": 384.5,
+            "bin_start": 380,
+            "bin_end": 389,
+            "dcf": 0.17953988462174825,
+            "stderr": 0.003132192032159006,
+            "pairs": 24372
+          },
+          "p10_gls_log10": {
+            "period_days": 337.49156029964956,
+            "power": 0.003248733029157452
+          },
+          "p11_gls_log10": {
+            "period_days": 349.44572056326774,
+            "power": 0.008975452291786585
+          },
+          "p10_sampling_window": {
+            "period_days": 374.35,
+            "power": 0.0006938655344348318
+          },
+          "p11_sampling_window": {
+            "period_days": 385.57142857142856,
+            "power": 9.920819563644884e-05
+          },
+          "p10_gls_minus_window_days": -36.85843970035046,
+          "p11_gls_minus_window_days": -36.125708008160814
+        },
+        "one_point_three_year_430_520": {
+          "p10_dcf_acf": {
+            "lag_calendar_days": 434.5,
+            "bin_start": 430,
+            "bin_end": 439,
+            "dcf": 0.27285273674711435,
+            "stderr": 0.0034071868262754005,
+            "pairs": 61509
+          },
+          "p11_dcf_acf": {
+            "lag_calendar_days": 444.5,
+            "bin_start": 440,
+            "bin_end": 449,
+            "dcf": 0.07159747311837455,
+            "stderr": 0.008333699382596068,
+            "pairs": 20736
+          },
+          "p10_p11_dcf_ccf": {
+            "lag_calendar_days": 504.5,
+            "bin_start": 500,
+            "bin_end": 509,
+            "dcf": 0.1993882787140351,
+            "stderr": 0.004480006224014482,
+            "pairs": 24249
+          },
+          "p10_gls_log10": {
+            "period_days": 498.4803875011871,
+            "power": 0.005334083275227087
+          },
+          "p11_gls_log10": {
+            "period_days": 430.01106058744006,
+            "power": 0.00665412277219788
+          },
+          "p10_sampling_window": {
+            "period_days": 499.1333333333333,
+            "power": 0.0005671539872683963
+          },
+          "p11_sampling_window": {
+            "period_days": 449.8333333333333,
+            "power": 3.190334631691054e-05
+          },
+          "p10_gls_minus_window_days": -0.6529458321462016,
+          "p11_gls_minus_window_days": -19.822272745893258
+        }
+      }
+    },
+    {
+      "channel": "ions_zgt5_gt67_mev_n",
+      "label": "Z>5 ions >67 MeV/n",
+      "finite_values": {
+        "p10": 7042,
+        "p11": 2654
+      },
+      "dcf_definition": {
+        "transform": "log10 positive flux",
+        "bin_days": 10,
+        "positive_cross_lag": "P10(t+L) paired with P11(t)",
+        "interpolation": false
+      },
+      "bands": {
+        "annual_330_400": {
+          "p10_dcf_acf": {
+            "lag_calendar_days": 344.5,
+            "bin_start": 340,
+            "bin_end": 349,
+            "dcf": 0.0982712076341046,
+            "stderr": 0.0043287970651982415,
+            "pairs": 51025
+          },
+          "p11_dcf_acf": {
+            "lag_calendar_days": 344.5,
+            "bin_start": 340,
+            "bin_end": 349,
+            "dcf": 0.06509797647658337,
+            "stderr": 0.006999286950416056,
+            "pairs": 20388
+          },
+          "p10_p11_dcf_ccf": {
+            "lag_calendar_days": 384.5,
+            "bin_start": 380,
+            "bin_end": 389,
+            "dcf": 0.10212552701342666,
+            "stderr": 0.005115154645850532,
+            "pairs": 22464
+          },
+          "p10_gls_log10": {
+            "period_days": 375.7113712015462,
+            "power": 0.00408358466886389
+          },
+          "p11_gls_log10": {
+            "period_days": 365.0114750678072,
+            "power": 0.004942157190509155
+          },
+          "p10_sampling_window": {
+            "period_days": 374.35,
+            "power": 0.0006938655344348318
+          },
+          "p11_sampling_window": {
+            "period_days": 385.57142857142856,
+            "power": 9.920819563644884e-05
+          },
+          "p10_gls_minus_window_days": 1.3613712015462056,
+          "p11_gls_minus_window_days": -20.55995350362133
+        },
+        "one_point_three_year_430_520": {
+          "p10_dcf_acf": {
+            "lag_calendar_days": 434.5,
+            "bin_start": 430,
+            "bin_end": 439,
+            "dcf": 0.08775421244133386,
+            "stderr": 0.004398316595402611,
+            "pairs": 50161
+          },
+          "p11_dcf_acf": {
+            "lag_calendar_days": 444.5,
+            "bin_start": 440,
+            "bin_end": 449,
+            "dcf": 0.04854591792253344,
+            "stderr": 0.008675713026071997,
+            "pairs": 19475
+          },
+          "p10_p11_dcf_ccf": {
+            "lag_calendar_days": 514.5,
+            "bin_start": 510,
+            "bin_end": 519,
+            "dcf": 0.1065176581459652,
+            "stderr": 0.006450674256498303,
+            "pairs": 22369
+          },
+          "p10_gls_log10": {
+            "period_days": 455.48034366050507,
+            "power": 0.00291314369027822
+          },
+          "p11_gls_log10": {
+            "period_days": 502.9948727778044,
+            "power": 0.009565354318400904
+          },
+          "p10_sampling_window": {
+            "period_days": 499.1333333333333,
+            "power": 0.0005671539872683963
+          },
+          "p11_sampling_window": {
+            "period_days": 449.8333333333333,
+            "power": 3.190334631691054e-05
+          },
+          "p10_gls_minus_window_days": -43.652989672828255,
+          "p11_gls_minus_window_days": 53.16153944447109
+        }
+      }
+    }
+  ]
+}

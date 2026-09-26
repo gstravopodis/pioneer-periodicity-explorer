@@ -1,0 +1,3217 @@
+{
+  "phase": "B3 red-noise and alignment-surrogate significance",
+  "purpose": "Test the two fixed calendar bands after B2 without interpolation, while preserving actual gaps. ACF uses a daily AR(1) null sampled through the historical mask; cross-spacecraft CCF uses random circular calendar shifts of P11 to preserve its own red-noise and sampling structure.",
+  "guardrails": [
+    "P-values are based on the maximum DCF bin anywhere inside each predeclared band, not the single observed peak bin.",
+    "Holm and Benjamini-Hochberg adjustments are applied across channels separately for each band, statistic and robustness variant.",
+    "A small CCF shift-null p-value means absolute P10/P11 alignment is unusual under this surrogate scheme; it does not by itself identify a physical propagation mechanism.",
+    "The B3 default of 199 simulations is a computational first pass. Any candidate intended for publication should be rerun with >=1999 simulations and independently time-localized."
+  ],
+  "bands_calendar_days": {
+    "annual_330_400": [
+      330,
+      400
+    ],
+    "one_point_three_year_430_520": [
+      430,
+      520
+    ]
+  },
+  "simulations_per_test": 1999,
+  "bin_days": 10,
+  "min_abs_circular_shift_days": 700,
+  "channels": [
+    {
+      "channel": "p_11_20_mev",
+      "label": "Protons 11\u201320 MeV",
+      "variants": {
+        "raw_log10": {
+          "p10_acf": {
+            "status": "ok",
+            "detrend": "none",
+            "transform": "log10 positive flux",
+            "calendar_days": {
+              "start": "1972-03-03",
+              "stop": "1992-08-31",
+              "grid_days": 7487
+            },
+            "ar1": {
+              "phi_1day": 0.9030156629842241,
+              "adjacent_pairs": 5979,
+              "observations": 6551
+            },
+            "simulations": 1999,
+            "bands": {
+              "annual_330_400": {
+                "observed": {
+                  "lag_calendar_days": 394.5,
+                  "dcf": 0.10775628373342483,
+                  "pairs": 55600
+                },
+                "p_value_band_max_ar1": 0.008,
+                "null_q95": 0.08189609181456227,
+                "null_q99": 0.10142964402963874,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.016,
+                "q_bh_fdr_across_12_channels": 0.008727272727272728
+              },
+              "one_point_three_year_430_520": {
+                "observed": {
+                  "lag_calendar_days": 434.5,
+                  "dcf": 0.0428183772973411,
+                  "pairs": 55109
+                },
+                "p_value_band_max_ar1": 0.4645,
+                "null_q95": 0.08561167530908209,
+                "null_q99": 0.10810487254404132,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.4645,
+                "q_bh_fdr_across_12_channels": 0.46449999999999997
+              }
+            }
+          },
+          "p11_acf": {
+            "status": "ok",
+            "detrend": "none",
+            "transform": "log10 positive flux",
+            "calendar_days": {
+              "start": "1973-04-06",
+              "stop": "1992-11-27",
+              "grid_days": 7176
+            },
+            "ar1": {
+              "phi_1day": 0.9500094789383744,
+              "adjacent_pairs": 4858,
+              "observations": 5539
+            },
+            "simulations": 1999,
+            "bands": {
+              "annual_330_400": {
+                "observed": {
+                  "lag_calendar_days": 394.5,
+                  "dcf": 0.1145021212257864,
+                  "pairs": 45096
+                },
+                "p_value_band_max_ar1": 0.06,
+                "null_q95": 0.11999739282482569,
+                "null_q99": 0.16330272479303604,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.36,
+                "q_bh_fdr_across_12_channels": 0.10285714285714286
+              },
+              "one_point_three_year_430_520": {
+                "observed": {
+                  "lag_calendar_days": 444.5,
+                  "dcf": 0.1895940090253452,
+                  "pairs": 44691
+                },
+                "p_value_band_max_ar1": 0.0035,
+                "null_q95": 0.1277650141701892,
+                "null_q99": 0.1702699345690242,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.0105,
+                "q_bh_fdr_across_12_channels": 0.004200000000000001
+              }
+            }
+          },
+          "p10_p11_ccf": {
+            "status": "ok",
+            "detrend": "none",
+            "transform": "log10 positive flux",
+            "common_calendar": {
+              "start": "1973-04-06",
+              "stop": "1992-08-31",
+              "grid_days": 7088
+            },
+            "min_abs_shift_days": 700,
+            "simulations": 1999,
+            "bands": {
+              "annual_330_400": {
+                "observed": {
+                  "lag_calendar_days": 334.5,
+                  "dcf": -0.007524426968300302,
+                  "pairs": 47878
+                },
+                "p_value_band_max_circular_shift": 0.6315,
+                "null_q95": 0.19440085915960173,
+                "null_q99": 0.23589891148435163,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 1.0,
+                "q_bh_fdr_across_12_channels": 0.7577999999999999
+              },
+              "one_point_three_year_430_520": {
+                "observed": {
+                  "lag_calendar_days": 494.5,
+                  "dcf": 0.046980725666784184,
+                  "pairs": 47449
+                },
+                "p_value_band_max_circular_shift": 0.388,
+                "null_q95": 0.19849953109016485,
+                "null_q99": 0.24064261568570178,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 1.0,
+                "q_bh_fdr_across_12_channels": 0.46560000000000007
+              }
+            }
+          }
+        },
+        "linear_detrended_log10": {
+          "p10_acf": {
+            "status": "ok",
+            "detrend": "linear",
+            "transform": "log10 positive flux",
+            "calendar_days": {
+              "start": "1972-03-03",
+              "stop": "1992-08-31",
+              "grid_days": 7487
+            },
+            "ar1": {
+              "phi_1day": 0.8981048368736115,
+              "adjacent_pairs": 5979,
+              "observations": 6551
+            },
+            "simulations": 1999,
+            "bands": {
+              "annual_330_400": {
+                "observed": {
+                  "lag_calendar_days": 394.5,
+                  "dcf": 0.06685421236544102,
+                  "pairs": 55600
+                },
+                "p_value_band_max_ar1": 0.12,
+                "null_q95": 0.08334064827095353,
+                "null_q99": 0.10155758100800896,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.12,
+                "q_bh_fdr_across_12_channels": 0.12
+              },
+              "one_point_three_year_430_520": {
+                "observed": {
+                  "lag_calendar_days": 434.5,
+                  "dcf": 0.00012362237899706053,
+                  "pairs": 55109
+                },
+                "p_value_band_max_ar1": 0.939,
+                "null_q95": 0.08635341000121433,
+                "null_q99": 0.10957115990152232,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.939,
+                "q_bh_fdr_across_12_channels": 0.939
+              }
+            }
+          },
+          "p11_acf": {
+            "status": "ok",
+            "detrend": "linear",
+            "transform": "log10 positive flux",
+            "calendar_days": {
+              "start": "1973-04-06",
+              "stop": "1992-11-27",
+              "grid_days": 7176
+            },
+            "ar1": {
+              "phi_1day": 0.9484642486209299,
+              "adjacent_pairs": 4858,
+              "observations": 5539
+            },
+            "simulations": 1999,
+            "bands": {
+              "annual_330_400": {
+                "observed": {
+                  "lag_calendar_days": 394.5,
+                  "dcf": 0.0952923122048611,
+                  "pairs": 45096
+                },
+                "p_value_band_max_ar1": 0.121,
+                "null_q95": 0.12015199518186576,
+                "null_q99": 0.15670367042898922,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.726,
+                "q_bh_fdr_across_12_channels": 0.20742857142857143
+              },
+              "one_point_three_year_430_520": {
+                "observed": {
+                  "lag_calendar_days": 444.5,
+                  "dcf": 0.17670507435166263,
+                  "pairs": 44691
+                },
+                "p_value_band_max_ar1": 0.0045,
+                "null_q95": 0.1250616447174533,
+                "null_q99": 0.1605061062176588,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.026999999999999996,
+                "q_bh_fdr_across_12_channels": 0.007333333333333334
+              }
+            }
+          },
+          "p10_p11_ccf": {
+            "status": "ok",
+            "detrend": "linear",
+            "transform": "log10 positive flux",
+            "common_calendar": {
+              "start": "1973-04-06",
+              "stop": "1992-08-31",
+              "grid_days": 7088
+            },
+            "min_abs_shift_days": 700,
+            "simulations": 1999,
+            "bands": {
+              "annual_330_400": {
+                "observed": {
+                  "lag_calendar_days": 334.5,
+                  "dcf": -0.035992770391972365,
+                  "pairs": 47878
+                },
+                "p_value_band_max_circular_shift": 0.7935,
+                "null_q95": 0.17266775340332965,
+                "null_q99": 0.21324454706468673,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 1.0,
+                "q_bh_fdr_across_12_channels": 0.8656363636363636
+              },
+              "one_point_three_year_430_520": {
+                "observed": {
+                  "lag_calendar_days": 494.5,
+                  "dcf": 0.012350677476803388,
+                  "pairs": 47449
+                },
+                "p_value_band_max_circular_shift": 0.6955,
+                "null_q95": 0.17197639766328948,
+                "null_q99": 0.2132249016396588,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 1.0,
+                "q_bh_fdr_across_12_channels": 0.7587272727272727
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "channel": "he_11_20_mev_n",
+      "label": "Helium 11\u201320 MeV/n",
+      "variants": {
+        "raw_log10": {
+          "p10_acf": {
+            "status": "ok",
+            "detrend": "none",
+            "transform": "log10 positive flux",
+            "calendar_days": {
+              "start": "1972-03-03",
+              "stop": "1992-08-31",
+              "grid_days": 7487
+            },
+            "ar1": {
+              "phi_1day": 0.908033771724061,
+              "adjacent_pairs": 5696,
+              "observations": 6371
+            },
+            "simulations": 1999,
+            "bands": {
+              "annual_330_400": {
+                "observed": {
+                  "lag_calendar_days": 344.5,
+                  "dcf": 0.48566311664448897,
+                  "pairs": 52802
+                },
+                "p_value_band_max_ar1": 0.0005,
+                "null_q95": 0.08626458291278326,
+                "null_q99": 0.10991597823297351,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.0006000000000000001
+              },
+              "one_point_three_year_430_520": {
+                "observed": {
+                  "lag_calendar_days": 434.5,
+                  "dcf": 0.38327990190178124,
+                  "pairs": 51955
+                },
+                "p_value_band_max_ar1": 0.0005,
+                "null_q95": 0.08800795037448061,
+                "null_q99": 0.11246259647276612,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.0005454545454545455
+              }
+            }
+          },
+          "p11_acf": {
+            "status": "ok",
+            "detrend": "none",
+            "transform": "log10 positive flux",
+            "calendar_days": {
+              "start": "1973-04-06",
+              "stop": "1992-11-27",
+              "grid_days": 7176
+            },
+            "ar1": {
+              "phi_1day": 0.8879027848425153,
+              "adjacent_pairs": 3879,
+              "observations": 4805
+            },
+            "simulations": 1999,
+            "bands": {
+              "annual_330_400": {
+                "observed": {
+                  "lag_calendar_days": 394.5,
+                  "dcf": 0.28782849818226824,
+                  "pairs": 34790
+                },
+                "p_value_band_max_ar1": 0.0005,
+                "null_q95": 0.09557977091667222,
+                "null_q99": 0.11781338279050801,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.0012000000000000001
+              },
+              "one_point_three_year_430_520": {
+                "observed": {
+                  "lag_calendar_days": 434.5,
+                  "dcf": 0.25051114615013403,
+                  "pairs": 34795
+                },
+                "p_value_band_max_ar1": 0.0005,
+                "null_q95": 0.09870873339701396,
+                "null_q99": 0.12105361992058351,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.0012000000000000001
+              }
+            }
+          },
+          "p10_p11_ccf": {
+            "status": "ok",
+            "detrend": "none",
+            "transform": "log10 positive flux",
+            "common_calendar": {
+              "start": "1973-04-06",
+              "stop": "1992-08-31",
+              "grid_days": 7088
+            },
+            "min_abs_shift_days": 700,
+            "simulations": 1999,
+            "bands": {
+              "annual_330_400": {
+                "observed": {
+                  "lag_calendar_days": 334.5,
+                  "dcf": 0.35522550657672286,
+                  "pairs": 40663
+                },
+                "p_value_band_max_circular_shift": 0.0005,
+                "null_q95": 0.2907644086887513,
+                "null_q99": 0.3233704388763693,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.0012000000000000001
+              },
+              "one_point_three_year_430_520": {
+                "observed": {
+                  "lag_calendar_days": 434.5,
+                  "dcf": 0.3039206439295746,
+                  "pairs": 40493
+                },
+                "p_value_band_max_circular_shift": 0.059,
+                "null_q95": 0.3086659446959109,
+                "null_q99": 0.3933229834641199,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.413,
+                "q_bh_fdr_across_12_channels": 0.09
+              }
+            }
+          }
+        },
+        "linear_detrended_log10": {
+          "p10_acf": {
+            "status": "ok",
+            "detrend": "linear",
+            "transform": "log10 positive flux",
+            "calendar_days": {
+              "start": "1972-03-03",
+              "stop": "1992-08-31",
+              "grid_days": 7487
+            },
+            "ar1": {
+              "phi_1day": 0.9023596154954242,
+              "adjacent_pairs": 5696,
+              "observations": 6371
+            },
+            "simulations": 1999,
+            "bands": {
+              "annual_330_400": {
+                "observed": {
+                  "lag_calendar_days": 344.5,
+                  "dcf": 0.49055772669073733,
+                  "pairs": 52802
+                },
+                "p_value_band_max_ar1": 0.0005,
+                "null_q95": 0.08240346182565114,
+                "null_q99": 0.10675012102719406,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.0006000000000000001
+              },
+              "one_point_three_year_430_520": {
+                "observed": {
+                  "lag_calendar_days": 434.5,
+                  "dcf": 0.38679162592523697,
+                  "pairs": 51955
+                },
+                "p_value_band_max_ar1": 0.0005,
+                "null_q95": 0.0882851124225181,
+                "null_q99": 0.10814964177065625,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.0006000000000000001
+              }
+            }
+          },
+          "p11_acf": {
+            "status": "ok",
+            "detrend": "linear",
+            "transform": "log10 positive flux",
+            "calendar_days": {
+              "start": "1973-04-06",
+              "stop": "1992-11-27",
+              "grid_days": 7176
+            },
+            "ar1": {
+              "phi_1day": 0.8761493930929005,
+              "adjacent_pairs": 3879,
+              "observations": 4805
+            },
+            "simulations": 1999,
+            "bands": {
+              "annual_330_400": {
+                "observed": {
+                  "lag_calendar_days": 394.5,
+                  "dcf": 0.2106641556034905,
+                  "pairs": 34790
+                },
+                "p_value_band_max_ar1": 0.0005,
+                "null_q95": 0.0884747588244161,
+                "null_q99": 0.11101819804601586,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.0012000000000000001
+              },
+              "one_point_three_year_430_520": {
+                "observed": {
+                  "lag_calendar_days": 434.5,
+                  "dcf": 0.1712619147199878,
+                  "pairs": 34795
+                },
+                "p_value_band_max_ar1": 0.0005,
+                "null_q95": 0.09127741555577573,
+                "null_q99": 0.11352526721788324,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.0015
+              }
+            }
+          },
+          "p10_p11_ccf": {
+            "status": "ok",
+            "detrend": "linear",
+            "transform": "log10 positive flux",
+            "common_calendar": {
+              "start": "1973-04-06",
+              "stop": "1992-08-31",
+              "grid_days": 7088
+            },
+            "min_abs_shift_days": 700,
+            "simulations": 1999,
+            "bands": {
+              "annual_330_400": {
+                "observed": {
+                  "lag_calendar_days": 334.5,
+                  "dcf": 0.3376680209501392,
+                  "pairs": 40663
+                },
+                "p_value_band_max_circular_shift": 0.053,
+                "null_q95": 0.3387997867318621,
+                "null_q99": 0.37421298365898564,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.42,
+                "q_bh_fdr_across_12_channels": 0.106
+              },
+              "one_point_three_year_430_520": {
+                "observed": {
+                  "lag_calendar_days": 434.5,
+                  "dcf": 0.28282302500817186,
+                  "pairs": 40493
+                },
+                "p_value_band_max_circular_shift": 0.144,
+                "null_q95": 0.3594528965263478,
+                "null_q99": 0.37294944716537537,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.7384999999999999,
+                "q_bh_fdr_across_12_channels": 0.21599999999999997
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "channel": "p_20_24_mev",
+      "label": "Protons 20\u201324 MeV",
+      "variants": {
+        "raw_log10": {
+          "p10_acf": {
+            "status": "ok",
+            "detrend": "none",
+            "transform": "log10 positive flux",
+            "calendar_days": {
+              "start": "1972-03-03",
+              "stop": "1992-08-31",
+              "grid_days": 7487
+            },
+            "ar1": {
+              "phi_1day": 0.8282509351446175,
+              "adjacent_pairs": 6581,
+              "observations": 6932
+            },
+            "simulations": 1999,
+            "bands": {
+              "annual_330_400": {
+                "observed": {
+                  "lag_calendar_days": 384.5,
+                  "dcf": 0.22910529222527728,
+                  "pairs": 61681
+                },
+                "p_value_band_max_ar1": 0.0005,
+                "null_q95": 0.06089811697256439,
+                "null_q99": 0.07576489995717602,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.0006000000000000001
+              },
+              "one_point_three_year_430_520": {
+                "observed": {
+                  "lag_calendar_days": 494.5,
+                  "dcf": 0.19733830602179614,
+                  "pairs": 60793
+                },
+                "p_value_band_max_ar1": 0.0005,
+                "null_q95": 0.06196321590343258,
+                "null_q99": 0.07622086280731852,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.0005454545454545455
+              }
+            }
+          },
+          "p11_acf": {
+            "status": "ok",
+            "detrend": "none",
+            "transform": "log10 positive flux",
+            "calendar_days": {
+              "start": "1973-04-06",
+              "stop": "1992-11-27",
+              "grid_days": 7176
+            },
+            "ar1": {
+              "phi_1day": 0.9255403304624398,
+              "adjacent_pairs": 4915,
+              "observations": 5578
+            },
+            "simulations": 1999,
+            "bands": {
+              "annual_330_400": {
+                "observed": {
+                  "lag_calendar_days": 334.5,
+                  "dcf": 0.08284513683969189,
+                  "pairs": 45654
+                },
+                "p_value_band_max_ar1": 0.138,
+                "null_q95": 0.10678653644669382,
+                "null_q99": 0.13565100110135545,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.6900000000000001,
+                "q_bh_fdr_across_12_channels": 0.20700000000000002
+              },
+              "one_point_three_year_430_520": {
+                "observed": {
+                  "lag_calendar_days": 434.5,
+                  "dcf": 0.1743027111719665,
+                  "pairs": 45396
+                },
+                "p_value_band_max_ar1": 0.0005,
+                "null_q95": 0.10653825960860355,
+                "null_q99": 0.14058706355123876,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.0012000000000000001
+              }
+            }
+          },
+          "p10_p11_ccf": {
+            "status": "ok",
+            "detrend": "none",
+            "transform": "log10 positive flux",
+            "common_calendar": {
+              "start": "1973-04-06",
+              "stop": "1992-08-31",
+              "grid_days": 7088
+            },
+            "min_abs_shift_days": 700,
+            "simulations": 1999,
+            "bands": {
+              "annual_330_400": {
+                "observed": {
+                  "lag_calendar_days": 384.5,
+                  "dcf": 0.057088422280124056,
+                  "pairs": 50774
+                },
+                "p_value_band_max_circular_shift": 0.222,
+                "null_q95": 0.16260548506994296,
+                "null_q99": 0.24714490405531267,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 1.0,
+                "q_bh_fdr_across_12_channels": 0.333
+              },
+              "one_point_three_year_430_520": {
+                "observed": {
+                  "lag_calendar_days": 514.5,
+                  "dcf": 0.09737265899477378,
+                  "pairs": 50468
+                },
+                "p_value_band_max_circular_shift": 0.182,
+                "null_q95": 0.17870221038465314,
+                "null_q99": 0.2529858692706011,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.728,
+                "q_bh_fdr_across_12_channels": 0.2426666666666667
+              }
+            }
+          }
+        },
+        "linear_detrended_log10": {
+          "p10_acf": {
+            "status": "ok",
+            "detrend": "linear",
+            "transform": "log10 positive flux",
+            "calendar_days": {
+              "start": "1972-03-03",
+              "stop": "1992-08-31",
+              "grid_days": 7487
+            },
+            "ar1": {
+              "phi_1day": 0.8131534149507995,
+              "adjacent_pairs": 6581,
+              "observations": 6932
+            },
+            "simulations": 1999,
+            "bands": {
+              "annual_330_400": {
+                "observed": {
+                  "lag_calendar_days": 384.5,
+                  "dcf": 0.1824805524615977,
+                  "pairs": 61681
+                },
+                "p_value_band_max_ar1": 0.0005,
+                "null_q95": 0.05716103588921248,
+                "null_q99": 0.06766617802729476,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.0006000000000000001
+              },
+              "one_point_three_year_430_520": {
+                "observed": {
+                  "lag_calendar_days": 494.5,
+                  "dcf": 0.14709027985659126,
+                  "pairs": 60793
+                },
+                "p_value_band_max_ar1": 0.0005,
+                "null_q95": 0.05962038095924863,
+                "null_q99": 0.0719896170333077,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.0006000000000000001
+              }
+            }
+          },
+          "p11_acf": {
+            "status": "ok",
+            "detrend": "linear",
+            "transform": "log10 positive flux",
+            "calendar_days": {
+              "start": "1973-04-06",
+              "stop": "1992-11-27",
+              "grid_days": 7176
+            },
+            "ar1": {
+              "phi_1day": 0.920680928448104,
+              "adjacent_pairs": 4915,
+              "observations": 5578
+            },
+            "simulations": 1999,
+            "bands": {
+              "annual_330_400": {
+                "observed": {
+                  "lag_calendar_days": 334.5,
+                  "dcf": 0.047189238278723795,
+                  "pairs": 45654
+                },
+                "p_value_band_max_ar1": 0.387,
+                "null_q95": 0.09969142707903894,
+                "null_q99": 0.12482431290725471,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 1.0,
+                "q_bh_fdr_across_12_channels": 0.5805
+              },
+              "one_point_three_year_430_520": {
+                "observed": {
+                  "lag_calendar_days": 434.5,
+                  "dcf": 0.1379304175804628,
+                  "pairs": 45396
+                },
+                "p_value_band_max_ar1": 0.0055,
+                "null_q95": 0.10472528049060545,
+                "null_q99": 0.13036032959206298,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.027499999999999997,
+                "q_bh_fdr_across_12_channels": 0.007333333333333334
+              }
+            }
+          },
+          "p10_p11_ccf": {
+            "status": "ok",
+            "detrend": "linear",
+            "transform": "log10 positive flux",
+            "common_calendar": {
+              "start": "1973-04-06",
+              "stop": "1992-08-31",
+              "grid_days": 7088
+            },
+            "min_abs_shift_days": 700,
+            "simulations": 1999,
+            "bands": {
+              "annual_330_400": {
+                "observed": {
+                  "lag_calendar_days": 384.5,
+                  "dcf": -0.009264479509571807,
+                  "pairs": 50774
+                },
+                "p_value_band_max_circular_shift": 0.6535,
+                "null_q95": 0.17433159704832973,
+                "null_q99": 0.23072159527107852,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 1.0,
+                "q_bh_fdr_across_12_channels": 0.7842
+              },
+              "one_point_three_year_430_520": {
+                "observed": {
+                  "lag_calendar_days": 514.5,
+                  "dcf": 0.0209831411341644,
+                  "pairs": 50468
+                },
+                "p_value_band_max_circular_shift": 0.6065,
+                "null_q95": 0.16450822551234484,
+                "null_q99": 0.22984681914458727,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 1.0,
+                "q_bh_fdr_across_12_channels": 0.7278
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "channel": "he_20_24_mev_n",
+      "label": "Helium 20\u201324 MeV/n",
+      "variants": {
+        "raw_log10": {
+          "p10_acf": {
+            "status": "ok",
+            "detrend": "none",
+            "transform": "log10 positive flux",
+            "calendar_days": {
+              "start": "1972-03-03",
+              "stop": "1992-08-31",
+              "grid_days": 7487
+            },
+            "ar1": {
+              "phi_1day": 0.841051159636876,
+              "adjacent_pairs": 6592,
+              "observations": 6940
+            },
+            "simulations": 1999,
+            "bands": {
+              "annual_330_400": {
+                "observed": {
+                  "lag_calendar_days": 334.5,
+                  "dcf": 0.6415708876294586,
+                  "pairs": 62236
+                },
+                "p_value_band_max_ar1": 0.0005,
+                "null_q95": 0.061741773190204075,
+                "null_q99": 0.0758806329342457,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.0006000000000000001
+              },
+              "one_point_three_year_430_520": {
+                "observed": {
+                  "lag_calendar_days": 434.5,
+                  "dcf": 0.5649610883865966,
+                  "pairs": 61194
+                },
+                "p_value_band_max_ar1": 0.0005,
+                "null_q95": 0.06679820374328467,
+                "null_q99": 0.083629714919218,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.0005454545454545455
+              }
+            }
+          },
+          "p11_acf": {
+            "status": "ok",
+            "detrend": "none",
+            "transform": "log10 positive flux",
+            "calendar_days": {
+              "start": "1973-04-06",
+              "stop": "1992-11-27",
+              "grid_days": 7176
+            },
+            "ar1": {
+              "phi_1day": 0.8428156264682527,
+              "adjacent_pairs": 4716,
+              "observations": 5462
+            },
+            "simulations": 1999,
+            "bands": {
+              "annual_330_400": {
+                "observed": {
+                  "lag_calendar_days": 334.5,
+                  "dcf": 0.5187642701054389,
+                  "pairs": 43599
+                },
+                "p_value_band_max_ar1": 0.0005,
+                "null_q95": 0.07144999112238593,
+                "null_q99": 0.08765155414470834,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.0012000000000000001
+              },
+              "one_point_three_year_430_520": {
+                "observed": {
+                  "lag_calendar_days": 434.5,
+                  "dcf": 0.4684566510773828,
+                  "pairs": 43369
+                },
+                "p_value_band_max_ar1": 0.0005,
+                "null_q95": 0.07575791271603848,
+                "null_q99": 0.09057503022288804,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.0012000000000000001
+              }
+            }
+          },
+          "p10_p11_ccf": {
+            "status": "ok",
+            "detrend": "none",
+            "transform": "log10 positive flux",
+            "common_calendar": {
+              "start": "1973-04-06",
+              "stop": "1992-08-31",
+              "grid_days": 7088
+            },
+            "min_abs_shift_days": 700,
+            "simulations": 1999,
+            "bands": {
+              "annual_330_400": {
+                "observed": {
+                  "lag_calendar_days": 334.5,
+                  "dcf": 0.5592970550221548,
+                  "pairs": 49774
+                },
+                "p_value_band_max_circular_shift": 0.004,
+                "null_q95": 0.4421956946978391,
+                "null_q99": 0.5120790852072336,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.028,
+                "q_bh_fdr_across_12_channels": 0.008
+              },
+              "one_point_three_year_430_520": {
+                "observed": {
+                  "lag_calendar_days": 434.5,
+                  "dcf": 0.49236785620981066,
+                  "pairs": 49396
+                },
+                "p_value_band_max_circular_shift": 0.039,
+                "null_q95": 0.46636810461728445,
+                "null_q99": 0.616628694269134,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.312,
+                "q_bh_fdr_across_12_channels": 0.09
+              }
+            }
+          }
+        },
+        "linear_detrended_log10": {
+          "p10_acf": {
+            "status": "ok",
+            "detrend": "linear",
+            "transform": "log10 positive flux",
+            "calendar_days": {
+              "start": "1972-03-03",
+              "stop": "1992-08-31",
+              "grid_days": 7487
+            },
+            "ar1": {
+              "phi_1day": 0.8406130092830411,
+              "adjacent_pairs": 6592,
+              "observations": 6940
+            },
+            "simulations": 1999,
+            "bands": {
+              "annual_330_400": {
+                "observed": {
+                  "lag_calendar_days": 334.5,
+                  "dcf": 0.6450126718042891,
+                  "pairs": 62236
+                },
+                "p_value_band_max_ar1": 0.0005,
+                "null_q95": 0.06456630391017093,
+                "null_q99": 0.07879023264806957,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.0006000000000000001
+              },
+              "one_point_three_year_430_520": {
+                "observed": {
+                  "lag_calendar_days": 434.5,
+                  "dcf": 0.568200365887009,
+                  "pairs": 61194
+                },
+                "p_value_band_max_ar1": 0.0005,
+                "null_q95": 0.06657901160773472,
+                "null_q99": 0.08090119519779405,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.0006000000000000001
+              }
+            }
+          },
+          "p11_acf": {
+            "status": "ok",
+            "detrend": "linear",
+            "transform": "log10 positive flux",
+            "calendar_days": {
+              "start": "1973-04-06",
+              "stop": "1992-11-27",
+              "grid_days": 7176
+            },
+            "ar1": {
+              "phi_1day": 0.8303085807269177,
+              "adjacent_pairs": 4716,
+              "observations": 5462
+            },
+            "simulations": 1999,
+            "bands": {
+              "annual_330_400": {
+                "observed": {
+                  "lag_calendar_days": 334.5,
+                  "dcf": 0.46349679709569463,
+                  "pairs": 43599
+                },
+                "p_value_band_max_ar1": 0.0005,
+                "null_q95": 0.0697512669313009,
+                "null_q99": 0.08662895404879206,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.0012000000000000001
+              },
+              "one_point_three_year_430_520": {
+                "observed": {
+                  "lag_calendar_days": 434.5,
+                  "dcf": 0.41256522963349995,
+                  "pairs": 43369
+                },
+                "p_value_band_max_ar1": 0.0005,
+                "null_q95": 0.07304007872219243,
+                "null_q99": 0.08861138801473821,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.0015
+              }
+            }
+          },
+          "p10_p11_ccf": {
+            "status": "ok",
+            "detrend": "linear",
+            "transform": "log10 positive flux",
+            "common_calendar": {
+              "start": "1973-04-06",
+              "stop": "1992-08-31",
+              "grid_days": 7088
+            },
+            "min_abs_shift_days": 700,
+            "simulations": 1999,
+            "bands": {
+              "annual_330_400": {
+                "observed": {
+                  "lag_calendar_days": 334.5,
+                  "dcf": 0.563028776113194,
+                  "pairs": 49774
+                },
+                "p_value_band_max_circular_shift": 0.0025,
+                "null_q95": 0.4249647039367946,
+                "null_q99": 0.521234776657982,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.025,
+                "q_bh_fdr_across_12_channels": 0.01
+              },
+              "one_point_three_year_430_520": {
+                "observed": {
+                  "lag_calendar_days": 434.5,
+                  "dcf": 0.4970767199846301,
+                  "pairs": 49396
+                },
+                "p_value_band_max_circular_shift": 0.041,
+                "null_q95": 0.44298424996299673,
+                "null_q99": 0.6208030461303821,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.328,
+                "q_bh_fdr_across_12_channels": 0.0984
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "channel": "p_24_29_mev",
+      "label": "Protons 24\u201329 MeV",
+      "variants": {
+        "raw_log10": {
+          "p10_acf": {
+            "status": "ok",
+            "detrend": "none",
+            "transform": "log10 positive flux",
+            "calendar_days": {
+              "start": "1972-03-04",
+              "stop": "1992-08-31",
+              "grid_days": 7486
+            },
+            "ar1": {
+              "phi_1day": 0.8171384979586185,
+              "adjacent_pairs": 3706,
+              "observations": 4848
+            },
+            "simulations": 1999,
+            "bands": {
+              "annual_330_400": {
+                "observed": {
+                  "lag_calendar_days": 384.5,
+                  "dcf": 0.07877031851040772,
+                  "pairs": 33336
+                },
+                "p_value_band_max_ar1": 0.018,
+                "null_q95": 0.06878090793314152,
+                "null_q99": 0.0826517775562357,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.018,
+                "q_bh_fdr_across_12_channels": 0.018
+              },
+              "one_point_three_year_430_520": {
+                "observed": {
+                  "lag_calendar_days": 514.5,
+                  "dcf": 0.12436924263488085,
+                  "pairs": 32079
+                },
+                "p_value_band_max_ar1": 0.0005,
+                "null_q95": 0.07096536924972885,
+                "null_q99": 0.08706515362809694,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.0005454545454545455
+              }
+            }
+          },
+          "p11_acf": {
+            "status": "ok",
+            "detrend": "none",
+            "transform": "log10 positive flux",
+            "calendar_days": {
+              "start": "1973-04-06",
+              "stop": "1980-08-25",
+              "grid_days": 2699
+            },
+            "ar1": {
+              "phi_1day": 0.8877539577143096,
+              "adjacent_pairs": 2301,
+              "observations": 2468
+            },
+            "simulations": 1999,
+            "bands": {
+              "annual_330_400": {
+                "observed": {
+                  "lag_calendar_days": 364.5,
+                  "dcf": 0.08054283713162781,
+                  "pairs": 19704
+                },
+                "p_value_band_max_ar1": 0.2725,
+                "null_q95": 0.12826155942223919,
+                "null_q99": 0.15446002605103124,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.8175000000000001,
+                "q_bh_fdr_across_12_channels": 0.32700000000000007
+              },
+              "one_point_three_year_430_520": {
+                "observed": {
+                  "lag_calendar_days": 514.5,
+                  "dcf": 0.2136603706861525,
+                  "pairs": 18277
+                },
+                "p_value_band_max_ar1": 0.001,
+                "null_q95": 0.1371978091094345,
+                "null_q99": 0.167113761397214,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.007,
+                "q_bh_fdr_across_12_channels": 0.0017142857142857144
+              }
+            }
+          },
+          "p10_p11_ccf": {
+            "status": "ok",
+            "detrend": "none",
+            "transform": "log10 positive flux",
+            "common_calendar": {
+              "start": "1973-04-06",
+              "stop": "1980-08-25",
+              "grid_days": 2699
+            },
+            "min_abs_shift_days": 700,
+            "simulations": 1999,
+            "bands": {
+              "annual_330_400": {
+                "observed": {
+                  "lag_calendar_days": 384.5,
+                  "dcf": 0.091996015659765,
+                  "pairs": 17991
+                },
+                "p_value_band_max_circular_shift": 0.2695,
+                "null_q95": 0.19098819993604627,
+                "null_q99": 0.19491193020362116,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 1.0,
+                "q_bh_fdr_across_12_channels": 0.35933333333333334
+              },
+              "one_point_three_year_430_520": {
+                "observed": {
+                  "lag_calendar_days": 514.5,
+                  "dcf": 0.1942345999454435,
+                  "pairs": 16714
+                },
+                "p_value_band_max_circular_shift": 0.059,
+                "null_q95": 0.1956976246294401,
+                "null_q99": 0.19862138552950054,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.413,
+                "q_bh_fdr_across_12_channels": 0.09
+              }
+            }
+          }
+        },
+        "linear_detrended_log10": {
+          "p10_acf": {
+            "status": "ok",
+            "detrend": "linear",
+            "transform": "log10 positive flux",
+            "calendar_days": {
+              "start": "1972-03-04",
+              "stop": "1992-08-31",
+              "grid_days": 7486
+            },
+            "ar1": {
+              "phi_1day": 0.8171011173478767,
+              "adjacent_pairs": 3706,
+              "observations": 4848
+            },
+            "simulations": 1999,
+            "bands": {
+              "annual_330_400": {
+                "observed": {
+                  "lag_calendar_days": 384.5,
+                  "dcf": 0.07345068937444743,
+                  "pairs": 33336
+                },
+                "p_value_band_max_ar1": 0.033,
+                "null_q95": 0.06840475145694153,
+                "null_q99": 0.08569485703789363,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.066,
+                "q_bh_fdr_across_12_channels": 0.036000000000000004
+              },
+              "one_point_three_year_430_520": {
+                "observed": {
+                  "lag_calendar_days": 514.5,
+                  "dcf": 0.11605468041887408,
+                  "pairs": 32079
+                },
+                "p_value_band_max_ar1": 0.001,
+                "null_q95": 0.07201614764344937,
+                "null_q99": 0.0875463062957967,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.001090909090909091
+              }
+            }
+          },
+          "p11_acf": {
+            "status": "ok",
+            "detrend": "linear",
+            "transform": "log10 positive flux",
+            "calendar_days": {
+              "start": "1973-04-06",
+              "stop": "1980-08-25",
+              "grid_days": 2699
+            },
+            "ar1": {
+              "phi_1day": 0.8853781194902804,
+              "adjacent_pairs": 2301,
+              "observations": 2468
+            },
+            "simulations": 1999,
+            "bands": {
+              "annual_330_400": {
+                "observed": {
+                  "lag_calendar_days": 364.5,
+                  "dcf": 0.06037030704691235,
+                  "pairs": 19704
+                },
+                "p_value_band_max_ar1": 0.4525,
+                "null_q95": 0.13029524906523735,
+                "null_q99": 0.1674959300376954,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 1.0,
+                "q_bh_fdr_across_12_channels": 0.6033333333333333
+              },
+              "one_point_three_year_430_520": {
+                "observed": {
+                  "lag_calendar_days": 514.5,
+                  "dcf": 0.2022057944634649,
+                  "pairs": 18277
+                },
+                "p_value_band_max_ar1": 0.0015,
+                "null_q95": 0.13596391982779313,
+                "null_q99": 0.17211678808756642,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.012,
+                "q_bh_fdr_across_12_channels": 0.0036000000000000003
+              }
+            }
+          },
+          "p10_p11_ccf": {
+            "status": "ok",
+            "detrend": "linear",
+            "transform": "log10 positive flux",
+            "common_calendar": {
+              "start": "1973-04-06",
+              "stop": "1980-08-25",
+              "grid_days": 2699
+            },
+            "min_abs_shift_days": 700,
+            "simulations": 1999,
+            "bands": {
+              "annual_330_400": {
+                "observed": {
+                  "lag_calendar_days": 384.5,
+                  "dcf": 0.08634260226278788,
+                  "pairs": 17991
+                },
+                "p_value_band_max_circular_shift": 0.2955,
+                "null_q95": 0.16928033672099801,
+                "null_q99": 0.1749079955440831,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 1.0,
+                "q_bh_fdr_across_12_channels": 0.44325
+              },
+              "one_point_three_year_430_520": {
+                "observed": {
+                  "lag_calendar_days": 514.5,
+                  "dcf": 0.20106288961650273,
+                  "pairs": 16714
+                },
+                "p_value_band_max_circular_shift": 0.0005,
+                "null_q95": 0.17501102343237165,
+                "null_q99": 0.17804297114534276,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.0015
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "channel": "he_24_29_mev_n",
+      "label": "Helium 24\u201329 MeV/n",
+      "variants": {
+        "raw_log10": {
+          "p10_acf": {
+            "status": "ok",
+            "detrend": "none",
+            "transform": "log10 positive flux",
+            "calendar_days": {
+              "start": "1972-03-03",
+              "stop": "1992-08-31",
+              "grid_days": 7487
+            },
+            "ar1": {
+              "phi_1day": 0.7524970850949754,
+              "adjacent_pairs": 3859,
+              "observations": 4791
+            },
+            "simulations": 1999,
+            "bands": {
+              "annual_330_400": {
+                "observed": {
+                  "lag_calendar_days": 334.5,
+                  "dcf": 0.4241492502732746,
+                  "pairs": 34324
+                },
+                "p_value_band_max_ar1": 0.0005,
+                "null_q95": 0.06038341772421874,
+                "null_q99": 0.0706565391244294,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.0006000000000000001
+              },
+              "one_point_three_year_430_520": {
+                "observed": {
+                  "lag_calendar_days": 434.5,
+                  "dcf": 0.33274443656158686,
+                  "pairs": 33170
+                },
+                "p_value_band_max_ar1": 0.0005,
+                "null_q95": 0.06211443367979852,
+                "null_q99": 0.0769681115588855,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.0005454545454545455
+              }
+            }
+          },
+          "p11_acf": {
+            "status": "ok",
+            "detrend": "none",
+            "transform": "log10 positive flux",
+            "calendar_days": {
+              "start": "1973-04-06",
+              "stop": "1980-08-21",
+              "grid_days": 2695
+            },
+            "ar1": {
+              "phi_1day": 0.5891527138778964,
+              "adjacent_pairs": 1978,
+              "observations": 2234
+            },
+            "simulations": 1999,
+            "bands": {
+              "annual_330_400": {
+                "observed": {
+                  "lag_calendar_days": 334.5,
+                  "dcf": 0.10965859413988853,
+                  "pairs": 17151
+                },
+                "p_value_band_max_ar1": 0.0005,
+                "null_q95": 0.0551154134729212,
+                "null_q99": 0.06890084990885002,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.0012000000000000001
+              },
+              "one_point_three_year_430_520": {
+                "observed": {
+                  "lag_calendar_days": 514.5,
+                  "dcf": 0.11527021816215048,
+                  "pairs": 15835
+                },
+                "p_value_band_max_ar1": 0.0005,
+                "null_q95": 0.05936502743734835,
+                "null_q99": 0.07276142900175292,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.0012000000000000001
+              }
+            }
+          },
+          "p10_p11_ccf": {
+            "status": "ok",
+            "detrend": "none",
+            "transform": "log10 positive flux",
+            "common_calendar": {
+              "start": "1973-04-06",
+              "stop": "1980-08-25",
+              "grid_days": 2699
+            },
+            "min_abs_shift_days": 700,
+            "simulations": 1999,
+            "bands": {
+              "annual_330_400": {
+                "observed": {
+                  "lag_calendar_days": 374.5,
+                  "dcf": 0.22520016614374982,
+                  "pairs": 17321
+                },
+                "p_value_band_max_circular_shift": 0.0005,
+                "null_q95": 0.06057216322921751,
+                "null_q99": 0.10830896586981115,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.0012000000000000001
+              },
+              "one_point_three_year_430_520": {
+                "observed": {
+                  "lag_calendar_days": 434.5,
+                  "dcf": 0.21829240492418628,
+                  "pairs": 16794
+                },
+                "p_value_band_max_circular_shift": 0.0005,
+                "null_q95": 0.16559628921267108,
+                "null_q99": 0.188697854307042,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.0015
+              }
+            }
+          }
+        },
+        "linear_detrended_log10": {
+          "p10_acf": {
+            "status": "ok",
+            "detrend": "linear",
+            "transform": "log10 positive flux",
+            "calendar_days": {
+              "start": "1972-03-03",
+              "stop": "1992-08-31",
+              "grid_days": 7487
+            },
+            "ar1": {
+              "phi_1day": 0.7156033742629471,
+              "adjacent_pairs": 3859,
+              "observations": 4791
+            },
+            "simulations": 1999,
+            "bands": {
+              "annual_330_400": {
+                "observed": {
+                  "lag_calendar_days": 334.5,
+                  "dcf": 0.31774915702069734,
+                  "pairs": 34324
+                },
+                "p_value_band_max_ar1": 0.0005,
+                "null_q95": 0.05134001177233034,
+                "null_q99": 0.0649253953311724,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.0006000000000000001
+              },
+              "one_point_three_year_430_520": {
+                "observed": {
+                  "lag_calendar_days": 434.5,
+                  "dcf": 0.23173415877044765,
+                  "pairs": 33170
+                },
+                "p_value_band_max_ar1": 0.0005,
+                "null_q95": 0.055980708515814194,
+                "null_q99": 0.06735961568967995,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.0006000000000000001
+              }
+            }
+          },
+          "p11_acf": {
+            "status": "ok",
+            "detrend": "linear",
+            "transform": "log10 positive flux",
+            "calendar_days": {
+              "start": "1973-04-06",
+              "stop": "1980-08-21",
+              "grid_days": 2695
+            },
+            "ar1": {
+              "phi_1day": 0.5820845850630213,
+              "adjacent_pairs": 1978,
+              "observations": 2234
+            },
+            "simulations": 1999,
+            "bands": {
+              "annual_330_400": {
+                "observed": {
+                  "lag_calendar_days": 364.5,
+                  "dcf": 0.10062285801922644,
+                  "pairs": 16955
+                },
+                "p_value_band_max_ar1": 0.0005,
+                "null_q95": 0.053665625663891305,
+                "null_q99": 0.0663442697701166,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.0012000000000000001
+              },
+              "one_point_three_year_430_520": {
+                "observed": {
+                  "lag_calendar_days": 514.5,
+                  "dcf": 0.10768943408355384,
+                  "pairs": 15835
+                },
+                "p_value_band_max_ar1": 0.0005,
+                "null_q95": 0.05753239441594111,
+                "null_q99": 0.07016204888562967,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.0015
+              }
+            }
+          },
+          "p10_p11_ccf": {
+            "status": "ok",
+            "detrend": "linear",
+            "transform": "log10 positive flux",
+            "common_calendar": {
+              "start": "1973-04-06",
+              "stop": "1980-08-25",
+              "grid_days": 2699
+            },
+            "min_abs_shift_days": 700,
+            "simulations": 1999,
+            "bands": {
+              "annual_330_400": {
+                "observed": {
+                  "lag_calendar_days": 374.5,
+                  "dcf": 0.21238666658848154,
+                  "pairs": 17321
+                },
+                "p_value_band_max_circular_shift": 0.0005,
+                "null_q95": 0.06258745879393145,
+                "null_q99": 0.1027008246335094,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.003
+              },
+              "one_point_three_year_430_520": {
+                "observed": {
+                  "lag_calendar_days": 434.5,
+                  "dcf": 0.2053950598818684,
+                  "pairs": 16794
+                },
+                "p_value_band_max_circular_shift": 0.0005,
+                "null_q95": 0.16972017272041773,
+                "null_q99": 0.19460766741939936,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.0015
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "channel": "p_29_67_mev",
+      "label": "Protons 29\u201367 MeV",
+      "variants": {
+        "raw_log10": {
+          "p10_acf": {
+            "status": "ok",
+            "detrend": "none",
+            "transform": "log10 positive flux",
+            "calendar_days": {
+              "start": "1972-03-03",
+              "stop": "1992-08-31",
+              "grid_days": 7487
+            },
+            "ar1": {
+              "phi_1day": 0.8475574849192372,
+              "adjacent_pairs": 6519,
+              "observations": 6891
+            },
+            "simulations": 1999,
+            "bands": {
+              "annual_330_400": {
+                "observed": {
+                  "lag_calendar_days": 334.5,
+                  "dcf": 0.478306936271954,
+                  "pairs": 61503
+                },
+                "p_value_band_max_ar1": 0.0005,
+                "null_q95": 0.06649630879756455,
+                "null_q99": 0.08362855351488561,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.0006000000000000001
+              },
+              "one_point_three_year_430_520": {
+                "observed": {
+                  "lag_calendar_days": 494.5,
+                  "dcf": 0.4103502183231792,
+                  "pairs": 60315
+                },
+                "p_value_band_max_ar1": 0.0005,
+                "null_q95": 0.06831837487169702,
+                "null_q99": 0.08540497412067141,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.0005454545454545455
+              }
+            }
+          },
+          "p11_acf": {
+            "status": "ok",
+            "detrend": "none",
+            "transform": "log10 positive flux",
+            "calendar_days": {
+              "start": "1973-04-06",
+              "stop": "1980-08-25",
+              "grid_days": 2699
+            },
+            "ar1": {
+              "phi_1day": 0.9127574848303627,
+              "adjacent_pairs": 2598,
+              "observations": 2637
+            },
+            "simulations": 1999,
+            "bands": {
+              "annual_330_400": {
+                "observed": {
+                  "lag_calendar_days": 364.5,
+                  "dcf": 0.04642157820109496,
+                  "pairs": 22220
+                },
+                "p_value_band_max_ar1": 0.5435,
+                "null_q95": 0.14248951322308492,
+                "null_q99": 0.17720495566121386,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 1.0,
+                "q_bh_fdr_across_12_channels": 0.5929090909090909
+              },
+              "one_point_three_year_430_520": {
+                "observed": {
+                  "lag_calendar_days": 514.5,
+                  "dcf": 0.2186199940864279,
+                  "pairs": 20728
+                },
+                "p_value_band_max_ar1": 0.0015,
+                "null_q95": 0.15422910361440983,
+                "null_q99": 0.18549125982835812,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.0075,
+                "q_bh_fdr_across_12_channels": 0.0022500000000000003
+              }
+            }
+          },
+          "p10_p11_ccf": {
+            "status": "ok",
+            "detrend": "none",
+            "transform": "log10 positive flux",
+            "common_calendar": {
+              "start": "1973-04-06",
+              "stop": "1980-08-25",
+              "grid_days": 2699
+            },
+            "min_abs_shift_days": 700,
+            "simulations": 1999,
+            "bands": {
+              "annual_330_400": {
+                "observed": {
+                  "lag_calendar_days": 384.5,
+                  "dcf": 0.12574256963061262,
+                  "pairs": 20882
+                },
+                "p_value_band_max_circular_shift": 0.061,
+                "null_q95": 0.1290829265268365,
+                "null_q99": 0.133171652625077,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.366,
+                "q_bh_fdr_across_12_channels": 0.10457142857142857
+              },
+              "one_point_three_year_430_520": {
+                "observed": {
+                  "lag_calendar_days": 514.5,
+                  "dcf": 0.17475600966554386,
+                  "pairs": 19590
+                },
+                "p_value_band_max_circular_shift": 0.0005,
+                "null_q95": 0.1366978708251466,
+                "null_q99": 0.13996572721135495,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.0015
+              }
+            }
+          }
+        },
+        "linear_detrended_log10": {
+          "p10_acf": {
+            "status": "ok",
+            "detrend": "linear",
+            "transform": "log10 positive flux",
+            "calendar_days": {
+              "start": "1972-03-03",
+              "stop": "1992-08-31",
+              "grid_days": 7487
+            },
+            "ar1": {
+              "phi_1day": 0.8404098501330188,
+              "adjacent_pairs": 6519,
+              "observations": 6891
+            },
+            "simulations": 1999,
+            "bands": {
+              "annual_330_400": {
+                "observed": {
+                  "lag_calendar_days": 334.5,
+                  "dcf": 0.45673853732453534,
+                  "pairs": 61503
+                },
+                "p_value_band_max_ar1": 0.0005,
+                "null_q95": 0.062032973606691924,
+                "null_q99": 0.07760286093620536,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.0006000000000000001
+              },
+              "one_point_three_year_430_520": {
+                "observed": {
+                  "lag_calendar_days": 434.5,
+                  "dcf": 0.3763929006536759,
+                  "pairs": 60604
+                },
+                "p_value_band_max_ar1": 0.0005,
+                "null_q95": 0.0652244623373113,
+                "null_q99": 0.08063450144668143,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.0006000000000000001
+              }
+            }
+          },
+          "p11_acf": {
+            "status": "ok",
+            "detrend": "linear",
+            "transform": "log10 positive flux",
+            "calendar_days": {
+              "start": "1973-04-06",
+              "stop": "1980-08-25",
+              "grid_days": 2699
+            },
+            "ar1": {
+              "phi_1day": 0.9121696830103638,
+              "adjacent_pairs": 2598,
+              "observations": 2637
+            },
+            "simulations": 1999,
+            "bands": {
+              "annual_330_400": {
+                "observed": {
+                  "lag_calendar_days": 364.5,
+                  "dcf": 0.04956467959888567,
+                  "pairs": 22220
+                },
+                "p_value_band_max_ar1": 0.53,
+                "null_q95": 0.14378632853329926,
+                "null_q99": 0.18131227837101688,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 1.0,
+                "q_bh_fdr_across_12_channels": 0.636
+              },
+              "one_point_three_year_430_520": {
+                "observed": {
+                  "lag_calendar_days": 514.5,
+                  "dcf": 0.22083984816202715,
+                  "pairs": 20728
+                },
+                "p_value_band_max_ar1": 0.0025,
+                "null_q95": 0.15083124320690303,
+                "null_q99": 0.19279071251927482,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.0175,
+                "q_bh_fdr_across_12_channels": 0.005
+              }
+            }
+          },
+          "p10_p11_ccf": {
+            "status": "ok",
+            "detrend": "linear",
+            "transform": "log10 positive flux",
+            "common_calendar": {
+              "start": "1973-04-06",
+              "stop": "1980-08-25",
+              "grid_days": 2699
+            },
+            "min_abs_shift_days": 700,
+            "simulations": 1999,
+            "bands": {
+              "annual_330_400": {
+                "observed": {
+                  "lag_calendar_days": 384.5,
+                  "dcf": 0.12458711043203324,
+                  "pairs": 20882
+                },
+                "p_value_band_max_circular_shift": 0.064,
+                "null_q95": 0.13473559952494119,
+                "null_q99": 0.13896529517586517,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.42,
+                "q_bh_fdr_across_12_channels": 0.10971428571428572
+              },
+              "one_point_three_year_430_520": {
+                "observed": {
+                  "lag_calendar_days": 514.5,
+                  "dcf": 0.17698755955126919,
+                  "pairs": 19590
+                },
+                "p_value_band_max_circular_shift": 0.0005,
+                "null_q95": 0.14268143308909637,
+                "null_q99": 0.14583541441220418,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.0015
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "channel": "he_29_67_mev_n",
+      "label": "Helium 29\u201367 MeV/n",
+      "variants": {
+        "raw_log10": {
+          "p10_acf": {
+            "status": "ok",
+            "detrend": "none",
+            "transform": "log10 positive flux",
+            "calendar_days": {
+              "start": "1972-03-03",
+              "stop": "1992-08-31",
+              "grid_days": 7487
+            },
+            "ar1": {
+              "phi_1day": 0.8458464540976308,
+              "adjacent_pairs": 6341,
+              "observations": 6794
+            },
+            "simulations": 1999,
+            "bands": {
+              "annual_330_400": {
+                "observed": {
+                  "lag_calendar_days": 334.5,
+                  "dcf": 0.6656650029240192,
+                  "pairs": 59729
+                },
+                "p_value_band_max_ar1": 0.0005,
+                "null_q95": 0.06601430106079252,
+                "null_q99": 0.0800121364849746,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.0006000000000000001
+              },
+              "one_point_three_year_430_520": {
+                "observed": {
+                  "lag_calendar_days": 434.5,
+                  "dcf": 0.5907254289208924,
+                  "pairs": 58752
+                },
+                "p_value_band_max_ar1": 0.0005,
+                "null_q95": 0.06733841625092336,
+                "null_q99": 0.08239515445877087,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.0005454545454545455
+              }
+            }
+          },
+          "p11_acf": {
+            "status": "ok",
+            "detrend": "none",
+            "transform": "log10 positive flux",
+            "calendar_days": {
+              "start": "1973-04-06",
+              "stop": "1980-08-25",
+              "grid_days": 2699
+            },
+            "ar1": {
+              "phi_1day": 0.7998495545769205,
+              "adjacent_pairs": 2564,
+              "observations": 2618
+            },
+            "simulations": 1999,
+            "bands": {
+              "annual_330_400": {
+                "observed": {
+                  "lag_calendar_days": 364.5,
+                  "dcf": 0.20275383484685744,
+                  "pairs": 21915
+                },
+                "p_value_band_max_ar1": 0.0005,
+                "null_q95": 0.09133669768850035,
+                "null_q99": 0.11473760287841145,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.0012000000000000001
+              },
+              "one_point_three_year_430_520": {
+                "observed": {
+                  "lag_calendar_days": 444.5,
+                  "dcf": 0.163839588541028,
+                  "pairs": 21121
+                },
+                "p_value_band_max_ar1": 0.0005,
+                "null_q95": 0.09814383557001748,
+                "null_q99": 0.12273292079831753,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.0012000000000000001
+              }
+            }
+          },
+          "p10_p11_ccf": {
+            "status": "ok",
+            "detrend": "none",
+            "transform": "log10 positive flux",
+            "common_calendar": {
+              "start": "1973-04-06",
+              "stop": "1980-08-25",
+              "grid_days": 2699
+            },
+            "min_abs_shift_days": 700,
+            "simulations": 1999,
+            "bands": {
+              "annual_330_400": {
+                "observed": {
+                  "lag_calendar_days": 384.5,
+                  "dcf": 0.269969024109104,
+                  "pairs": 20682
+                },
+                "p_value_band_max_circular_shift": 0.0005,
+                "null_q95": 0.04255378153997794,
+                "null_q99": 0.13646652411000412,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.0012000000000000001
+              },
+              "one_point_three_year_430_520": {
+                "observed": {
+                  "lag_calendar_days": 434.5,
+                  "dcf": 0.2468908982266745,
+                  "pairs": 20217
+                },
+                "p_value_band_max_circular_shift": 0.06,
+                "null_q95": 0.2740832823354437,
+                "null_q99": 0.34483874030120637,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.413,
+                "q_bh_fdr_across_12_channels": 0.09
+              }
+            }
+          }
+        },
+        "linear_detrended_log10": {
+          "p10_acf": {
+            "status": "ok",
+            "detrend": "linear",
+            "transform": "log10 positive flux",
+            "calendar_days": {
+              "start": "1972-03-03",
+              "stop": "1992-08-31",
+              "grid_days": 7487
+            },
+            "ar1": {
+              "phi_1day": 0.8459492374706761,
+              "adjacent_pairs": 6341,
+              "observations": 6794
+            },
+            "simulations": 1999,
+            "bands": {
+              "annual_330_400": {
+                "observed": {
+                  "lag_calendar_days": 334.5,
+                  "dcf": 0.6665471259140104,
+                  "pairs": 59729
+                },
+                "p_value_band_max_ar1": 0.0005,
+                "null_q95": 0.06375072611941825,
+                "null_q99": 0.07819989772990839,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.0006000000000000001
+              },
+              "one_point_three_year_430_520": {
+                "observed": {
+                  "lag_calendar_days": 434.5,
+                  "dcf": 0.5915723424685211,
+                  "pairs": 58752
+                },
+                "p_value_band_max_ar1": 0.0005,
+                "null_q95": 0.06763921033150772,
+                "null_q99": 0.07921614264090193,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.0006000000000000001
+              }
+            }
+          },
+          "p11_acf": {
+            "status": "ok",
+            "detrend": "linear",
+            "transform": "log10 positive flux",
+            "calendar_days": {
+              "start": "1973-04-06",
+              "stop": "1980-08-25",
+              "grid_days": 2699
+            },
+            "ar1": {
+              "phi_1day": 0.7735781244871456,
+              "adjacent_pairs": 2564,
+              "observations": 2618
+            },
+            "simulations": 1999,
+            "bands": {
+              "annual_330_400": {
+                "observed": {
+                  "lag_calendar_days": 354.5,
+                  "dcf": 0.18527483931330282,
+                  "pairs": 22004
+                },
+                "p_value_band_max_ar1": 0.0005,
+                "null_q95": 0.08421388056020454,
+                "null_q99": 0.10346227310053671,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.0012000000000000001
+              },
+              "one_point_three_year_430_520": {
+                "observed": {
+                  "lag_calendar_days": 444.5,
+                  "dcf": 0.15620087060106025,
+                  "pairs": 21121
+                },
+                "p_value_band_max_ar1": 0.0005,
+                "null_q95": 0.08902822779806775,
+                "null_q99": 0.10977207352956526,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.0015
+              }
+            }
+          },
+          "p10_p11_ccf": {
+            "status": "ok",
+            "detrend": "linear",
+            "transform": "log10 positive flux",
+            "common_calendar": {
+              "start": "1973-04-06",
+              "stop": "1980-08-25",
+              "grid_days": 2699
+            },
+            "min_abs_shift_days": 700,
+            "simulations": 1999,
+            "bands": {
+              "annual_330_400": {
+                "observed": {
+                  "lag_calendar_days": 384.5,
+                  "dcf": 0.2255107614749587,
+                  "pairs": 20682
+                },
+                "p_value_band_max_circular_shift": 0.0525,
+                "null_q95": 0.22775473081082043,
+                "null_q99": 0.3081044676961608,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.42,
+                "q_bh_fdr_across_12_channels": 0.106
+              },
+              "one_point_three_year_430_520": {
+                "observed": {
+                  "lag_calendar_days": 434.5,
+                  "dcf": 0.19718369504791936,
+                  "pairs": 20217
+                },
+                "p_value_band_max_circular_shift": 0.1835,
+                "null_q95": 0.40595899973600835,
+                "null_q99": 0.4395895011086576,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.7384999999999999,
+                "q_bh_fdr_across_12_channels": 0.24466666666666667
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "channel": "e_7_17_mev",
+      "label": "Electrons 7\u201317 MeV",
+      "variants": {
+        "raw_log10": {
+          "p10_acf": {
+            "status": "ok",
+            "detrend": "none",
+            "transform": "log10 positive flux",
+            "calendar_days": {
+              "start": "1972-03-03",
+              "stop": "1992-08-31",
+              "grid_days": 7487
+            },
+            "ar1": {
+              "phi_1day": 0.740664402081618,
+              "adjacent_pairs": 6509,
+              "observations": 6892
+            },
+            "simulations": 1999,
+            "bands": {
+              "annual_330_400": {
+                "observed": {
+                  "lag_calendar_days": 344.5,
+                  "dcf": 0.38197136069946197,
+                  "pairs": 61279
+                },
+                "p_value_band_max_ar1": 0.0005,
+                "null_q95": 0.045976948036209886,
+                "null_q99": 0.05487025173776834,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.0006000000000000001
+              },
+              "one_point_three_year_430_520": {
+                "observed": {
+                  "lag_calendar_days": 474.5,
+                  "dcf": 0.3594203398815793,
+                  "pairs": 60161
+                },
+                "p_value_band_max_ar1": 0.0005,
+                "null_q95": 0.04726853623903537,
+                "null_q99": 0.05944088493784868,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.0005454545454545455
+              }
+            }
+          },
+          "p11_acf": {
+            "status": "ok",
+            "detrend": "none",
+            "transform": "log10 positive flux",
+            "calendar_days": {
+              "start": "1973-04-06",
+              "stop": "1980-08-25",
+              "grid_days": 2699
+            },
+            "ar1": {
+              "phi_1day": 0.8509655996714739,
+              "adjacent_pairs": 2585,
+              "observations": 2628
+            },
+            "simulations": 1999,
+            "bands": {
+              "annual_330_400": {
+                "observed": {
+                  "lag_calendar_days": 354.5,
+                  "dcf": -0.009947749390711828,
+                  "pairs": 22129
+                },
+                "p_value_band_max_ar1": 0.964,
+                "null_q95": 0.10948228453085433,
+                "null_q99": 0.14429924782533185,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 1.0,
+                "q_bh_fdr_across_12_channels": 0.964
+              },
+              "one_point_three_year_430_520": {
+                "observed": {
+                  "lag_calendar_days": 454.5,
+                  "dcf": -0.09113374133788733,
+                  "pairs": 21164
+                },
+                "p_value_band_max_ar1": 1.0,
+                "null_q95": 0.1171552206810439,
+                "null_q99": 0.14087770520713871,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 1.0,
+                "q_bh_fdr_across_12_channels": 1.0
+              }
+            }
+          },
+          "p10_p11_ccf": {
+            "status": "ok",
+            "detrend": "none",
+            "transform": "log10 positive flux",
+            "common_calendar": {
+              "start": "1973-04-06",
+              "stop": "1980-08-25",
+              "grid_days": 2699
+            },
+            "min_abs_shift_days": 700,
+            "simulations": 1999,
+            "bands": {
+              "annual_330_400": {
+                "observed": {
+                  "lag_calendar_days": 394.5,
+                  "dcf": -0.046562101648578054,
+                  "pairs": 20450
+                },
+                "p_value_band_max_circular_shift": 0.834,
+                "null_q95": 0.10675909979012677,
+                "null_q99": 0.11931494732266855,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 1.0,
+                "q_bh_fdr_across_12_channels": 0.9098181818181817
+              },
+              "one_point_three_year_430_520": {
+                "observed": {
+                  "lag_calendar_days": 444.5,
+                  "dcf": -0.06937742780493915,
+                  "pairs": 19990
+                },
+                "p_value_band_max_circular_shift": 0.9975,
+                "null_q95": 0.10912131624062565,
+                "null_q99": 0.11268054748973036,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 1.0,
+                "q_bh_fdr_across_12_channels": 0.9975
+              }
+            }
+          }
+        },
+        "linear_detrended_log10": {
+          "p10_acf": {
+            "status": "ok",
+            "detrend": "linear",
+            "transform": "log10 positive flux",
+            "calendar_days": {
+              "start": "1972-03-03",
+              "stop": "1992-08-31",
+              "grid_days": 7487
+            },
+            "ar1": {
+              "phi_1day": 0.6925849614146479,
+              "adjacent_pairs": 6509,
+              "observations": 6892
+            },
+            "simulations": 1999,
+            "bands": {
+              "annual_330_400": {
+                "observed": {
+                  "lag_calendar_days": 344.5,
+                  "dcf": 0.27943941320477655,
+                  "pairs": 61279
+                },
+                "p_value_band_max_ar1": 0.0005,
+                "null_q95": 0.039554968190407436,
+                "null_q99": 0.04778587158716341,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.0006000000000000001
+              },
+              "one_point_three_year_430_520": {
+                "observed": {
+                  "lag_calendar_days": 474.5,
+                  "dcf": 0.26173066253468896,
+                  "pairs": 60161
+                },
+                "p_value_band_max_ar1": 0.0005,
+                "null_q95": 0.04094924729373471,
+                "null_q99": 0.05117944203776787,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.0006000000000000001
+              }
+            }
+          },
+          "p11_acf": {
+            "status": "ok",
+            "detrend": "linear",
+            "transform": "log10 positive flux",
+            "calendar_days": {
+              "start": "1973-04-06",
+              "stop": "1980-08-25",
+              "grid_days": 2699
+            },
+            "ar1": {
+              "phi_1day": 0.8412713191540981,
+              "adjacent_pairs": 2585,
+              "observations": 2628
+            },
+            "simulations": 1999,
+            "bands": {
+              "annual_330_400": {
+                "observed": {
+                  "lag_calendar_days": 354.5,
+                  "dcf": -0.1042500584199456,
+                  "pairs": 22129
+                },
+                "p_value_band_max_ar1": 1.0,
+                "null_q95": 0.10736498823812937,
+                "null_q99": 0.13485024263432424,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 1.0,
+                "q_bh_fdr_across_12_channels": 1.0
+              },
+              "one_point_three_year_430_520": {
+                "observed": {
+                  "lag_calendar_days": 454.5,
+                  "dcf": -0.18874072085400287,
+                  "pairs": 21164
+                },
+                "p_value_band_max_ar1": 1.0,
+                "null_q95": 0.11469205131438044,
+                "null_q99": 0.13897179492447181,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 1.0,
+                "q_bh_fdr_across_12_channels": 1.0
+              }
+            }
+          },
+          "p10_p11_ccf": {
+            "status": "ok",
+            "detrend": "linear",
+            "transform": "log10 positive flux",
+            "common_calendar": {
+              "start": "1973-04-06",
+              "stop": "1980-08-25",
+              "grid_days": 2699
+            },
+            "min_abs_shift_days": 700,
+            "simulations": 1999,
+            "bands": {
+              "annual_330_400": {
+                "observed": {
+                  "lag_calendar_days": 394.5,
+                  "dcf": -0.10196255469794113,
+                  "pairs": 20450
+                },
+                "p_value_band_max_circular_shift": 1.0,
+                "null_q95": 0.11982128520025197,
+                "null_q99": 0.12491434879728114,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 1.0,
+                "q_bh_fdr_across_12_channels": 1.0
+              },
+              "one_point_three_year_430_520": {
+                "observed": {
+                  "lag_calendar_days": 514.5,
+                  "dcf": -0.10287771110546783,
+                  "pairs": 19218
+                },
+                "p_value_band_max_circular_shift": 1.0,
+                "null_q95": 0.09652280082721779,
+                "null_q99": 0.10133877679151891,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 1.0,
+                "q_bh_fdr_across_12_channels": 1.0
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "channel": "minimum_ionizing_x2",
+      "label": "2 \u00d7 minimum-ionizing",
+      "variants": {
+        "raw_log10": {
+          "p10_acf": {
+            "status": "ok",
+            "detrend": "none",
+            "transform": "log10 positive flux",
+            "calendar_days": {
+              "start": "1972-03-03",
+              "stop": "1992-08-31",
+              "grid_days": 7487
+            },
+            "ar1": {
+              "phi_1day": 0.494715102590137,
+              "adjacent_pairs": 6638,
+              "observations": 6962
+            },
+            "simulations": 1999,
+            "bands": {
+              "annual_330_400": {
+                "observed": {
+                  "lag_calendar_days": 344.5,
+                  "dcf": 0.1226395655569015,
+                  "pairs": 62544
+                },
+                "p_value_band_max_ar1": 0.0005,
+                "null_q95": 0.02469791425976914,
+                "null_q99": 0.029775074686729786,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.0006000000000000001
+              },
+              "one_point_three_year_430_520": {
+                "observed": {
+                  "lag_calendar_days": 434.5,
+                  "dcf": 0.09672138624625591,
+                  "pairs": 61637
+                },
+                "p_value_band_max_ar1": 0.0005,
+                "null_q95": 0.025270932194168653,
+                "null_q99": 0.03015783098543335,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.0005454545454545455
+              }
+            }
+          },
+          "p11_acf": {
+            "status": "ok",
+            "detrend": "none",
+            "transform": "log10 positive flux",
+            "calendar_days": {
+              "start": "1973-04-06",
+              "stop": "1980-08-25",
+              "grid_days": 2699
+            },
+            "ar1": {
+              "phi_1day": 0.7219834913545201,
+              "adjacent_pairs": 2574,
+              "observations": 2621
+            },
+            "simulations": 1999,
+            "bands": {
+              "annual_330_400": {
+                "observed": {
+                  "lag_calendar_days": 364.5,
+                  "dcf": 0.05391307698815712,
+                  "pairs": 21911
+                },
+                "p_value_band_max_ar1": 0.2005,
+                "null_q95": 0.07402278073043642,
+                "null_q99": 0.08903959075449772,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.802,
+                "q_bh_fdr_across_12_channels": 0.26733333333333337
+              },
+              "one_point_three_year_430_520": {
+                "observed": {
+                  "lag_calendar_days": 454.5,
+                  "dcf": 0.03238689915568499,
+                  "pairs": 21030
+                },
+                "p_value_band_max_ar1": 0.679,
+                "null_q95": 0.07650290090560595,
+                "null_q99": 0.09313483210726721,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 1.0,
+                "q_bh_fdr_across_12_channels": 0.7407272727272727
+              }
+            }
+          },
+          "p10_p11_ccf": {
+            "status": "ok",
+            "detrend": "none",
+            "transform": "log10 positive flux",
+            "common_calendar": {
+              "start": "1973-04-06",
+              "stop": "1980-08-25",
+              "grid_days": 2699
+            },
+            "min_abs_shift_days": 700,
+            "simulations": 1999,
+            "bands": {
+              "annual_330_400": {
+                "observed": {
+                  "lag_calendar_days": 364.5,
+                  "dcf": -0.022965830179081204,
+                  "pairs": 20908
+                },
+                "p_value_band_max_circular_shift": 1.0,
+                "null_q95": 0.07182931710806242,
+                "null_q99": 0.07421798936130185,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 1.0,
+                "q_bh_fdr_across_12_channels": 1.0
+              },
+              "one_point_three_year_430_520": {
+                "observed": {
+                  "lag_calendar_days": 514.5,
+                  "dcf": -0.005216825836672033,
+                  "pairs": 19318
+                },
+                "p_value_band_max_circular_shift": 0.602,
+                "null_q95": 0.07300031302315206,
+                "null_q99": 0.07476331215535964,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 1.0,
+                "q_bh_fdr_across_12_channels": 0.6567272727272727
+              }
+            }
+          }
+        },
+        "linear_detrended_log10": {
+          "p10_acf": {
+            "status": "ok",
+            "detrend": "linear",
+            "transform": "log10 positive flux",
+            "calendar_days": {
+              "start": "1972-03-03",
+              "stop": "1992-08-31",
+              "grid_days": 7487
+            },
+            "ar1": {
+              "phi_1day": 0.4874791289426009,
+              "adjacent_pairs": 6638,
+              "observations": 6962
+            },
+            "simulations": 1999,
+            "bands": {
+              "annual_330_400": {
+                "observed": {
+                  "lag_calendar_days": 344.5,
+                  "dcf": 0.10075257525935709,
+                  "pairs": 62544
+                },
+                "p_value_band_max_ar1": 0.0005,
+                "null_q95": 0.023842803749035236,
+                "null_q99": 0.028866353445671376,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.0006000000000000001
+              },
+              "one_point_three_year_430_520": {
+                "observed": {
+                  "lag_calendar_days": 434.5,
+                  "dcf": 0.0741686176913024,
+                  "pairs": 61637
+                },
+                "p_value_band_max_ar1": 0.0005,
+                "null_q95": 0.025140773331877996,
+                "null_q99": 0.030992586702780184,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.0006000000000000001
+              }
+            }
+          },
+          "p11_acf": {
+            "status": "ok",
+            "detrend": "linear",
+            "transform": "log10 positive flux",
+            "calendar_days": {
+              "start": "1973-04-06",
+              "stop": "1980-08-25",
+              "grid_days": 2699
+            },
+            "ar1": {
+              "phi_1day": 0.710816084786582,
+              "adjacent_pairs": 2574,
+              "observations": 2621
+            },
+            "simulations": 1999,
+            "bands": {
+              "annual_330_400": {
+                "observed": {
+                  "lag_calendar_days": 334.5,
+                  "dcf": 0.00820921086603863,
+                  "pairs": 22198
+                },
+                "p_value_band_max_ar1": 0.937,
+                "null_q95": 0.07071178341434411,
+                "null_q99": 0.08733981814192425,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 1.0,
+                "q_bh_fdr_across_12_channels": 1.0
+              },
+              "one_point_three_year_430_520": {
+                "observed": {
+                  "lag_calendar_days": 454.5,
+                  "dcf": -0.01778143809429531,
+                  "pairs": 21030
+                },
+                "p_value_band_max_ar1": 1.0,
+                "null_q95": 0.0753168034074428,
+                "null_q99": 0.09426188410108087,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 1.0,
+                "q_bh_fdr_across_12_channels": 1.0
+              }
+            }
+          },
+          "p10_p11_ccf": {
+            "status": "ok",
+            "detrend": "linear",
+            "transform": "log10 positive flux",
+            "common_calendar": {
+              "start": "1973-04-06",
+              "stop": "1980-08-25",
+              "grid_days": 2699
+            },
+            "min_abs_shift_days": 700,
+            "simulations": 1999,
+            "bands": {
+              "annual_330_400": {
+                "observed": {
+                  "lag_calendar_days": 364.5,
+                  "dcf": 0.006621293183835184,
+                  "pairs": 20908
+                },
+                "p_value_band_max_circular_shift": 0.3575,
+                "null_q95": 0.04087578339090136,
+                "null_q99": 0.04360732243864665,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 1.0,
+                "q_bh_fdr_across_12_channels": 0.4766666666666667
+              },
+              "one_point_three_year_430_520": {
+                "observed": {
+                  "lag_calendar_days": 514.5,
+                  "dcf": 0.02688529072602318,
+                  "pairs": 19318
+                },
+                "p_value_band_max_circular_shift": 0.1055,
+                "null_q95": 0.042526946003281524,
+                "null_q99": 0.0447443802194789,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.7384999999999999,
+                "q_bh_fdr_across_12_channels": 0.19371428571428573
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "channel": "ions_gt67_mev_n",
+      "label": "Ions >67 MeV/n",
+      "variants": {
+        "raw_log10": {
+          "p10_acf": {
+            "status": "ok",
+            "detrend": "none",
+            "transform": "log10 positive flux",
+            "calendar_days": {
+              "start": "1972-03-03",
+              "stop": "1992-08-31",
+              "grid_days": 7487
+            },
+            "ar1": {
+              "phi_1day": 0.5439510072126846,
+              "adjacent_pairs": 6627,
+              "observations": 6951
+            },
+            "simulations": 1999,
+            "bands": {
+              "annual_330_400": {
+                "observed": {
+                  "lag_calendar_days": 334.5,
+                  "dcf": 0.2995415327258796,
+                  "pairs": 62476
+                },
+                "p_value_band_max_ar1": 0.0005,
+                "null_q95": 0.027615425107150236,
+                "null_q99": 0.034349297172119764,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.0006000000000000001
+              },
+              "one_point_three_year_430_520": {
+                "observed": {
+                  "lag_calendar_days": 434.5,
+                  "dcf": 0.2728527367471144,
+                  "pairs": 61509
+                },
+                "p_value_band_max_ar1": 0.0005,
+                "null_q95": 0.028924955341246054,
+                "null_q99": 0.034499968392392166,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.0005454545454545455
+              }
+            }
+          },
+          "p11_acf": {
+            "status": "ok",
+            "detrend": "none",
+            "transform": "log10 positive flux",
+            "calendar_days": {
+              "start": "1973-04-06",
+              "stop": "1980-08-25",
+              "grid_days": 2699
+            },
+            "ar1": {
+              "phi_1day": 0.5405583777389642,
+              "adjacent_pairs": 2550,
+              "observations": 2598
+            },
+            "simulations": 1999,
+            "bands": {
+              "annual_330_400": {
+                "observed": {
+                  "lag_calendar_days": 344.5,
+                  "dcf": 0.08133257294787816,
+                  "pairs": 21689
+                },
+                "p_value_band_max_ar1": 0.001,
+                "null_q95": 0.047629586038912784,
+                "null_q99": 0.059280351054676675,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.007,
+                "q_bh_fdr_across_12_channels": 0.002
+              },
+              "one_point_three_year_430_520": {
+                "observed": {
+                  "lag_calendar_days": 444.5,
+                  "dcf": 0.07159747311837453,
+                  "pairs": 20736
+                },
+                "p_value_band_max_ar1": 0.0025,
+                "null_q95": 0.04980627415116553,
+                "null_q99": 0.059960061257434145,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.01,
+                "q_bh_fdr_across_12_channels": 0.003333333333333333
+              }
+            }
+          },
+          "p10_p11_ccf": {
+            "status": "ok",
+            "detrend": "none",
+            "transform": "log10 positive flux",
+            "common_calendar": {
+              "start": "1973-04-06",
+              "stop": "1980-08-25",
+              "grid_days": 2699
+            },
+            "min_abs_shift_days": 700,
+            "simulations": 1999,
+            "bands": {
+              "annual_330_400": {
+                "observed": {
+                  "lag_calendar_days": 384.5,
+                  "dcf": 0.07313675225769463,
+                  "pairs": 20697
+                },
+                "p_value_band_max_circular_shift": 0.0005,
+                "null_q95": 0.007428287124656534,
+                "null_q99": 0.009789122714002592,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.0012000000000000001
+              },
+              "one_point_three_year_430_520": {
+                "observed": {
+                  "lag_calendar_days": 504.5,
+                  "dcf": 0.08280468040506762,
+                  "pairs": 19394
+                },
+                "p_value_band_max_circular_shift": 0.0005,
+                "null_q95": 0.04914623584035367,
+                "null_q99": 0.06662861385547644,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.0015
+              }
+            }
+          }
+        },
+        "linear_detrended_log10": {
+          "p10_acf": {
+            "status": "ok",
+            "detrend": "linear",
+            "transform": "log10 positive flux",
+            "calendar_days": {
+              "start": "1972-03-03",
+              "stop": "1992-08-31",
+              "grid_days": 7487
+            },
+            "ar1": {
+              "phi_1day": 0.5435975064159828,
+              "adjacent_pairs": 6627,
+              "observations": 6951
+            },
+            "simulations": 1999,
+            "bands": {
+              "annual_330_400": {
+                "observed": {
+                  "lag_calendar_days": 334.5,
+                  "dcf": 0.2986175877501252,
+                  "pairs": 62476
+                },
+                "p_value_band_max_ar1": 0.0005,
+                "null_q95": 0.02723359856650519,
+                "null_q99": 0.0339436195665223,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.0006000000000000001
+              },
+              "one_point_three_year_430_520": {
+                "observed": {
+                  "lag_calendar_days": 434.5,
+                  "dcf": 0.27208566106691945,
+                  "pairs": 61509
+                },
+                "p_value_band_max_ar1": 0.0005,
+                "null_q95": 0.029250789599868363,
+                "null_q99": 0.03504334039648041,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.0006000000000000001
+              }
+            }
+          },
+          "p11_acf": {
+            "status": "ok",
+            "detrend": "linear",
+            "transform": "log10 positive flux",
+            "calendar_days": {
+              "start": "1973-04-06",
+              "stop": "1980-08-25",
+              "grid_days": 2699
+            },
+            "ar1": {
+              "phi_1day": 0.5094518056257554,
+              "adjacent_pairs": 2550,
+              "observations": 2598
+            },
+            "simulations": 1999,
+            "bands": {
+              "annual_330_400": {
+                "observed": {
+                  "lag_calendar_days": 344.5,
+                  "dcf": 0.05179769741183016,
+                  "pairs": 21689
+                },
+                "p_value_band_max_ar1": 0.017,
+                "null_q95": 0.043170005228374296,
+                "null_q99": 0.055269661797811544,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.11900000000000001,
+                "q_bh_fdr_across_12_channels": 0.034
+              },
+              "one_point_three_year_430_520": {
+                "observed": {
+                  "lag_calendar_days": 444.5,
+                  "dcf": 0.04504278507653078,
+                  "pairs": 20736
+                },
+                "p_value_band_max_ar1": 0.0565,
+                "null_q95": 0.045802574944227924,
+                "null_q99": 0.057349727450911055,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.1695,
+                "q_bh_fdr_across_12_channels": 0.0678
+              }
+            }
+          },
+          "p10_p11_ccf": {
+            "status": "ok",
+            "detrend": "linear",
+            "transform": "log10 positive flux",
+            "common_calendar": {
+              "start": "1973-04-06",
+              "stop": "1980-08-25",
+              "grid_days": 2699
+            },
+            "min_abs_shift_days": 700,
+            "simulations": 1999,
+            "bands": {
+              "annual_330_400": {
+                "observed": {
+                  "lag_calendar_days": 334.5,
+                  "dcf": 0.05985777830151808,
+                  "pairs": 21096
+                },
+                "p_value_band_max_circular_shift": 0.0125,
+                "null_q95": 0.05109789201267613,
+                "null_q99": 0.06207795517885167,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.1125,
+                "q_bh_fdr_across_12_channels": 0.037500000000000006
+              },
+              "one_point_three_year_430_520": {
+                "observed": {
+                  "lag_calendar_days": 504.5,
+                  "dcf": 0.06222443005183663,
+                  "pairs": 19394
+                },
+                "p_value_band_max_circular_shift": 0.113,
+                "null_q95": 0.09039900258729726,
+                "null_q99": 0.09208620619893468,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.7384999999999999,
+                "q_bh_fdr_across_12_channels": 0.19371428571428573
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "channel": "ions_zgt5_gt67_mev_n",
+      "label": "Z>5 ions >67 MeV/n",
+      "variants": {
+        "raw_log10": {
+          "p10_acf": {
+            "status": "ok",
+            "detrend": "none",
+            "transform": "log10 positive flux",
+            "calendar_days": {
+              "start": "1972-03-03",
+              "stop": "1992-08-29",
+              "grid_days": 7485
+            },
+            "ar1": {
+              "phi_1day": 0.201828818179491,
+              "adjacent_pairs": 5504,
+              "observations": 6222
+            },
+            "simulations": 1999,
+            "bands": {
+              "annual_330_400": {
+                "observed": {
+                  "lag_calendar_days": 344.5,
+                  "dcf": 0.0982712076341046,
+                  "pairs": 51025
+                },
+                "p_value_band_max_ar1": 0.0005,
+                "null_q95": 0.01467394801883684,
+                "null_q99": 0.01823458428522795,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.0006000000000000001
+              },
+              "one_point_three_year_430_520": {
+                "observed": {
+                  "lag_calendar_days": 434.5,
+                  "dcf": 0.08775421244133384,
+                  "pairs": 50161
+                },
+                "p_value_band_max_ar1": 0.0005,
+                "null_q95": 0.015532999404247908,
+                "null_q99": 0.018553453573464388,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.0005454545454545455
+              }
+            }
+          },
+          "p11_acf": {
+            "status": "ok",
+            "detrend": "none",
+            "transform": "log10 positive flux",
+            "calendar_days": {
+              "start": "1973-04-06",
+              "stop": "1980-08-25",
+              "grid_days": 2699
+            },
+            "ar1": {
+              "phi_1day": 0.24288276443705434,
+              "adjacent_pairs": 2442,
+              "observations": 2518
+            },
+            "simulations": 1999,
+            "bands": {
+              "annual_330_400": {
+                "observed": {
+                  "lag_calendar_days": 344.5,
+                  "dcf": 0.06509797647658333,
+                  "pairs": 20388
+                },
+                "p_value_band_max_ar1": 0.0005,
+                "null_q95": 0.026184283183030867,
+                "null_q99": 0.032118354990463414,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.0012000000000000001
+              },
+              "one_point_three_year_430_520": {
+                "observed": {
+                  "lag_calendar_days": 444.5,
+                  "dcf": 0.048545917922533405,
+                  "pairs": 19475
+                },
+                "p_value_band_max_ar1": 0.001,
+                "null_q95": 0.02761500818653005,
+                "null_q99": 0.032654574360462686,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.007,
+                "q_bh_fdr_across_12_channels": 0.0017142857142857144
+              }
+            }
+          },
+          "p10_p11_ccf": {
+            "status": "ok",
+            "detrend": "none",
+            "transform": "log10 positive flux",
+            "common_calendar": {
+              "start": "1973-04-06",
+              "stop": "1980-08-25",
+              "grid_days": 2699
+            },
+            "min_abs_shift_days": 700,
+            "simulations": 1999,
+            "bands": {
+              "annual_330_400": {
+                "observed": {
+                  "lag_calendar_days": 384.5,
+                  "dcf": 0.05417465507977207,
+                  "pairs": 19094
+                },
+                "p_value_band_max_circular_shift": 0.0005,
+                "null_q95": 0.015858217008049458,
+                "null_q99": 0.02168730389291345,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.0012000000000000001
+              },
+              "one_point_three_year_430_520": {
+                "observed": {
+                  "lag_calendar_days": 514.5,
+                  "dcf": 0.0532331046349196,
+                  "pairs": 17743
+                },
+                "p_value_band_max_circular_shift": 0.0005,
+                "null_q95": 0.014437995810036618,
+                "null_q99": 0.023319763095006905,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.0015
+              }
+            }
+          }
+        },
+        "linear_detrended_log10": {
+          "p10_acf": {
+            "status": "ok",
+            "detrend": "linear",
+            "transform": "log10 positive flux",
+            "calendar_days": {
+              "start": "1972-03-03",
+              "stop": "1992-08-29",
+              "grid_days": 7485
+            },
+            "ar1": {
+              "phi_1day": 0.20036417983642682,
+              "adjacent_pairs": 5504,
+              "observations": 6222
+            },
+            "simulations": 1999,
+            "bands": {
+              "annual_330_400": {
+                "observed": {
+                  "lag_calendar_days": 344.5,
+                  "dcf": 0.09752622578494152,
+                  "pairs": 51025
+                },
+                "p_value_band_max_ar1": 0.0005,
+                "null_q95": 0.014950861759857888,
+                "null_q99": 0.018141744204125818,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.0006000000000000001
+              },
+              "one_point_three_year_430_520": {
+                "observed": {
+                  "lag_calendar_days": 434.5,
+                  "dcf": 0.08679590387626554,
+                  "pairs": 50161
+                },
+                "p_value_band_max_ar1": 0.0005,
+                "null_q95": 0.015517573768688253,
+                "null_q99": 0.01882193122751107,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.0006000000000000001
+              }
+            }
+          },
+          "p11_acf": {
+            "status": "ok",
+            "detrend": "linear",
+            "transform": "log10 positive flux",
+            "calendar_days": {
+              "start": "1973-04-06",
+              "stop": "1980-08-25",
+              "grid_days": 2699
+            },
+            "ar1": {
+              "phi_1day": 0.2082385488909205,
+              "adjacent_pairs": 2442,
+              "observations": 2518
+            },
+            "simulations": 1999,
+            "bands": {
+              "annual_330_400": {
+                "observed": {
+                  "lag_calendar_days": 344.5,
+                  "dcf": 0.0490157261196374,
+                  "pairs": 20388
+                },
+                "p_value_band_max_ar1": 0.0005,
+                "null_q95": 0.023904925180521508,
+                "null_q99": 0.030734178086435013,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.0012000000000000001
+              },
+              "one_point_three_year_430_520": {
+                "observed": {
+                  "lag_calendar_days": 464.5,
+                  "dcf": 0.032948946929431795,
+                  "pairs": 19249
+                },
+                "p_value_band_max_ar1": 0.0055,
+                "null_q95": 0.0255485688546187,
+                "null_q99": 0.031498685243354314,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.027499999999999997,
+                "q_bh_fdr_across_12_channels": 0.007333333333333334
+              }
+            }
+          },
+          "p10_p11_ccf": {
+            "status": "ok",
+            "detrend": "linear",
+            "transform": "log10 positive flux",
+            "common_calendar": {
+              "start": "1973-04-06",
+              "stop": "1980-08-25",
+              "grid_days": 2699
+            },
+            "min_abs_shift_days": 700,
+            "simulations": 1999,
+            "bands": {
+              "annual_330_400": {
+                "observed": {
+                  "lag_calendar_days": 384.5,
+                  "dcf": 0.050128895306706216,
+                  "pairs": 19094
+                },
+                "p_value_band_max_circular_shift": 0.0005,
+                "null_q95": 0.020643094688998616,
+                "null_q99": 0.02495199047365066,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.003
+              },
+              "one_point_three_year_430_520": {
+                "observed": {
+                  "lag_calendar_days": 454.5,
+                  "dcf": 0.0488770115946315,
+                  "pairs": 18406
+                },
+                "p_value_band_max_circular_shift": 0.0005,
+                "null_q95": 0.03903750475529186,
+                "null_q99": 0.04196337693669425,
+                "null_simulations_used": 1999,
+                "p_holm_across_12_channels": 0.006,
+                "q_bh_fdr_across_12_channels": 0.0015
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}
