@@ -1,0 +1,92 @@
+onte-Carlo band-max p-value, not a
+    single-frequency false-alarm probability. Candidate selection occurred in
+    earlier phases, so B9 remains post-selection evidence rather than an
+    independent replication.
+    """
+    idx, grid = dense_log_grid(df, channel, detrend="none")
+    mask = np.isfinite(grid)
+    if len(grid) < 30 or int(mask.sum()) < 30:
+        return {"status": "insufficient_data", "simulations": 0}
+    t = np.arange(len(grid), dtype=float)[mask]
+    y_obs = grid[mask]
+    y_obs = _center_or_linear_detrend_batch(y_obs, t, detrend)
+    periods = np.linspace(float(lo), float(hi), int(nfreq), dtype=float)
+    c, s, c2, s2 = _classic_lomb_basis(t, periods)
+    p_obs = _classic_lomb_power_batch(y_obs, c, s, c2, s2)
+    if not np.isfinite(p_obs).any():
+        return {"status": "invalid_observed_periodogram", "simulations": 0}
+    imax = int(np.nanargmax(p_obs))
+    obs_max = float(p_obs[imax])
+    obs_period = float(periods[imax])
+
+    ar = estimate_daily_ar1_from_grid(grid)
+    phi = float(ar["phi_1day"])
+    rng = np.random.default_rng(seed)
+    maxima: list[float] = []
+    n_total = int(simulations)
+    bs = max(1, int(batch_size))
+    for start in range(0, n_total, bs):
+        b = min(bs, n_total - start)
+        x = np.empty((b, len(grid)), dtype=float)
+        x[:, 0] = rng.normal(size=b)
+        eps_sd = float(np.sqrt(max(1e-12, 1.0 - phi * phi)))
+        for k in range(1, len(grid)):
+            x[:, k] = phi * x[:, k - 1] + rng.normal(0.0, eps_sd, size=b)
+        yy = x[:, mask]
+        yy = _center_or_linear_detrend_batch(yy, t, detrend)
+        pp = _classic_lomb_power_batch(yy, c, s, c2, s2)
+        maxima.extend(np.nanmax(pp, axis=1).astype(float).tolist())
+
+    arr = np.asarray(maxima, dtype=float)
+    arr = arr[np.isfinite(arr)]
+    if len(arr):
+        exceed = int(np.sum(arr >= obs_max))
+        pval = float((exceed + 1) / (len(arr) + 1))
+        q95 = float(np.quantile(arr, 0.95))
+        q99 = float(np.quantile(arr, 0.99))
+    else:
+        exceed = 0
+        pval = q95 = q99 = np.nan
+    return {
+        "status": "ok",
+        "transform": "log10 positive flux",
+        "detrend": detrend,
+        "band_calendar_days": [float(lo), float(hi)],
+        "frequency_grid_points": int(nfreq),
+        "calendar": {"start": str(idx.min().date()), "stop": str(idx.max().date()), "grid_days": int(len(idx))},
+        "observations": int(mask.sum()),
+        "ar1": ar,
+        "observed": {"period_days": obs_period, "power": obs_max},
+        "p_value_band_max_ar1_lomb": pval,
+        "null_q95": q95,
+        "null_q99": q99,
+        "exceedances": int(exceed),
+        "null_simulations_used": int(len(arr)),
+        "simulations": int(simulations),
+        "statistic_note": "maximum classical Lomb-Scargle power inside the locked band; same statistic for observed and surrogates",
+    }
+
+
+def _calendar_windows(start: pd.Timestamp, stop: pd.Timestamp, *, window_years: int = 8,
+                      step_years: int = 2) -> list[tuple[pd.Timestamp, pd.Timestamp]]:
+    """Build inclusive calendar windows using year offsets, preserving leap years."""
+    lo = pd.Timestamp(start).normalize()
+    hi = pd.Timestamp(stop).normalize()
+    out: list[tuple[pd.Timestamp, pd.Timestamp]] = []
+    cur = lo
+    while True:
+        end = cur + pd.DateOffset(years=int(window_years)) - pd.Timedelta(days=1)
+        if end > hi:
+            break
+        out.append((cur, end))
+        cur = cur + pd.DateOffset(years=int(step_years))
+    return out
+
+
+def ar1_lomb_intermit_joint_test(df10: pd.DataFrame, df11: pd.DataFrame, channel: str,
+                                 lo: float, hi: float, *, simulations: int = 1999,
+                                 detrend: str = "none", nfreq: int = 96,
+                                 window_years: int = 8, step_years: int = 2,
+                                 batch_size: int = 16, seed: int = 1998,
+                                 min_observations: int = 180) -> dict:
+    """Test for an in
