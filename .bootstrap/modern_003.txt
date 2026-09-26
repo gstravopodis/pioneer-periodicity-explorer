@@ -1,0 +1,90 @@
+.DataFrame:
+    """Aggregate exact-day DCF values into wider time-lag bins by pair count."""
+    if dcf.empty:
+        return pd.DataFrame(columns=["lag_bin_start", "lag_bin_end", "lag_bin_center", "pairs", "dcf", "stderr"])
+    width = int(bin_days)
+    if width < 1:
+        raise ValueError("bin_days must be >= 1")
+    q = dcf.copy()
+    if origin is None:
+        origin = int(np.floor(q.lag_calendar_days.min() / width) * width)
+    q["_bin"] = np.floor((q.lag_calendar_days - origin) / width).astype(int)
+    rows = []
+    for b, g in q.groupby("_bin", sort=True):
+        n = int(g.pairs.sum())
+        lo = int(origin + b * width)
+        hi = int(lo + width - 1)
+        if n <= 0:
+            rows.append({"lag_bin_start": lo, "lag_bin_end": hi, "lag_bin_center": (lo + hi) / 2,
+                         "pairs": 0, "dcf": np.nan, "stderr": np.nan})
+            continue
+        s = float(g.sum_udcf.sum())
+        ss = float(g.sum_sq_udcf.sum())
+        mean = s / n
+        if n > 1:
+            var = max(0.0, (ss - (s * s) / n) / (n - 1))
+            se = float(np.sqrt(var / n))
+        else:
+            se = np.nan
+        rows.append({"lag_bin_start": lo, "lag_bin_end": hi, "lag_bin_center": (lo + hi) / 2,
+                     "pairs": n, "dcf": mean, "stderr": se})
+    return pd.DataFrame(rows)
+
+
+def strongest_dcf_bin(binned: pd.DataFrame, lo: float, hi: float,
+                      min_pairs: int = 100) -> dict:
+    if binned.empty:
+        return {"lag_calendar_days": np.nan, "dcf": np.nan, "stderr": np.nan, "pairs": 0}
+    q = binned[(binned.lag_bin_center >= lo) & (binned.lag_bin_center <= hi) & (binned.pairs >= int(min_pairs))]
+    q = q[np.isfinite(q.dcf)]
+    if q.empty:
+        return {"lag_calendar_days": np.nan, "dcf": np.nan, "stderr": np.nan, "pairs": 0}
+    row = q.loc[q.dcf.idxmax()]
+    return {
+        "lag_calendar_days": float(row.lag_bin_center),
+        "bin_start": int(row.lag_bin_start),
+        "bin_end": int(row.lag_bin_end),
+        "dcf": float(row.dcf),
+        "stderr": float(row.stderr) if np.isfinite(row.stderr) else np.nan,
+        "pairs": int(row.pairs),
+    }
+
+
+def lomb_scargle_log_periodogram(df: pd.DataFrame, channel: str,
+                                 min_period_days: float = 20,
+                                 max_period_days: float = 2500,
+                                 nfreq: int = 6000,
+                                 detrend: str = "linear") -> pd.DataFrame:
+    """Generalized Lomb–Scargle-style spectrum of log10 positive flux values.
+
+    Observation times remain irregular.  A floating mean is used when supported
+    by the installed SciPy; older SciPy falls back to pre-centering.
+    """
+    q = _dated_values(df, channel)
+    q = q[q[channel] > 0].copy()
+    if len(q) < 10:
+        return pd.DataFrame(columns=["period_days", "power"])
+    t = (q.date - q.date.min()).dt.total_seconds().to_numpy(float) / 86400.0
+    y = np.log10(q[channel].to_numpy(float))
+    if detrend == "linear" and len(y) > 2:
+        p = np.polyfit(t, y, 1)
+        y = y - np.polyval(p, t)
+    elif detrend == "constant":
+        y = y - np.mean(y)
+    freqs = np.linspace(1 / float(max_period_days), 1 / float(min_period_days), int(nfreq))
+    ang = 2 * np.pi * freqs
+    try:
+        power = signal.lombscargle(t, y, ang, normalize=True, floating_mean=True)
+    except TypeError:
+        power = signal.lombscargle(t, y - np.mean(y), ang, normalize=True, precenter=False)
+    return pd.DataFrame({"period_days": 1 / freqs, "power": power}).sort_values("period_days").reset_index(drop=True)
+
+
+def dense_log_grid(df: pd.DataFrame, channel: str, *, start=None, stop=None,
+                   detrend: str = "none") -> tuple[pd.DatetimeIndex, np.ndarray]:
+    """Return log10-positive flux on a complete daily grid with NaNs for gaps.
+
+    ``detrend='linear'`` removes a least-squares linear trend from the observed
+    log10 values as a robustness variant.  No missing value is interpolated.
+    """
+    q = _dated_values(df
