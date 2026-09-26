@@ -1,0 +1,84 @@
+al.correlation_lags(len(za), len(zb), mode="full")
+    lo, hi = int(min_lag_days), int(max_lag_days)
+    keep = (lags >= lo) & (lags <= hi)
+    ls = lags[keep].astype(int)
+    ss = sums[keep]
+    nn = np.rint(np.maximum(counts[keep], 0.0)).astype(int)
+    dcf = np.full(len(ls), np.nan, dtype=float)
+    valid = nn > 0
+    dcf[valid] = ss[valid] / nn[valid]
+    return pd.DataFrame({"lag_calendar_days": ls, "pairs": nn, "dcf": dcf})
+
+
+def fast_bin_dcf(dcf: pd.DataFrame, bin_days: int = 10, origin: int | None = None) -> pd.DataFrame:
+    """Pair-count-weighted bins for the compact fast DCF representation."""
+    if dcf.empty:
+        return pd.DataFrame(columns=["lag_bin_start", "lag_bin_end", "lag_bin_center", "pairs", "dcf"])
+    width = int(bin_days)
+    if width < 1:
+        raise ValueError("bin_days must be >= 1")
+    q = dcf.copy()
+    if origin is None:
+        origin = int(np.floor(q.lag_calendar_days.min() / width) * width)
+    q["_bin"] = np.floor((q.lag_calendar_days - origin) / width).astype(int)
+    rows = []
+    for b, g in q.groupby("_bin", sort=True):
+        lo = int(origin + b * width)
+        hi = int(lo + width - 1)
+        n = int(g.pairs.sum())
+        good = (g.pairs > 0) & np.isfinite(g.dcf)
+        if n > 0 and good.any():
+            s = float(np.sum(g.loc[good, "dcf"].to_numpy(float) * g.loc[good, "pairs"].to_numpy(float)))
+            mean = s / int(g.loc[good, "pairs"].sum())
+        else:
+            mean = np.nan
+        rows.append({"lag_bin_start": lo, "lag_bin_end": hi, "lag_bin_center": (lo + hi) / 2,
+                     "pairs": n, "dcf": mean})
+    return pd.DataFrame(rows)
+
+
+def dcf_band_max(binned: pd.DataFrame, lo: float, hi: float, min_pairs: int = 100) -> dict:
+    """Maximum positive DCF bin in a predeclared calendar-lag band."""
+    q = binned[(binned.lag_bin_center >= float(lo)) & (binned.lag_bin_center <= float(hi))]
+    q = q[(q.pairs >= int(min_pairs)) & np.isfinite(q.dcf)]
+    if q.empty:
+        return {"lag_calendar_days": np.nan, "dcf": np.nan, "pairs": 0}
+    row = q.loc[q.dcf.idxmax()]
+    return {"lag_calendar_days": float(row.lag_bin_center), "dcf": float(row.dcf), "pairs": int(row.pairs)}
+
+
+def ar1_dcf_max_surrogate_test(df: pd.DataFrame, channel: str, bands: dict[str, tuple[int, int]],
+                               *, simulations: int = 499, min_lag_days: int = 250,
+                               max_lag_days: int = 600, bin_days: int = 10,
+                               detrend: str = "none", seed: int = 1998) -> dict:
+    """Band-wise max-DCF significance against a daily AR(1) red-noise null.
+
+    The null is simulated on the complete daily calendar and then sampled using
+    the *actual* observation mask.  Therefore gaps are preserved and are never
+    compressed into sample-index time.  The test is one-sided and internally
+    corrects for searching all DCF bins inside each predeclared band by comparing
+    the observed band maximum with the surrogate band maxima.
+    """
+    idx, grid = dense_log_grid(df, channel, detrend=detrend)
+    if len(grid) < 10 or np.isfinite(grid).sum() < 30:
+        return {"status": "insufficient_data", "simulations": 0}
+    ar = estimate_daily_ar1_from_grid(grid)
+    observed = fast_bin_dcf(
+        fast_calendar_dcf_from_grids(grid, None, min_lag_days, max_lag_days),
+        bin_days=bin_days, origin=min_lag_days,
+    )
+    obs = {name: dcf_band_max(observed, lo, hi) for name, (lo, hi) in bands.items()}
+    null = {name: [] for name in bands}
+    mask = np.isfinite(grid)
+    rng = np.random.default_rng(seed)
+    for _ in range(int(simulations)):
+        s = simulate_daily_ar1(ar["phi_1day"], len(grid), rng)
+        sg = np.where(mask, s, np.nan)
+        b = fast_bin_dcf(
+            fast_calendar_dcf_from_grids(sg, None, min_lag_days, max_lag_days),
+            bin_days=bin_days, origin=min_lag_days,
+        )
+        for name, (lo, hi) in bands.items():
+            m = dcf_band_max(b, lo, hi)["dcf"]
+            if np.isfinite(m):
+     
