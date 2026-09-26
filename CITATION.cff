@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the software release and the accompanying technical report."
+title: "Pioneer Periodicity Explorer"
+type: software
+authors:
+  - family-names: "Stravopodis"
+    given-names: "Georgios"
+version: "1.4.0"
+date-released: "2026-09-26"
+license: MIT
+abstract: >-
+  Local-first Python reconstruction of a 1998 Pioneer 10/11 energetic-particle
+  analysis and an AI-assisted calendar-aware robustness reassessment. The
+  historical replication is separated explicitly from the later exploratory
+  signal-analysis stages.
+keywords:
+  - Pioneer 10
+  - Pioneer 11
+  - energetic particles
+  - reproducibility
+  - irregular sampling
+  - Lomb-Scargle
+  - red noise

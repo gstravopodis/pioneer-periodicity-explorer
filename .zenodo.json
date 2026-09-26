@@ -1,0 +1,23 @@
+{
+  "title": "Pioneer Periodicity Explorer: reconstruction and AI-assisted reassessment of a 1998 Pioneer 10/11 analysis",
+  "upload_type": "software",
+  "description": "Local-first Python software used to reproduce the principal 1998 Pioneer 10/11 energetic-particle ACF/CCF benchmarks and to run the subsequent calendar-aware, sampling-window, surrogate, and intermittent robustness analyses documented in the accompanying technical report. The modern signal-analysis component is AI-assisted and has not undergone independent specialist validation.",
+  "creators": [
+    {
+      "name": "Stravopodis, Georgios"
+    }
+  ],
+  "access_right": "open",
+  "license": "MIT",
+  "version": "1.4.0",
+  "keywords": [
+    "Pioneer 10",
+    "Pioneer 11",
+    "energetic particles",
+    "reproducibility",
+    "irregular sampling",
+    "Lomb-Scargle",
+    "red noise",
+    "AI-assisted analysis"
+  ]
+}
