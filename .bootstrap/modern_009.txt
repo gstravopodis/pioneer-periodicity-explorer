@@ -1,0 +1,74 @@
+termittent, contemporaneous band-limited signal in P10/P11.
+
+    The statistic is deliberately global over the predeclared time-frequency search:
+    for each fixed calendar window, classical Lomb-Scargle power is evaluated on a
+    shared period grid.  Three maxima are retained across *all* windows and all
+    frequencies: P10 power, P11 power, and the joint geometric-mean power at the
+    same period in the same window.  Monte-Carlo AR(1) surrogates are simulated on
+    the complete common daily calendar and sampled through each spacecraft's exact
+    positive-flux mask.  Thus the p-values include the look-elsewhere cost of the
+    window/frequency scan itself.
+
+    No missing values are interpolated.  The two spacecraft null processes are
+    simulated independently, which is appropriate for a null of no shared
+    heliophysical oscillation beyond each series' own red-noise persistence and
+    observation mask.
+    """
+    q10 = _dated_values(df10, channel)
+    q11 = _dated_values(df11, channel)
+    q10 = q10[q10[channel] > 0]
+    q11 = q11[q11[channel] > 0]
+    if q10.empty or q11.empty:
+        return {"status": "insufficient_data", "simulations": 0}
+
+    common_start = max(pd.Timestamp(q10.date.min()), pd.Timestamp(q11.date.min())).normalize()
+    common_stop = min(pd.Timestamp(q10.date.max()), pd.Timestamp(q11.date.max())).normalize()
+    if common_stop <= common_start:
+        return {"status": "no_common_calendar", "simulations": 0}
+
+    idx10, g10 = dense_log_grid(df10, channel, start=common_start, stop=common_stop, detrend="none")
+    idx11, g11 = dense_log_grid(df11, channel, start=common_start, stop=common_stop, detrend="none")
+    if len(idx10) != len(idx11) or len(idx10) < 30:
+        return {"status": "invalid_common_grid", "simulations": 0}
+
+    windows = _calendar_windows(common_start, common_stop, window_years=window_years, step_years=step_years)
+    periods = np.linspace(float(lo), float(hi), int(nfreq), dtype=float)
+    prepared: list[dict] = []
+    observed_windows: list[dict] = []
+
+    best10 = {"power": -np.inf}
+    best11 = {"power": -np.inf}
+    bestj = {"power": -np.inf}
+
+    for ws, we in windows:
+        i0 = int((ws - common_start).days)
+        i1 = int((we - common_start).days) + 1
+        sub10 = g10[i0:i1]
+        sub11 = g11[i0:i1]
+        m10 = np.isfinite(sub10)
+        m11 = np.isfinite(sub11)
+        if int(m10.sum()) < int(min_observations) or int(m11.sum()) < int(min_observations):
+            continue
+        t10 = np.arange(i1 - i0, dtype=float)[m10]
+        t11 = np.arange(i1 - i0, dtype=float)[m11]
+        y10 = _center_or_linear_detrend_batch(sub10[m10], t10, detrend)
+        y11 = _center_or_linear_detrend_batch(sub11[m11], t11, detrend)
+        c10, s10, c210, s210 = _classic_lomb_basis(t10, periods)
+        c11, s11, c211, s211 = _classic_lomb_basis(t11, periods)
+        p10 = _classic_lomb_power_batch(y10, c10, s10, c210, s210)
+        p11 = _classic_lomb_power_batch(y11, c11, s11, c211, s211)
+        joint = np.sqrt(np.maximum(p10, 0.0) * np.maximum(p11, 0.0))
+        k10 = int(np.nanargmax(p10)); k11 = int(np.nanargmax(p11)); kj = int(np.nanargmax(joint))
+        winrec = {
+            "window_start": str(ws.date()), "window_stop": str(we.date()),
+            "p10_observations": int(m10.sum()), "p11_observations": int(m11.sum()),
+            "p10_peak": {"period_days": float(periods[k10]), "power": float(p10[k10])},
+            "p11_peak": {"period_days": float(periods[k11]), "power": float(p11[k11])},
+            "joint_peak": {"period_days": float(periods[kj]), "geometric_mean_power": float(joint[kj]),
+                           "p10_power": float(p10[kj]), "p11_power": float(p11[kj])},
+        }
+        observed_windows.append(winrec)
+        if float(p10[k10]) > best10["power"]:
+            best10 = {"power": float(p10[k10]), "period_days": float(periods[k10]),
+                      "window_start": str(ws.date()), "window_stop": str(we.date())}
+        if float(p11[k11]) 
