@@ -1,0 +1,85 @@
+> best11["power"]:
+            best11 = {"power": float(p11[k11]), "period_days": float(periods[k11]),
+                      "window_start": str(ws.date()), "window_stop": str(we.date())}
+        if float(joint[kj]) > bestj["power"]:
+            bestj = {"power": float(joint[kj]), "period_days": float(periods[kj]),
+                     "p10_power": float(p10[kj]), "p11_power": float(p11[kj]),
+                     "window_start": str(ws.date()), "window_stop": str(we.date())}
+        prepared.append({
+            "i0": i0, "i1": i1, "m10": m10, "m11": m11,
+            "t10": t10, "t11": t11,
+            "basis10": (c10, s10, c210, s210),
+            "basis11": (c11, s11, c211, s211),
+        })
+
+    if not prepared:
+        return {"status": "insufficient_window_data", "simulations": 0,
+                "common_calendar": {"start": str(common_start.date()), "stop": str(common_stop.date())}}
+
+    ar10 = estimate_daily_ar1_from_grid(g10)
+    ar11 = estimate_daily_ar1_from_grid(g11)
+    phi10 = float(ar10["phi_1day"]); phi11 = float(ar11["phi_1day"])
+    rng = np.random.default_rng(seed)
+    null10: list[float] = []
+    null11: list[float] = []
+    nullj: list[float] = []
+    total = int(simulations)
+    bs = max(1, int(batch_size))
+    ngrid = len(g10)
+    sd10 = float(np.sqrt(max(1e-12, 1.0 - phi10 * phi10)))
+    sd11 = float(np.sqrt(max(1e-12, 1.0 - phi11 * phi11)))
+
+    for st in range(0, total, bs):
+        b = min(bs, total - st)
+        x10 = np.empty((b, ngrid), dtype=float)
+        x11 = np.empty((b, ngrid), dtype=float)
+        x10[:, 0] = rng.normal(size=b)
+        x11[:, 0] = rng.normal(size=b)
+        for k in range(1, ngrid):
+            x10[:, k] = phi10 * x10[:, k - 1] + rng.normal(0.0, sd10, size=b)
+            x11[:, k] = phi11 * x11[:, k - 1] + rng.normal(0.0, sd11, size=b)
+        mx10 = np.full(b, -np.inf, dtype=float)
+        mx11 = np.full(b, -np.inf, dtype=float)
+        mxj = np.full(b, -np.inf, dtype=float)
+        for w in prepared:
+            y10 = x10[:, w["i0"]:w["i1"]][:, w["m10"]]
+            y11 = x11[:, w["i0"]:w["i1"]][:, w["m11"]]
+            y10 = _center_or_linear_detrend_batch(y10, w["t10"], detrend)
+            y11 = _center_or_linear_detrend_batch(y11, w["t11"], detrend)
+            p10 = _classic_lomb_power_batch(y10, *w["basis10"])
+            p11 = _classic_lomb_power_batch(y11, *w["basis11"])
+            joint = np.sqrt(np.maximum(p10, 0.0) * np.maximum(p11, 0.0))
+            mx10 = np.maximum(mx10, np.nanmax(p10, axis=1))
+            mx11 = np.maximum(mx11, np.nanmax(p11, axis=1))
+            mxj = np.maximum(mxj, np.nanmax(joint, axis=1))
+        null10.extend(mx10.tolist()); null11.extend(mx11.tolist()); nullj.extend(mxj.tolist())
+
+    def summarize(null: list[float], observed: float) -> dict:
+        arr = np.asarray(null, dtype=float)
+        arr = arr[np.isfinite(arr)]
+        if len(arr) == 0:
+            return {"p_value": np.nan, "null_simulations_used": 0, "exceedances": 0}
+        exc = int(np.sum(arr >= float(observed)))
+        return {
+            "p_value": float((exc + 1) / (len(arr) + 1)),
+            "exceedances": exc,
+            "null_simulations_used": int(len(arr)),
+            "null_q95": float(np.quantile(arr, 0.95)),
+            "null_q99": float(np.quantile(arr, 0.99)),
+        }
+
+    return {
+        "status": "ok",
+        "transform": "log10 positive flux",
+        "detrend": detrend,
+        "band_calendar_days": [float(lo), float(hi)],
+        "frequency_grid_points": int(nfreq),
+        "window_years": int(window_years),
+        "step_years": int(step_years),
+        "common_calendar": {"start": str(common_start.date()), "stop": str(common_stop.date()),
+                            "grid_days": int(len(g10))},
+        "windows_used": int(len(prepared)),
+        "ar1": {"p10": ar10, "p11": ar11},
+        "observed": {"p10_max_over_time_frequency": best10,
+                     "p11_max_over_time_frequency": best11,
+                     "joint_same_window_sa
