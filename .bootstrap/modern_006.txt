@@ -1,0 +1,88 @@
+           null[name].append(float(m))
+    result_bands = {}
+    for name in bands:
+        arr = np.asarray(null[name], dtype=float)
+        o = float(obs[name]["dcf"]) if np.isfinite(obs[name]["dcf"]) else np.nan
+        if len(arr) and np.isfinite(o):
+            exceed = int(np.sum(arr >= o))
+            p = (exceed + 1) / (len(arr) + 1)
+            q95 = float(np.quantile(arr, 0.95))
+            q99 = float(np.quantile(arr, 0.99))
+        else:
+            p = q95 = q99 = np.nan
+        result_bands[name] = {
+            "observed": obs[name],
+            "p_value_band_max_ar1": float(p) if np.isfinite(p) else np.nan,
+            "null_q95": q95,
+            "null_q99": q99,
+            "null_simulations_used": int(len(arr)),
+        }
+    return {
+        "status": "ok",
+        "detrend": detrend,
+        "transform": "log10 positive flux",
+        "calendar_days": {"start": str(idx.min().date()), "stop": str(idx.max().date()), "grid_days": int(len(idx))},
+        "ar1": ar,
+        "simulations": int(simulations),
+        "bands": result_bands,
+    }
+
+
+def circular_shift_ccf_max_test(df10: pd.DataFrame, df11: pd.DataFrame, channel: str,
+                                bands: dict[str, tuple[int, int]], *, simulations: int = 499,
+                                min_lag_days: int = 250, max_lag_days: int = 600,
+                                bin_days: int = 10, min_shift_days: int = 700,
+                                detrend: str = "none", seed: int = 1998) -> dict:
+    """Cross-spacecraft max-DCF test using random circular calendar shifts.
+
+    Both the P11 values and its missing-data mask are shifted together inside the
+    common calendar span.  This preserves P11's internal temporal structure and
+    sampling pattern while breaking its absolute alignment to P10.  It is a
+    deliberately stricter complement to an independent-red-noise null for CCFs.
+    """
+    q10 = _dated_values(df10, channel)
+    q11 = _dated_values(df11, channel)
+    if q10.empty or q11.empty:
+        return {"status": "insufficient_data", "simulations": 0}
+    start = max(q10.date.min(), q11.date.min())
+    stop = min(q10.date.max(), q11.date.max())
+    if stop <= start:
+        return {"status": "no_overlap", "simulations": 0}
+    idx, g10 = dense_log_grid(df10, channel, start=start, stop=stop, detrend=detrend)
+    _, g11 = dense_log_grid(df11, channel, start=start, stop=stop, detrend=detrend)
+    n = len(idx)
+    if n < 2 * int(min_shift_days) + 1:
+        return {"status": "span_too_short_for_shift_null", "simulations": 0}
+    observed = fast_bin_dcf(
+        fast_calendar_dcf_from_grids(g10, g11, min_lag_days, max_lag_days),
+        bin_days=bin_days, origin=min_lag_days,
+    )
+    obs = {name: dcf_band_max(observed, lo, hi) for name, (lo, hi) in bands.items()}
+    allowed = np.arange(int(min_shift_days), n - int(min_shift_days) + 1, dtype=int)
+    if len(allowed) == 0:
+        return {"status": "no_allowed_shifts", "simulations": 0}
+    rng = np.random.default_rng(seed)
+    shifts = rng.choice(allowed, size=int(simulations), replace=True)
+    null = {name: [] for name in bands}
+    for s in shifts:
+        rolled = np.roll(g11, int(s))
+        b = fast_bin_dcf(
+            fast_calendar_dcf_from_grids(g10, rolled, min_lag_days, max_lag_days),
+            bin_days=bin_days, origin=min_lag_days,
+        )
+        for name, (lo, hi) in bands.items():
+            m = dcf_band_max(b, lo, hi)["dcf"]
+            if np.isfinite(m):
+                null[name].append(float(m))
+    result_bands = {}
+    for name in bands:
+        arr = np.asarray(null[name], dtype=float)
+        o = float(obs[name]["dcf"]) if np.isfinite(obs[name]["dcf"]) else np.nan
+        if len(arr) and np.isfinite(o):
+            exceed = int(np.sum(arr >= o))
+            p = (exceed + 1) / (len(arr) + 1)
+            q95 = float(np.quantile(arr, 0.95))
+            q99 = float(np.quantile(arr, 0.99))
+        else:
+            p = q95 = q99 = np.nan
+        result_bands[name] = 
