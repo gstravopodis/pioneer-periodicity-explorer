@@ -1,0 +1,86 @@
+"] = a["date"] - pd.to_timedelta(lag, unit="D")
+        a = a[["date_p11", "p10"]]
+        m = a.merge(p11, on="date_p11", how="inner")
+        stats = _pair_statistics(m["p10"].to_numpy(), m["p11"].to_numpy()) if len(m) else _pair_statistics([], [])
+        rows.append({"lag_calendar_days": lag, **stats})
+    return pd.DataFrame(rows)
+
+
+def strongest_calendar_lag(table: pd.DataFrame, lo: int, hi: int,
+                           metric: str = "pearson_log10", min_pairs: int = 100) -> dict:
+    q = table[(table.lag_calendar_days >= lo) & (table.lag_calendar_days <= hi)].copy()
+    q = q[q["pairs"] >= int(min_pairs)]
+    q = q[np.isfinite(q[metric])]
+    if q.empty:
+        return {"lag_calendar_days": np.nan, metric: np.nan, "pairs": 0}
+    row = q.loc[q[metric].idxmax()]
+    return {
+        "lag_calendar_days": int(row.lag_calendar_days),
+        metric: float(row[metric]),
+        "pairs": int(row.pairs),
+        "cosine_raw": float(row.cosine_raw) if np.isfinite(row.cosine_raw) else np.nan,
+        "pearson_raw": float(row.pearson_raw) if np.isfinite(row.pearson_raw) else np.nan,
+        "pearson_log10": float(row.pearson_log10) if np.isfinite(row.pearson_log10) else np.nan,
+    }
+
+
+def calendar_lag_exact(table: pd.DataFrame, lag_days: int) -> dict:
+    q = table[table.lag_calendar_days == int(lag_days)]
+    if q.empty:
+        return {"lag_calendar_days": int(lag_days), "pairs": 0}
+    row = q.iloc[0]
+    return {
+        "lag_calendar_days": int(lag_days),
+        "pairs": int(row.pairs),
+        "cosine_raw": float(row.cosine_raw) if np.isfinite(row.cosine_raw) else np.nan,
+        "pearson_raw": float(row.pearson_raw) if np.isfinite(row.pearson_raw) else np.nan,
+        "pearson_log10": float(row.pearson_log10) if np.isfinite(row.pearson_log10) else np.nan,
+        "log_pairs": int(row.log_pairs),
+    }
+
+
+def sampling_window_periodogram(df: pd.DataFrame, channel: str,
+                                min_period_days: float = 20,
+                                max_period_days: float = 2500) -> pd.DataFrame:
+    """Spectrum of the observation-availability window on a complete daily grid.
+
+    The series is 1 on dates with a finite observation and 0 on missing dates.
+    A peak near one year would warn that sampling itself contains annual structure.
+    """
+    q = _dated_values(df, channel)
+    if len(q) < 10:
+        return pd.DataFrame(columns=["period_days", "power"])
+    idx = pd.date_range(q.date.min(), q.date.max(), freq="D")
+    obs = pd.Series(0.0, index=idx)
+    obs.loc[pd.DatetimeIndex(q.date)] = 1.0
+    y = obs.to_numpy(float)
+    y = y - y.mean()
+    freq, power = signal.periodogram(y, fs=1.0, detrend=False, scaling="spectrum")
+    mask = (freq > 0)
+    freq = freq[mask]
+    power = power[mask]
+    period = 1.0 / freq
+    keep = (period >= float(min_period_days)) & (period <= float(max_period_days))
+    return pd.DataFrame({"period_days": period[keep], "power": power[keep]}).sort_values("period_days")
+
+
+def strongest_period_in_band(periodogram: pd.DataFrame, lo: float, hi: float) -> dict:
+    q = periodogram[(periodogram.period_days >= lo) & (periodogram.period_days <= hi)]
+    if q.empty:
+        return {"period_days": np.nan, "power": np.nan}
+    row = q.loc[q.power.idxmax()]
+    return {"period_days": float(row.period_days), "power": float(row.power)}
+
+
+def _transformed_daily_grid(df: pd.DataFrame, channel: str, transform: str = "log10",
+                            start: pd.Timestamp | None = None,
+                            stop: pd.Timestamp | None = None) -> tuple[pd.DatetimeIndex, np.ndarray]:
+    """Put one transformed observation per date on a dense daily grid with NaNs for gaps.
+
+    This does not interpolate.  It is only a convenient representation for exact
+    calendar-lag calculations.  ``transform='log10'`` drops non-positive fluxes.
+    """
+    q = _dated_values(df, channel)
+    if q.empty:
+        return pd.DatetimeIndex([]), np.array([], dtype=float)
+    values = q[channel].to_numpy(float)
