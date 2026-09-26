@@ -1,0 +1,98 @@
+    if transform == "log10":
+        values = np.where(values > 0, np.log10(values), np.nan)
+    elif transform == "raw":
+        pass
+    else:
+        raise ValueError("transform must be 'raw' or 'log10'")
+    q = q.assign(_value=values).dropna(subset=["_value"])
+    if q.empty:
+        return pd.DatetimeIndex([]), np.array([], dtype=float)
+    lo = pd.Timestamp(start).normalize() if start is not None else q.date.min().normalize()
+    hi = pd.Timestamp(stop).normalize() if stop is not None else q.date.max().normalize()
+    idx = pd.date_range(lo, hi, freq="D")
+    grid = np.full(len(idx), np.nan, dtype=float)
+    offsets = (pd.DatetimeIndex(q.date) - lo).days.to_numpy(int)
+    ok = (offsets >= 0) & (offsets < len(grid))
+    grid[offsets[ok]] = q.loc[ok, "_value"].to_numpy(float)
+    return idx, grid
+
+
+def _standardize_observed(x: np.ndarray) -> np.ndarray:
+    out = np.asarray(x, dtype=float).copy()
+    finite = np.isfinite(out)
+    if finite.sum() < 2:
+        return out
+    mu = float(np.mean(out[finite]))
+    sigma = float(np.std(out[finite], ddof=0))
+    if sigma <= 0:
+        out[finite] = 0.0
+    else:
+        out[finite] = (out[finite] - mu) / sigma
+    return out
+
+
+def calendar_discrete_correlation(df_a: pd.DataFrame, channel: str,
+                                  df_b: pd.DataFrame | None = None,
+                                  min_lag_days: int = 1,
+                                  max_lag_days: int = 600,
+                                  transform: str = "log10") -> pd.DataFrame:
+    """Discrete correlation function on the actual daily calendar grid.
+
+    The implementation follows the spirit of Edelson & Krolik: each observed
+    value is standardized using the global mean/std of its own series, pairwise
+    products are associated with their true time separation, and no interpolation
+    is used.  Here the archive timestamps are integer days, so one-day lag bins
+    can be computed exactly and later aggregated to wider DCF bins.
+
+    For cross-correlation a positive lag L means A(t+L) is paired with B(t),
+    matching the dissertation-oriented sign convention used elsewhere.
+    """
+    if df_b is None:
+        df_b = df_a
+    qa = _dated_values(df_a, channel)
+    qb = _dated_values(df_b, channel)
+    if qa.empty or qb.empty:
+        return pd.DataFrame(columns=["lag_calendar_days", "pairs", "dcf", "stderr", "sum_udcf", "sum_sq_udcf"])
+    start = min(qa.date.min(), qb.date.min())
+    stop = max(qa.date.max(), qb.date.max())
+    _, a = _transformed_daily_grid(df_a, channel, transform, start=start, stop=stop)
+    _, b = _transformed_daily_grid(df_b, channel, transform, start=start, stop=stop)
+    a = _standardize_observed(a)
+    b = _standardize_observed(b)
+    ngrid = len(a)
+    rows: list[dict] = []
+    for lag in range(int(min_lag_days), int(max_lag_days) + 1):
+        k = int(lag)
+        if abs(k) >= ngrid:
+            rows.append({"lag_calendar_days": k, "pairs": 0, "dcf": np.nan, "stderr": np.nan,
+                         "sum_udcf": 0.0, "sum_sq_udcf": 0.0})
+            continue
+        if k > 0:
+            x, y = a[k:], b[:-k]
+        elif k < 0:
+            kk = -k
+            x, y = a[:-kk], b[kk:]
+        else:
+            x, y = a, b
+        mask = np.isfinite(x) & np.isfinite(y)
+        prod = x[mask] * y[mask]
+        n = int(len(prod))
+        if n == 0:
+            mean = se = np.nan
+            s = ss = 0.0
+        else:
+            s = float(np.sum(prod))
+            ss = float(np.dot(prod, prod))
+            mean = s / n
+            if n > 1:
+                var = max(0.0, (ss - (s * s) / n) / (n - 1))
+                se = float(np.sqrt(var / n))
+            else:
+                se = np.nan
+        rows.append({"lag_calendar_days": k, "pairs": n, "dcf": mean, "stderr": se,
+                     "sum_udcf": s, "sum_sq_udcf": ss})
+    return pd.DataFrame(rows)
+
+
+def bin_discrete_correlation(dcf: pd.DataFrame, bin_days: int = 10,
+                             origin: int | None = None) -> pd
