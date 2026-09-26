@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.DS_Store
+
+# Locally downloaded NASA products and generated runs
+data/nasa/raw/
+data/nasa/processed/
+data/nasa/metadata/
+results/phase_*/
+
+# The curated audit summaries below are intentionally tracked
+!results/frozen/
+!results/frozen/**
